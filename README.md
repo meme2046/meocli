@@ -32,7 +32,7 @@ $ npm install -g meocli
 $ me COMMAND
 running command...
 $ me (--version)
-meocli/0.0.2 win32-x64 node-v24.12.0
+meocli/0.0.3 win32-x64 node-v24.12.0
 $ me --help [COMMAND]
 USAGE
   $ me COMMAND
@@ -56,7 +56,7 @@ USAGE
 * [`me plugins uninstall [PLUGIN]`](#me-plugins-uninstall-plugin)
 * [`me plugins unlink [PLUGIN]`](#me-plugins-unlink-plugin)
 * [`me plugins update`](#me-plugins-update)
-* [`me prettier FILEPATH`](#me-prettier-filepath)
+* [`me pr FILEPATH`](#me-pr-filepath)
 
 ## `me hello PERSON`
 
@@ -80,7 +80,7 @@ EXAMPLES
   hello friend from oclif! (./src/commands/hello/index.ts)
 ```
 
-_See code: [src/commands/hello/index.ts](https://github.com/meme2046/meocli/blob/v0.0.2/src/commands/hello/index.ts)_
+_See code: [src/commands/hello/index.ts](https://github.com/meme2046/meocli/blob/v0.0.3/src/commands/hello/index.ts)_
 
 ## `me hello world`
 
@@ -98,7 +98,7 @@ EXAMPLES
   hello world! (./src/commands/hello/world.ts)
 ```
 
-_See code: [src/commands/hello/world.ts](https://github.com/meme2046/meocli/blob/v0.0.2/src/commands/hello/world.ts)_
+_See code: [src/commands/hello/world.ts](https://github.com/meme2046/meocli/blob/v0.0.3/src/commands/hello/world.ts)_
 
 ## `me help [COMMAND]`
 
@@ -410,29 +410,31 @@ DESCRIPTION
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.54/src/commands/plugins/update.ts)_
 
-## `me prettier FILEPATH`
+## `me pr FILEPATH`
 
 Use Prettier to format file
 
 ```
 USAGE
-  $ me prettier FILEPATH [-c <value>] [-i <value>]
+  $ me pr FILEPATH [-c <value>] [--ignore-path <value>] [--no-config] [--no-ignore]
 
 ARGUMENTS
   FILEPATH  file path that need to be formatted by Prettier
 
 FLAGS
-  -c, --config=<value>  Prettier config file path
-  -i, --ignore=<value>  Prettier ignore file path
+  -c, --config=<value>       Prettier config file path
+      --ignore-path=<value>  Prettier ignore file path
+      --no-config            Disable config file detection
+      --no-ignore            Disable ignore file detection
 
 DESCRIPTION
   Use Prettier to format file
 
 EXAMPLES
-  $ me prettier ./tests/test.json
+  $ me pr ./tests/test.json
 
-  $ me prettier ./src/file.ts --config ./.prettierrc.yaml
+  $ me pr ./src/file.ts --config ./.prettierrc.yaml
 ```
 
-_See code: [src/commands/prettier/index.ts](https://github.com/meme2046/meocli/blob/v0.0.2/src/commands/prettier/index.ts)_
+_See code: [src/commands/pr/index.ts](https://github.com/meme2046/meocli/blob/v0.0.3/src/commands/pr/index.ts)_
 <!-- commandsstop -->
