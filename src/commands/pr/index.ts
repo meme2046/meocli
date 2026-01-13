@@ -1,7 +1,9 @@
 import {Args, Command, Flags} from '@oclif/core'
 import {spawn} from 'node:child_process'
 import {existsSync} from 'node:fs'
-import {join} from 'node:path'
+import {platform} from 'node:os'
+import {dirname, join} from 'node:path'
+import {fileURLToPath} from 'node:url'
 
 import {DEFAULT_ARGS} from '../../consts/prettierrc.js'
 
@@ -40,15 +42,34 @@ export default class Prettier extends Command {
 
     // 检查文件是否存在
     if (!existsSync(filePath)) {
-      this.error(`file 『${filePath}』 not found`)
+      this.error(`file『${filePath}』not found`)
       return
     }
 
     // 检测当前使用的包管理器
-    const packageManager = this.detectPackageManager()
+    // const packageManager = this.detectPackageManager()
+
+    // 获取 prettier 可执行文件的路径
+    const __filename = fileURLToPath(import.meta.url)
+    const __dirname = dirname(__filename)
+    const projectRoot = join(__dirname, '../../../') // 回到项目根目录
+
+    // let prettierBin = join(projectRoot, 'node_modules', 'prettier', 'node_modules', '.bin', 'prettier')
+    let prettierBin = join(projectRoot, 'node_modules', '.bin', 'prettier')
+
+    if (platform() === 'win32') {
+      prettierBin += '.cmd'
+    }
+
+    this.log(prettierBin)
+
+    if (!existsSync(prettierBin)) {
+      this.error(`prettier not found`)
+      return
+    }
 
     // 根据包管理器类型构建参数
-    let prettierArgs = ['prettier', '--write', filePath]
+    let prettierArgs = ['--write', filePath]
 
     if (config && existsSync(config)) {
       prettierArgs.push(`--config=${config}`)
@@ -80,11 +101,11 @@ export default class Prettier extends Command {
 
     // 返回一个 Promise 以等待子进程完成
     await new Promise((resolve, reject) => {
-      const prettierProcess = spawn(packageManager, prettierArgs, {
+      const prettierProcess = spawn(prettierBin, prettierArgs, {
         env: {...process.env}, // 确保子进程继承当前环境变量
         shell: false, // 设置为 false 以避免安全警告
-        // stdio: 'inherit',
-        stdio: 'pipe', // 更改为 pipe 以便捕获输出
+        stdio: 'inherit',
+        // stdio: 'pipe', // 更改为 pipe 以便捕获输出
       })
 
       prettierProcess.on('close', (code) => {

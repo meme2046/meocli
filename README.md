@@ -32,7 +32,7 @@ $ npm install -g meocli
 $ me COMMAND
 running command...
 $ me (--version)
-meocli/0.0.1 win32-x64 node-v24.12.0
+meocli/0.0.2 win32-x64 node-v24.12.0
 $ me --help [COMMAND]
 USAGE
   $ me COMMAND
@@ -80,7 +80,7 @@ EXAMPLES
   hello friend from oclif! (./src/commands/hello/index.ts)
 ```
 
-_See code: [src/commands/hello/index.ts](https://github.com/meme2046/meocli/blob/v0.0.1/src/commands/hello/index.ts)_
+_See code: [src/commands/hello/index.ts](https://github.com/meme2046/meocli/blob/v0.0.2/src/commands/hello/index.ts)_
 
 ## `me hello world`
 
@@ -98,7 +98,7 @@ EXAMPLES
   hello world! (./src/commands/hello/world.ts)
 ```
 
-_See code: [src/commands/hello/world.ts](https://github.com/meme2046/meocli/blob/v0.0.1/src/commands/hello/world.ts)_
+_See code: [src/commands/hello/world.ts](https://github.com/meme2046/meocli/blob/v0.0.2/src/commands/hello/world.ts)_
 
 ## `me help [COMMAND]`
 
@@ -422,8 +422,8 @@ ARGUMENTS
   FILEPATH  file path that need to be formatted by Prettier
 
 FLAGS
-  -c, --config=<value>  [default: ./src/files/.prettierrc.yaml] Prettier config file path
-  -i, --ignore=<value>  [default: ./src/files/.prettierignore] Prettier ignore file path
+  -c, --config=<value>  Prettier config file path
+  -i, --ignore=<value>  Prettier ignore file path
 
 DESCRIPTION
   Use Prettier to format file
@@ -434,5 +434,5 @@ EXAMPLES
   $ me prettier ./src/file.ts --config ./.prettierrc.yaml
 ```
 
-_See code: [src/commands/prettier/index.ts](https://github.com/meme2046/meocli/blob/v0.0.1/src/commands/prettier/index.ts)_
+_See code: [src/commands/prettier/index.ts](https://github.com/meme2046/meocli/blob/v0.0.2/src/commands/prettier/index.ts)_
 <!-- commandsstop -->
