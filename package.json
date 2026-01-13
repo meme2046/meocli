@@ -1,7 +1,7 @@
 {
   "name": "meocli",
   "description": "A new CLI generated with oclif",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "author": "meme2046",
   "bin": {
     "me": "./bin/run.js"
@@ -68,6 +68,7 @@
   "scripts": {
     "dev": "node bin/dev.js",
     "prod": "node bin/run.js",
+    "prettier": "prettier",
     "build": "shx rm -rf dist && tsc -b",
     "lint": "eslint",
     "postpack": "shx rm -f oclif.manifest.json",
