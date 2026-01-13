@@ -3,6 +3,8 @@ import {spawn} from 'node:child_process'
 import {existsSync} from 'node:fs'
 import {join} from 'node:path'
 
+import {DEFAULT_ARGS} from '../../consts/prettierrc.js'
+
 export default class Prettier extends Command {
   static args = {
     filePath: Args.string({
@@ -18,13 +20,13 @@ export default class Prettier extends Command {
   static flags = {
     config: Flags.string({
       char: 'c',
-      default: './src/files/.prettierrc.yaml',
+      // default: './src/files/.prettierrc.yaml',
       description: 'Prettier config file path',
       required: false,
     }),
     ignore: Flags.string({
       char: 'i',
-      default: './src/files/.prettierignore',
+      // default: './src/files/.prettierignore',
       description: 'Prettier ignore file path',
       required: false,
     }),
@@ -36,18 +38,44 @@ export default class Prettier extends Command {
     const {filePath} = args
     const {config, ignore} = flags
 
+    // 检查文件是否存在
+    if (!existsSync(filePath)) {
+      this.error(`file 『${filePath}』 not found`)
+      return
+    }
+
     // 检测当前使用的包管理器
     const packageManager = this.detectPackageManager()
 
     // 根据包管理器类型构建参数
-    const prettierArgs = [
-      'prettier',
-      '--write',
-      filePath,
-      ...(config ? [`--config=${config}`] : []),
-      ...(ignore ? [`--ignore-path=${ignore}`] : []),
-    ]
+    let prettierArgs = ['prettier', '--write', filePath]
 
+    if (config && existsSync(config)) {
+      prettierArgs.push(`--config=${config}`)
+    } else {
+      // 否则尝试查找项目中的配置文件
+      const projectConfig = this.findProjectPrettierConfig()
+
+      if (projectConfig) {
+        prettierArgs.push(`--config=${projectConfig}`)
+      } else {
+        prettierArgs = [...prettierArgs, ...DEFAULT_ARGS]
+      }
+    }
+
+    if (ignore && existsSync(ignore)) {
+      prettierArgs.push(`--ignore-path=${ignore}`)
+    } else {
+      const projectIgnore = this.findProjectPrettierIgnore()
+      if (projectIgnore) {
+        prettierArgs.push(`--ignore-path=${projectIgnore}`)
+      } else {
+        // 如果没有找到项目 ignore 文件，跳过此参数
+        // Prettier 会使用默认的忽略规则
+      }
+    }
+
+    this.log(JSON.stringify(prettierArgs))
     // this.log(`Formatting file: ${filePath}`)
 
     // 返回一个 Promise 以等待子进程完成
@@ -55,7 +83,8 @@ export default class Prettier extends Command {
       const prettierProcess = spawn(packageManager, prettierArgs, {
         env: {...process.env}, // 确保子进程继承当前环境变量
         shell: false, // 设置为 false 以避免安全警告
-        stdio: 'inherit',
+        // stdio: 'inherit',
+        stdio: 'pipe', // 更改为 pipe 以便捕获输出
       })
 
       prettierProcess.on('close', (code) => {
@@ -88,5 +117,38 @@ export default class Prettier extends Command {
 
     // 默认使用 npm
     return 'npx'
+  }
+
+  private findProjectPrettierConfig(): null | string {
+    const possibleConfigs = [
+      './.prettierrc',
+      './.prettierrc.json',
+      './.prettierrc.yaml',
+      './.prettierrc.yml',
+      './.prettierrc.js',
+    ]
+
+    for (const configFile of possibleConfigs) {
+      if (existsSync(configFile)) {
+        return configFile
+      }
+    }
+
+    return null
+  }
+
+  private findProjectPrettierIgnore(): null | string {
+    const possibleIgnoreFiles = [
+      './.prettierignore',
+      // './.gitignore'
+    ]
+
+    for (const ignoreFile of possibleIgnoreFiles) {
+      if (existsSync(ignoreFile)) {
+        return ignoreFile
+      }
+    }
+
+    return null
   }
 }
