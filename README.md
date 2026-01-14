@@ -7,11 +7,12 @@ A new CLI generated with oclif
 [![Downloads/week](https://img.shields.io/npm/dw/meocli.svg)](https://npmjs.org/package/meocli)
 
 <!-- toc -->
-* [meocli](#meocli)
-* [Dev](#dev)
-* [Publish](#publish)
-* [Usage](#usage)
-* [Commands](#commands)
+
+- [meocli](#meocli)
+- [Dev](#dev)
+- [Publish](#publish)
+- [Usage](#usage)
+- [Commands](#commands)
 <!-- tocstop -->
 
 # Dev
@@ -22,7 +23,7 @@ $ pnpm run dev hello world
 $ pnpm run prod hello world
 $ pnpm run dev hello foo -f bar
 <!-- prettier -->
-$ pnpm run dev pr ./tmp/test.svg
+$ pnpm run dev pr ./tmp/test.svg --verbose
 $ pnpm run dev pr ./tmp/test.json --config=auto --ignore=auto
 $ pnpm run dev pr ./tmp/test.svg --config=built_in --ignore=auto
 ```
@@ -38,36 +39,39 @@ $ pnpm publish
 # Usage
 
 <!-- usage -->
+
 ```sh-session
 $ npm install -g meocli
 $ me COMMAND
 running command...
 $ me (--version)
-meocli/0.0.6 win32-x64 node-v24.12.0
+meocli/0.0.7 win32-x64 node-v24.12.0
 $ me --help [COMMAND]
 USAGE
   $ me COMMAND
 ...
 ```
+
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-* [`me hello PERSON`](#me-hello-person)
-* [`me hello world`](#me-hello-world)
-* [`me help [COMMAND]`](#me-help-command)
-* [`me plugins`](#me-plugins)
-* [`me plugins add PLUGIN`](#me-plugins-add-plugin)
-* [`me plugins:inspect PLUGIN...`](#me-pluginsinspect-plugin)
-* [`me plugins install PLUGIN`](#me-plugins-install-plugin)
-* [`me plugins link PATH`](#me-plugins-link-path)
-* [`me plugins remove [PLUGIN]`](#me-plugins-remove-plugin)
-* [`me plugins reset`](#me-plugins-reset)
-* [`me plugins uninstall [PLUGIN]`](#me-plugins-uninstall-plugin)
-* [`me plugins unlink [PLUGIN]`](#me-plugins-unlink-plugin)
-* [`me plugins update`](#me-plugins-update)
-* [`me pr FILEPATH`](#me-pr-filepath)
+
+- [`me hello PERSON`](#me-hello-person)
+- [`me hello world`](#me-hello-world)
+- [`me help [COMMAND]`](#me-help-command)
+- [`me plugins`](#me-plugins)
+- [`me plugins add PLUGIN`](#me-plugins-add-plugin)
+- [`me plugins:inspect PLUGIN...`](#me-pluginsinspect-plugin)
+- [`me plugins install PLUGIN`](#me-plugins-install-plugin)
+- [`me plugins link PATH`](#me-plugins-link-path)
+- [`me plugins remove [PLUGIN]`](#me-plugins-remove-plugin)
+- [`me plugins reset`](#me-plugins-reset)
+- [`me plugins uninstall [PLUGIN]`](#me-plugins-uninstall-plugin)
+- [`me plugins unlink [PLUGIN]`](#me-plugins-unlink-plugin)
+- [`me plugins update`](#me-plugins-update)
+- [`me pr FILEPATH`](#me-pr-filepath)
 
 ## `me hello PERSON`
 
@@ -91,7 +95,7 @@ EXAMPLES
   hello friend from oclif! (./src/commands/hello/index.ts)
 ```
 
-_See code: [src/commands/hello/index.ts](https://github.com/meme2046/meocli/blob/v0.0.6/src/commands/hello/index.ts)_
+_See code: [src/commands/hello/index.ts](https://github.com/meme2046/meocli/blob/v0.0.7/src/commands/hello/index.ts)_
 
 ## `me hello world`
 
@@ -109,7 +113,7 @@ EXAMPLES
   hello world! (./src/commands/hello/world.ts)
 ```
 
-_See code: [src/commands/hello/world.ts](https://github.com/meme2046/meocli/blob/v0.0.6/src/commands/hello/world.ts)_
+_See code: [src/commands/hello/world.ts](https://github.com/meme2046/meocli/blob/v0.0.7/src/commands/hello/world.ts)_
 
 ## `me help [COMMAND]`
 
@@ -447,5 +451,6 @@ EXAMPLES
   $ me pr ./src/file.ts --config ./.prettierrc.yaml
 ```
 
-_See code: [src/commands/pr/index.ts](https://github.com/meme2046/meocli/blob/v0.0.6/src/commands/pr/index.ts)_
+_See code: [src/commands/pr/index.ts](https://github.com/meme2046/meocli/blob/v0.0.7/src/commands/pr/index.ts)_
+
 <!-- commandsstop -->

@@ -34,6 +34,11 @@ export default class Prettier extends Command {
       description: 'built_in:使用内置规则(默认值), 传入路径则是使用自定义规则, auto:自动检测ignore file',
       required: false,
     }),
+    verbose: Flags.boolean({
+      char: 'v',
+      default: false,
+      description: 'Show verbose output',
+    }),
     // 'no-config': Flags.boolean({
     //   default: false,
     //   description: 'Disable config file detection',
@@ -48,7 +53,12 @@ export default class Prettier extends Command {
     const {args, flags} = await this.parse(Prettier)
 
     const {filePath} = args
-    const {config, ignore} = flags
+    const {config, ignore, verbose} = flags
+
+    if (verbose) {
+      process.env.DEBUG = 'oclif:me:pr'
+      require('debug').enable(process.env.DEBUG)
+    }
 
     // 检查文件是否存在
     if (!existsSync(filePath)) {
@@ -114,8 +124,8 @@ export default class Prettier extends Command {
       }
     }
 
-    this.debug(prettierBin)
-    this.debug(JSON.stringify(prettierArgs))
+    this.debug('prettier path:', prettierBin)
+    this.debug('args:', JSON.stringify(prettierArgs))
     // this.log(`Formatting file: ${filePath}`)
 
     const {stderr, stdout} = await execa(prettierBin, prettierArgs, {
