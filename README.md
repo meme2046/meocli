@@ -22,8 +22,9 @@ $ pnpm run dev hello world
 $ pnpm run prod hello world
 $ pnpm run dev hello foo -f bar
 <!-- prettier -->
-$ pnpm run dev pr ./tmp/test.svg --no-config --no-ignore
-$ pnpm run dev pr ./tmp/test.json --no-ignore
+$ pnpm run dev pr ./tmp/test.svg
+$ pnpm run dev pr ./tmp/test.json --config=auto --ignore=auto
+$ pnpm run dev pr ./tmp/test.svg --config=built_in --ignore=auto
 ```
 
 # Publish

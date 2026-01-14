@@ -23,29 +23,30 @@ export default class Prettier extends Command {
   static flags = {
     config: Flags.string({
       char: 'c',
-      // default: './src/files/.prettierrc.yaml',
-      description: 'Prettier config file path',
+      default: 'built_in',
+      description: 'built_in:使用内置规则(默认值), 传入路径则是使用自定义配置, auto:自动检测config file',
       required: false,
     }),
-    'ignore-path': Flags.string({
-      description: 'Prettier ignore file path',
+    ignore: Flags.string({
+      default: 'built_in',
+      description: 'built_in:使用内置规则(默认值), 传入路径则是使用自定义规则, auto:自动检测ignore file',
       required: false,
     }),
-    'no-config': Flags.boolean({
-      default: false,
-      description: 'Disable config file detection',
-    }),
-    'no-ignore': Flags.boolean({
-      default: false,
-      description: 'Disable ignore file detection',
-    }),
+    // 'no-config': Flags.boolean({
+    //   default: false,
+    //   description: 'Disable config file detection',
+    // }),
+    // 'no-ignore': Flags.boolean({
+    //   default: false,
+    //   description: 'Disable ignore file detection',
+    // }),
   }
 
   async run(): Promise<void> {
     const {args, flags} = await this.parse(Prettier)
 
     const {filePath} = args
-    const {config, 'ignore-path': ignorePath, 'no-config': noConfig, 'no-ignore': noIgnore} = flags
+    const {config, ignore} = flags
 
     // 检查文件是否存在
     if (!existsSync(filePath)) {
@@ -61,7 +62,6 @@ export default class Prettier extends Command {
     const __dirname = dirname(__filename)
     const projectRoot = join(__dirname, '../../../') // 回到项目根目录
 
-    // let prettierBin = join(projectRoot, 'node_modules', 'prettier', 'node_modules', '.bin', 'prettier')
     let prettierBin = join(projectRoot, 'node_modules', '.bin', 'prettier')
 
     if (platform() === 'win32') {
@@ -76,10 +76,10 @@ export default class Prettier extends Command {
     // 根据包管理器类型构建参数
     let prettierArgs = ['--write', filePath]
 
-    if (noIgnore) {
-      prettierArgs.unshift('--ignore-path', '')
-    } else if (ignorePath && existsSync(ignorePath)) {
-      prettierArgs.unshift('--ignore-path', ignorePath)
+    if (ignore === 'built_in') {
+      prettierArgs.unshift('--ignore-path', join(projectRoot, '.prettierignore'))
+    } else if (existsSync(ignore)) {
+      prettierArgs.unshift('--ignore-path', ignore)
     } else {
       const projectIgnore = this.findProjectPrettierIgnore()
       if (projectIgnore) {
@@ -91,10 +91,10 @@ export default class Prettier extends Command {
     const argsWithResolvedPlugins = this.replacePluginArgs(DEFAULT_ARGS, resolvedPluginArgs)
     const completeArgs = [...argsWithResolvedPlugins, ...prettierArgs]
 
-    if (noConfig) {
+    if (config === 'built_in') {
       // 为插件参数使用绝对路径，避免全局安装时找不到插件
       prettierArgs = completeArgs
-    } else if (config && existsSync(config)) {
+    } else if (existsSync(config)) {
       prettierArgs.unshift('--config', config)
     } else {
       // 否则尝试查找项目中的配置文件
@@ -107,9 +107,8 @@ export default class Prettier extends Command {
       }
     }
 
-    this.log(prettierBin)
-    this.log(JSON.stringify(prettierArgs))
-
+    // this.log(prettierBin)
+    // this.log(JSON.stringify(prettierArgs))
     // this.log(`Formatting file: ${filePath}`)
 
     const {stderr, stdout} = await execa(prettierBin, prettierArgs, {
