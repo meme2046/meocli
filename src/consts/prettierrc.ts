@@ -71,7 +71,7 @@ export const DEFAULT_PLUGINS = [
   {main: 'src/plugin.js', name: '@prettier/plugin-xml'},
   {main: 'lib/index.cjs', name: 'prettier-plugin-toml'},
   {main: 'lib/index.cjs', name: 'prettier-plugin-sh'},
-  {main: 'dist/index', name: 'prettier-plugin-nginx'},
+  {main: 'dist/index.js', name: 'prettier-plugin-nginx'},
 ]
 
 // 默认的忽略模式
