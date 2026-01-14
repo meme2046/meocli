@@ -3,11 +3,12 @@ import {execa} from 'execa'
 // import {spawn} from 'node:child_process'
 import {existsSync} from 'node:fs'
 import {createRequire} from 'node:module'
-import {platform} from 'node:os'
 import {dirname, join} from 'node:path'
-import {fileURLToPath} from 'node:url'
+import {cwd} from 'node:process'
 
 import {DEFAULT_ARGS, DEFAULT_PLUGINS} from '../../consts/prettierrc.js'
+
+const require = createRequire(import.meta.url)
 
 export default class Prettier extends Command {
   static args = {
@@ -57,20 +58,20 @@ export default class Prettier extends Command {
 
     // 检测当前使用的包管理器
     // const packageManager = this.detectPackageManager()
-    const require = createRequire(import.meta.url)
+
     const prettierMain = require.resolve('prettier')
-    this.log('prettierMain', prettierMain)
+    const prettierBin = join(dirname(prettierMain), './bin/prettier.cjs')
 
     // 获取 prettier 可执行文件的路径
-    const __filename = fileURLToPath(import.meta.url)
-    const __dirname = dirname(__filename)
-    const projectRoot = join(__dirname, '../../../') // 回到项目根目录
+    // const __filename = fileURLToPath(import.meta.url)
+    // const __dirname = dirname(__filename)
+    // const projectRoot = join(__dirname, '../../../') // 回到项目根目录
 
-    let prettierBin = join(projectRoot, 'node_modules', '.bin', 'prettier')
+    // let prettierBin = join(projectRoot, 'node_modules', '.bin', 'prettier')
 
-    if (platform() === 'win32') {
-      prettierBin += '.cmd'
-    }
+    // if (platform() === 'win32') {
+    //   prettierBin += '.cmd'
+    // }
 
     if (!existsSync(prettierBin)) {
       this.error(`prettier not found`)
@@ -81,6 +82,7 @@ export default class Prettier extends Command {
     let prettierArgs = ['--write', filePath]
 
     if (ignore === 'built_in') {
+      const projectRoot = cwd()
       prettierArgs.unshift('--ignore-path', join(projectRoot, '.prettierignore'))
     } else if (existsSync(ignore)) {
       prettierArgs.unshift('--ignore-path', ignore)
@@ -91,9 +93,10 @@ export default class Prettier extends Command {
       }
     }
 
-    const resolvedPluginArgs = this.resolvePluginPaths(DEFAULT_PLUGINS, projectRoot)
-    const argsWithResolvedPlugins = this.replacePluginArgs(DEFAULT_ARGS, resolvedPluginArgs)
-    const completeArgs = [...argsWithResolvedPlugins, ...prettierArgs]
+    // const resolvedPluginArgs = this.resolvePluginPaths(DEFAULT_PLUGINS, projectRoot)
+    // const argsWithResolvedPlugins = this.replacePluginArgs(DEFAULT_ARGS, resolvedPluginArgs)
+    const pluginArgs = this.resolvePluginArgs(DEFAULT_PLUGINS)
+    const completeArgs = [...DEFAULT_ARGS, ...pluginArgs, ...prettierArgs]
 
     if (config === 'built_in') {
       // 为插件参数使用绝对路径，避免全局安装时找不到插件
@@ -111,8 +114,8 @@ export default class Prettier extends Command {
       }
     }
 
-    // this.log(prettierBin)
-    // this.log(JSON.stringify(prettierArgs))
+    this.debug(prettierBin)
+    this.debug(JSON.stringify(prettierArgs))
     // this.log(`Formatting file: ${filePath}`)
 
     const {stderr, stdout} = await execa(prettierBin, prettierArgs, {
@@ -188,6 +191,21 @@ export default class Prettier extends Command {
     }
 
     return newArgs
+  }
+
+  private resolvePluginArgs(plugins: {main: string; name: string}[]): string[] {
+    const pluginArgs = []
+
+    for (const plugin of plugins) {
+      const pluginPath = require.resolve(plugin.name)
+      if (existsSync(pluginPath)) {
+        pluginArgs.push('--plugin', pluginPath)
+      } else {
+        pluginArgs.push('--plugin', plugin.name)
+      }
+    }
+
+    return pluginArgs
   }
 
   // 将插件名称转换为绝对路径
