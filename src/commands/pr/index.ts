@@ -2,6 +2,7 @@ import {Args, Command, Flags} from '@oclif/core'
 import {execa} from 'execa'
 // import {spawn} from 'node:child_process'
 import {existsSync} from 'node:fs'
+import {createRequire} from 'node:module'
 import {platform} from 'node:os'
 import {dirname, join} from 'node:path'
 import {fileURLToPath} from 'node:url'
@@ -56,6 +57,9 @@ export default class Prettier extends Command {
 
     // 检测当前使用的包管理器
     // const packageManager = this.detectPackageManager()
+    const require = createRequire(import.meta.url)
+    const prettierMain = require.resolve('prettier')
+    this.log('prettierMain', prettierMain)
 
     // 获取 prettier 可执行文件的路径
     const __filename = fileURLToPath(import.meta.url)
@@ -107,8 +111,8 @@ export default class Prettier extends Command {
       }
     }
 
-    this.log(prettierBin)
-    this.log(JSON.stringify(prettierArgs))
+    // this.log(prettierBin)
+    // this.log(JSON.stringify(prettierArgs))
     // this.log(`Formatting file: ${filePath}`)
 
     const {stderr, stdout} = await execa(prettierBin, prettierArgs, {
