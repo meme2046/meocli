@@ -107,8 +107,8 @@ export default class Prettier extends Command {
       }
     }
 
-    // this.log(prettierBin)
-    // this.log(JSON.stringify(prettierArgs))
+    this.log(prettierBin)
+    this.log(JSON.stringify(prettierArgs))
     // this.log(`Formatting file: ${filePath}`)
 
     const {stderr, stdout} = await execa(prettierBin, prettierArgs, {

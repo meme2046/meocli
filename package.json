@@ -67,6 +67,8 @@
   },
   "repository": "meme2046/meocli",
   "scripts": {
+    "lk": "pnpm link --global",
+    "ulk": "pnpm unlink --global meocli",
     "dev": "node --no-deprecation --no-warnings --loader ts-node/esm --disable-warning=ExperimentalWarning bin/dev.js",
     "prod": "node bin/run.js",
     "prettier": "prettier",
