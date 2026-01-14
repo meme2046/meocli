@@ -68,10 +68,10 @@ export const DEFAULT_ARGS = [
 
 // 默认的 Prettier 插件列表
 export const DEFAULT_PLUGINS = [
-  '@prettier/plugin-xml',
-  'prettier-plugin-toml',
-  'prettier-plugin-nginx',
-  'prettier-plugin-sh',
+  {main: 'src/plugin.js', name: '@prettier/plugin-xml'},
+  {main: 'lib/index.cjs', name: 'prettier-plugin-toml'},
+  {main: 'lib/index.cjs', name: 'prettier-plugin-sh'},
+  {main: 'dist/index', name: 'prettier-plugin-nginx'},
 ]
 
 // 默认的忽略模式

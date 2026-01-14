@@ -6,7 +6,7 @@ import {platform} from 'node:os'
 import {dirname, join} from 'node:path'
 import {fileURLToPath} from 'node:url'
 
-import {DEFAULT_ARGS} from '../../consts/prettierrc.js'
+import {DEFAULT_ARGS, DEFAULT_PLUGINS} from '../../consts/prettierrc.js'
 
 export default class Prettier extends Command {
   static args = {
@@ -68,8 +68,6 @@ export default class Prettier extends Command {
       prettierBin += '.cmd'
     }
 
-    // this.log(prettierBin)
-
     if (!existsSync(prettierBin)) {
       this.error(`prettier not found`)
       return
@@ -89,8 +87,13 @@ export default class Prettier extends Command {
       }
     }
 
+    const resolvedPluginArgs = this.resolvePluginPaths(DEFAULT_PLUGINS, projectRoot)
+    const argsWithResolvedPlugins = this.replacePluginArgs(DEFAULT_ARGS, resolvedPluginArgs)
+    const completeArgs = [...argsWithResolvedPlugins, ...prettierArgs]
+
     if (noConfig) {
-      prettierArgs = [...DEFAULT_ARGS, ...prettierArgs]
+      // 为插件参数使用绝对路径，避免全局安装时找不到插件
+      prettierArgs = completeArgs
     } else if (config && existsSync(config)) {
       prettierArgs.unshift('--config', config)
     } else {
@@ -99,11 +102,14 @@ export default class Prettier extends Command {
       if (projectConfig) {
         prettierArgs.unshift('--config', projectConfig)
       } else {
-        prettierArgs = [...DEFAULT_ARGS, ...prettierArgs]
+        // 为插件参数使用绝对路径，避免全局安装时找不到插件
+        prettierArgs = completeArgs
       }
     }
 
-    // this.log(JSON.stringify(prettierArgs))
+    this.log(prettierBin)
+    this.log(JSON.stringify(prettierArgs))
+
     // this.log(`Formatting file: ${filePath}`)
 
     const {stderr, stdout} = await execa(prettierBin, prettierArgs, {
@@ -158,5 +164,40 @@ export default class Prettier extends Command {
     }
 
     return null
+  }
+
+  // 替换默认参数中的插件路径
+  private replacePluginArgs(defaultArgs: string[], resolvedPluginPaths: string[]): string[] {
+    const newArgs = []
+    for (let i = 0; i < defaultArgs.length; i++) {
+      if (defaultArgs[i] === '--plugin' && i + 1 < defaultArgs.length) {
+        // 跳过这个 '--plugin' 标记和它的值，稍后替换
+        i++ // 跳过下一个值（插件名称）
+        continue
+      }
+
+      newArgs.push(defaultArgs[i])
+    }
+
+    // 添加解析后的插件路径
+    for (const pluginPath of resolvedPluginPaths) {
+      newArgs.push('--plugin', pluginPath)
+    }
+
+    return newArgs
+  }
+
+  // 将插件名称转换为绝对路径
+  private resolvePluginPaths(plugins: {main: string; name: string}[], projectRoot: string): string[] {
+    return plugins.map((plugin) => {
+      // 查找插件的实际路径
+      const pluginPath = join(projectRoot, 'node_modules', plugin.name, plugin.main)
+      if (existsSync(pluginPath)) {
+        return pluginPath
+      }
+
+      // 如果插件路径不存在，则返回原始名称（让 prettier 自己处理）
+      return plugin.name
+    })
   }
 }

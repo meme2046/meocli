@@ -7,18 +7,28 @@ A new CLI generated with oclif
 [![Downloads/week](https://img.shields.io/npm/dw/meocli.svg)](https://npmjs.org/package/meocli)
 
 <!-- toc -->
-* [meocli](#meocli)
-* [Dev](#dev)
-* [Usage](#usage)
-* [Commands](#commands)
+
+- [meocli](#meocli)
+- [Dev](#dev)
+- [Usage](#usage)
+- [Commands](#commands)
 <!-- tocstop -->
 
 # Dev
 
 ```sh-session
+<!-- demo -->
 $ pnpm run dev hello world
 $ pnpm run prod hello world
 $ pnpm run dev hello foo -f bar
+<!-- prettier -->
+$ pnpm run dev pr ./tmp/test.svg --no-config --no-ignore
+$ pnpm run dev pr ./tmp/test.json --no-ignore
+```
+
+# Publish
+
+```sh-session
 $ pnpm login
 $ pnpm build
 $ pnpm publish
@@ -27,6 +37,7 @@ $ pnpm publish
 # Usage
 
 <!-- usage -->
+
 ```sh-session
 $ npm install -g meocli
 $ me COMMAND
@@ -38,25 +49,27 @@ USAGE
   $ me COMMAND
 ...
 ```
+
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-* [`me hello PERSON`](#me-hello-person)
-* [`me hello world`](#me-hello-world)
-* [`me help [COMMAND]`](#me-help-command)
-* [`me plugins`](#me-plugins)
-* [`me plugins add PLUGIN`](#me-plugins-add-plugin)
-* [`me plugins:inspect PLUGIN...`](#me-pluginsinspect-plugin)
-* [`me plugins install PLUGIN`](#me-plugins-install-plugin)
-* [`me plugins link PATH`](#me-plugins-link-path)
-* [`me plugins remove [PLUGIN]`](#me-plugins-remove-plugin)
-* [`me plugins reset`](#me-plugins-reset)
-* [`me plugins uninstall [PLUGIN]`](#me-plugins-uninstall-plugin)
-* [`me plugins unlink [PLUGIN]`](#me-plugins-unlink-plugin)
-* [`me plugins update`](#me-plugins-update)
-* [`me pr FILEPATH`](#me-pr-filepath)
+
+- [`me hello PERSON`](#me-hello-person)
+- [`me hello world`](#me-hello-world)
+- [`me help [COMMAND]`](#me-help-command)
+- [`me plugins`](#me-plugins)
+- [`me plugins add PLUGIN`](#me-plugins-add-plugin)
+- [`me plugins:inspect PLUGIN...`](#me-pluginsinspect-plugin)
+- [`me plugins install PLUGIN`](#me-plugins-install-plugin)
+- [`me plugins link PATH`](#me-plugins-link-path)
+- [`me plugins remove [PLUGIN]`](#me-plugins-remove-plugin)
+- [`me plugins reset`](#me-plugins-reset)
+- [`me plugins uninstall [PLUGIN]`](#me-plugins-uninstall-plugin)
+- [`me plugins unlink [PLUGIN]`](#me-plugins-unlink-plugin)
+- [`me plugins update`](#me-plugins-update)
+- [`me pr FILEPATH`](#me-pr-filepath)
 
 ## `me hello PERSON`
 
@@ -437,4 +450,5 @@ EXAMPLES
 ```
 
 _See code: [src/commands/pr/index.ts](https://github.com/meme2046/meocli/blob/v0.0.3/src/commands/pr/index.ts)_
+
 <!-- commandsstop -->
