@@ -108,7 +108,7 @@ export default class Prettier extends Command {
     }
 
     // 根据包管理器类型构建参数
-    const prettierArgs = ['--write', filePath]
+    const prettierArgs = ['--no-color', '--write', filePath]
 
     if (ignore === 'built_in') {
       prettierArgs.unshift('--ignore-path', ignorePath)
