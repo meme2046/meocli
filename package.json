@@ -1,7 +1,7 @@
 {
   "name": "meocli",
   "description": "A new CLI generated with oclif",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "meme2046",
   "bin": {
     "me": "./bin/run.js"

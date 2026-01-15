@@ -26,9 +26,9 @@ $ pnpm run dev hello world
 $ pnpm run prod hello world
 $ pnpm run dev hello foo -f bar
 <!-- prettier -->
-$ pnpm run dev pr ./tmp/test.svg --verbose
-$ pnpm run dev pr ./tmp/test.json --config=auto --ignore=auto
-$ pnpm run dev pr ./tmp/test.svg --config=built_in --ignore=auto
+$ pnpm run dev prettier ./tmp/test.svg --verbose
+$ pnpm run dev prettier ./tmp/test.json --config=auto --ignore=auto
+$ pnpm run dev prettier ./tmp/test.svg --config=built_in --ignore=auto
 ```
 
 # 安装使用
@@ -36,7 +36,7 @@ $ pnpm run dev pr ./tmp/test.svg --config=built_in --ignore=auto
 ```sh-session
 $ pnpm install -g meocli
 $ me --version
-$ me pr ./test.svg --verbose # 使用prettier格式化文件
+$ me prettier ./test.svg --verbose # 使用prettier格式化文件
 $ me hello world
 $ me hello foo -f bar
 ```
@@ -64,38 +64,38 @@ $ pnpm publish
         "match": "\\.(ts|js|json|html|css|graphql|gql|yaml|yml|md)$",
         "notMatch": "node_modules/*$",
         "isAsync": true,
-        "cmd": "me pr ${file}"
+        "cmd": "me prettier ${file}"
       },
       {
         // @prettier/plugin-xml
         "match": "\\.(xml|svg)$",
         "isAsync": true,
-        "cmd": "me pr ${file}"
+        "cmd": "me prettier ${file}"
       },
       {
         // prettier-plugin-toml
         "match": "\\.(toml)$",
         "isAsync": true,
-        "cmd": "me pr ${file}"
+        "cmd": "me prettier ${file}"
       },
       {
         // prettier-plugin-nginx
         "match": "\\.(nginx)$",
         "isAsync": true,
-        "cmd": "me pr ${file}"
+        "cmd": "me prettier ${file}"
       },
       {
         // prettier-plugin-sh
         "match": "\\.(sh|env|Dockerfile|properties|gitignore|dockerignore|prettierignore)$",
         "notMatch": "\\.(nu)$",
         "isAsync": true,
-        "cmd": "me pr ${file}"
+        "cmd": "me prettier ${file}"
       },
       {
         // no-dot-ext
         "match": "Dockerfile$",
         "isAsync": true,
-        "cmd": "me pr ${file}"
+        "cmd": "me prettier ${file}"
       }
     ]
   }
@@ -115,7 +115,7 @@ meocli/0.1.0 win32-x64 node-v24.12.0
 $ me --help [COMMAND]
 USAGE
   $ me COMMAND
-  $ me pr ./test.svg --verbose
+  $ me prettier ./test.svg --verbose
 ...
 ```
 
