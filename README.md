@@ -7,12 +7,13 @@ A new CLI generated with oclif
 [![Downloads/week](https://img.shields.io/npm/dw/meocli.svg)](https://npmjs.org/package/meocli)
 
 <!-- toc -->
-
-- [meocli](#meocli)
-- [Dev](#dev)
-- [Publish](#publish)
-- [Usage](#usage)
-- [Commands](#commands)
+* [meocli](#meocli)
+* [Dev](#dev)
+* [安装使用](#安装使用)
+* [Publish](#publish)
+* [Vscode](#vscode)
+* [Usage](#usage)
+* [Commands](#commands)
 <!-- tocstop -->
 
 # Dev
@@ -105,40 +106,36 @@ $ pnpm publish
 # Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g meocli
 $ me COMMAND
 running command...
 $ me (--version)
-meocli/0.1.0 win32-x64 node-v24.12.0
+meocli/0.1.1 win32-x64 node-v24.12.0
 $ me --help [COMMAND]
 USAGE
   $ me COMMAND
-  $ me prettier ./test.svg --verbose
 ...
 ```
-
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-
-- [`me hello PERSON`](#me-hello-person)
-- [`me hello world`](#me-hello-world)
-- [`me help [COMMAND]`](#me-help-command)
-- [`me plugins`](#me-plugins)
-- [`me plugins add PLUGIN`](#me-plugins-add-plugin)
-- [`me plugins:inspect PLUGIN...`](#me-pluginsinspect-plugin)
-- [`me plugins install PLUGIN`](#me-plugins-install-plugin)
-- [`me plugins link PATH`](#me-plugins-link-path)
-- [`me plugins remove [PLUGIN]`](#me-plugins-remove-plugin)
-- [`me plugins reset`](#me-plugins-reset)
-- [`me plugins uninstall [PLUGIN]`](#me-plugins-uninstall-plugin)
-- [`me plugins unlink [PLUGIN]`](#me-plugins-unlink-plugin)
-- [`me plugins update`](#me-plugins-update)
-- [`me pr FILEPATH`](#me-pr-filepath)
+* [`me hello PERSON`](#me-hello-person)
+* [`me hello world`](#me-hello-world)
+* [`me help [COMMAND]`](#me-help-command)
+* [`me plugins`](#me-plugins)
+* [`me plugins add PLUGIN`](#me-plugins-add-plugin)
+* [`me plugins:inspect PLUGIN...`](#me-pluginsinspect-plugin)
+* [`me plugins install PLUGIN`](#me-plugins-install-plugin)
+* [`me plugins link PATH`](#me-plugins-link-path)
+* [`me plugins remove [PLUGIN]`](#me-plugins-remove-plugin)
+* [`me plugins reset`](#me-plugins-reset)
+* [`me plugins uninstall [PLUGIN]`](#me-plugins-uninstall-plugin)
+* [`me plugins unlink [PLUGIN]`](#me-plugins-unlink-plugin)
+* [`me plugins update`](#me-plugins-update)
+* [`me prettier FILEPATH`](#me-prettier-filepath)
 
 ## `me hello PERSON`
 
@@ -162,7 +159,7 @@ EXAMPLES
   hello friend from oclif! (./src/commands/hello/index.ts)
 ```
 
-_See code: [src/commands/hello/index.ts](https://github.com/meme2046/meocli/blob/v0.1.0/src/commands/hello/index.ts)_
+_See code: [src/commands/hello/index.ts](https://github.com/meme2046/meocli/blob/v0.1.1/src/commands/hello/index.ts)_
 
 ## `me hello world`
 
@@ -180,7 +177,7 @@ EXAMPLES
   hello world! (./src/commands/hello/world.ts)
 ```
 
-_See code: [src/commands/hello/world.ts](https://github.com/meme2046/meocli/blob/v0.1.0/src/commands/hello/world.ts)_
+_See code: [src/commands/hello/world.ts](https://github.com/meme2046/meocli/blob/v0.1.1/src/commands/hello/world.ts)_
 
 ## `me help [COMMAND]`
 
@@ -492,13 +489,13 @@ DESCRIPTION
 
 _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.54/src/commands/plugins/update.ts)_
 
-## `me pr FILEPATH`
+## `me prettier FILEPATH`
 
 Use Prettier to format file
 
 ```
 USAGE
-  $ me pr FILEPATH [-c <value>] [--ignore <value>] [-v]
+  $ me prettier FILEPATH [-c <value>] [--ignore <value>] [-v]
 
 ARGUMENTS
   FILEPATH  file path that need to be formatted by Prettier
@@ -514,11 +511,10 @@ DESCRIPTION
   Use Prettier to format file
 
 EXAMPLES
-  $ me pr ./tests/test.json
+  $ me prettier ./tests/test.json
 
-  $ me pr ./src/file.ts --config ./.prettierrc.yaml
+  $ me prettier ./src/file.ts --config ./.prettierrc.yaml
 ```
 
-_See code: [src/commands/pr/index.ts](https://github.com/meme2046/meocli/blob/v0.1.0/src/commands/pr/index.ts)_
-
+_See code: [src/commands/prettier/index.ts](https://github.com/meme2046/meocli/blob/v0.1.1/src/commands/prettier/index.ts)_
 <!-- commandsstop -->
