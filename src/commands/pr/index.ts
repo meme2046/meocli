@@ -1,12 +1,13 @@
 import {Args, Command, Flags} from '@oclif/core'
 import {execa} from 'execa'
 // import {spawn} from 'node:child_process'
-import {existsSync} from 'node:fs'
+import {existsSync, mkdirSync, writeFileSync} from 'node:fs'
 import {createRequire} from 'node:module'
+import {homedir} from 'node:os'
 import {dirname, join} from 'node:path'
-import {cwd} from 'node:process'
 
-import {DEFAULT_ARGS, DEFAULT_PLUGINS} from '../../consts/prettierrc.js'
+import {DEFAULT_CONFIG, DEFAULT_IGNORE_PATTERNS} from '../../consts/prettierrc.js'
+import {toYamlFile} from '../../lib/to-yaml-file.js'
 
 const require = createRequire(import.meta.url)
 
@@ -88,29 +89,48 @@ export default class Prettier extends Command {
       return
     }
 
+    const meocliPath = `${homedir}/.meocli`
+    const ignorePath = `${meocliPath}/.prettierignore`
+    const configPath = `${meocliPath}/.prettierrc.yaml`
+
+    if (!existsSync(meocliPath)) {
+      mkdirSync(meocliPath)
+    }
+
+    if (!existsSync(ignorePath)) {
+      writeFileSync(ignorePath, DEFAULT_IGNORE_PATTERNS.join('\n'), {encoding: 'utf8'})
+    }
+
+    if (!existsSync(configPath)) {
+      DEFAULT_CONFIG.plugins = this.resolvePlugin(DEFAULT_CONFIG.plugins)
+      this.debug('prettier config:', DEFAULT_CONFIG)
+      toYamlFile(configPath, DEFAULT_CONFIG)
+    }
+
     // 根据包管理器类型构建参数
-    let prettierArgs = ['--write', filePath]
+    const prettierArgs = ['--write', filePath]
 
     if (ignore === 'built_in') {
-      const projectRoot = cwd()
-      prettierArgs.unshift('--ignore-path', join(projectRoot, '.prettierignore'))
+      prettierArgs.unshift('--ignore-path', ignorePath)
     } else if (existsSync(ignore)) {
       prettierArgs.unshift('--ignore-path', ignore)
     } else {
       const projectIgnore = this.findProjectPrettierIgnore()
       if (projectIgnore) {
         prettierArgs.unshift('--ignore-path', projectIgnore)
+      } else {
+        prettierArgs.unshift('--ignore-path', ignorePath)
       }
     }
 
     // const resolvedPluginArgs = this.resolvePluginPaths(DEFAULT_PLUGINS, projectRoot)
     // const argsWithResolvedPlugins = this.replacePluginArgs(DEFAULT_ARGS, resolvedPluginArgs)
-    const pluginArgs = this.resolvePluginArgs(DEFAULT_PLUGINS)
-    const completeArgs = [...DEFAULT_ARGS, ...pluginArgs, ...prettierArgs]
+    // const pluginArgs = this.resolvePluginArgs(DEFAULT_PLUGINS)
+    // const completeArgs = [...DEFAULT_ARGS, ...pluginArgs, ...prettierArgs]
 
     if (config === 'built_in') {
       // 为插件参数使用绝对路径，避免全局安装时找不到插件
-      prettierArgs = completeArgs
+      prettierArgs.unshift('--config', configPath)
     } else if (existsSync(config)) {
       prettierArgs.unshift('--config', config)
     } else {
@@ -120,7 +140,7 @@ export default class Prettier extends Command {
         prettierArgs.unshift('--config', projectConfig)
       } else {
         // 为插件参数使用绝对路径，避免全局安装时找不到插件
-        prettierArgs = completeArgs
+        prettierArgs.unshift('--config', configPath)
       }
     }
 
@@ -201,6 +221,19 @@ export default class Prettier extends Command {
     }
 
     return newArgs
+  }
+
+  private resolvePlugin(plugins: string[]): string[] {
+    return plugins.map((plugin) => {
+      // 尝试查找插件的实际路径
+      const pluginPath = require.resolve(plugin)
+      if (existsSync(pluginPath)) {
+        return pluginPath
+      }
+
+      // 如果插件路径不存在，则返回原始名称（让 prettier 自己处理）
+      return plugin
+    })
   }
 
   private resolvePluginArgs(plugins: {main: string; name: string}[]): string[] {

@@ -66,6 +66,43 @@ export const DEFAULT_ARGS = [
   '2',
 ]
 
+export const DEFAULT_CONFIG = {
+  arrowParens: 'always',
+  bracketSameLine: false,
+  bracketSpacing: true,
+  continuationIndent: 2, // nginx
+  embeddedLanguageFormatting: 'auto',
+  endOfLine: 'lf',
+  experimentalOperatorPosition: 'end',
+  experimentalTernaries: false,
+  htmlWhitespaceSensitivity: 'css',
+  indentEntries: true, // toml
+  insertPragma: false,
+  jsxSingleQuote: false,
+  objectWrap: 'preserve',
+  overrides: [
+    {files: ['*.env'], options: {parser: 'sh'}},
+    {files: ['*.txt'], options: {parser: 'markdown'}},
+  ],
+  plugins: ['@prettier/plugin-xml', 'prettier-plugin-toml', 'prettier-plugin-sh', 'prettier-plugin-nginx'],
+  printWidth: 80,
+  proseWrap: 'preserve',
+  quoteProps: 'as-needed',
+  reorderKeys: true, // toml
+  requirePragma: false,
+  semi: true,
+  singleAttributePerLine: false,
+  singleQuote: false,
+  tabWidth: 2,
+  trailingComma: 'all',
+  useTabs: false, // useTabs 和 tabWidth 不能同时使用
+  vueIndentScriptAndStyle: false,
+  wrapParameters: false, // nginx
+  xmlSelfClosingSpace: true, // xml
+  xmlSortAttributesByKey: true, // xml
+  xmlWhitespaceSensitivity: 'strict', // xml
+}
+
 // 默认的 Prettier 插件列表
 export const DEFAULT_PLUGINS = [
   {main: 'src/plugin.js', name: '@prettier/plugin-xml'},
