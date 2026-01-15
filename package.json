@@ -15,7 +15,8 @@
     "debug": "^4.4.3",
     "execa": "^9.6.1",
     "js-yaml": "^4.1.1",
-    "prettier": "^3.7.4",
+    "npm-check-updates": "^19.3.1",
+    "prettier": "^3.8.0",
     "prettier-plugin-nginx": "^1.0.3",
     "prettier-plugin-sh": "^0.18.0",
     "prettier-plugin-toml": "^2.0.6"
@@ -70,9 +71,9 @@
   },
   "repository": "meme2046/meocli",
   "scripts": {
+    "ncu": "ncu --target minor --reject webpack,shx",
     "dev": "node --no-deprecation --no-warnings --loader ts-node/esm --disable-warning=ExperimentalWarning bin/dev.js",
     "prod": "node bin/run.js",
-    "prettier": "prettier",
     "build": "shx rm -rf dist && tsc -b",
     "lint": "eslint",
     "postpack": "shx rm -f oclif.manifest.json",

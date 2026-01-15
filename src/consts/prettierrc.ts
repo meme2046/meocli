@@ -120,4 +120,5 @@ export const DEFAULT_IGNORE_PATTERNS = [
   'coverage/',
   '.next/',
   'out/',
+  '*.nu',
 ]

@@ -18,6 +18,9 @@ A new CLI generated with oclif
 # Dev
 
 ```sh-session
+<!-- pnpm exec -->
+$ pnpm ncu # 检查更新
+$ pnpm ncu -u # 升级更新
 <!-- demo -->
 $ pnpm run dev hello world
 $ pnpm run prod hello world
