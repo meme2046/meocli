@@ -34,6 +34,8 @@ $ pnpm run dev pr ./tmp/test.svg --config=built_in --ignore=auto
 $ pnpm install -g meocli
 $ me --version
 $ me pr ./test.svg --verbose # 使用prettier格式化文件
+$ me hello world
+$ me hello foo -f bar
 ```
 
 # Publish
