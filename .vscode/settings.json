@@ -70,32 +70,32 @@
         // @prettier/plugin-xml
         "match": "\\.(xml|svg)$",
         "isAsync": true,
-        "cmd": "me pr ${file} --config ${workspaceFolder}/.prettierrc.json"
+        "cmd": "me pr ${file}"
       },
       {
         // prettier-plugin-toml
         "match": "\\.(toml)$",
         "isAsync": true,
-        "cmd": "me pr ${file} --config ${workspaceFolder}/.prettierrc.json"
+        "cmd": "me pr ${file}"
       },
       {
         // prettier-plugin-nginx
         "match": "\\.(nginx)$",
         "isAsync": true,
-        "cmd": "me pr ${file} --config ${workspaceFolder}/.prettierrc.json"
+        "cmd": "me pr ${file}"
       },
       {
         // prettier-plugin-sh
         "match": "\\.(sh|env|Dockerfile|properties|gitignore|dockerignore|prettierignore)$",
         "notMatch": "\\.(nu)$",
         "isAsync": true,
-        "cmd": "me pr ${file} --config ${workspaceFolder}/.prettierrc.json"
+        "cmd": "me pr ${file}"
       },
       {
         // no-dot-ext
-        "match": "Dockerfile$",
+        "match": "(Dockerfile)$",
         "isAsync": true,
-        "cmd": "me pr ${file} --config ${workspaceFolder}/.prettierrc.json"
+        "cmd": "me pr ${file}"
       }
     ]
   },
