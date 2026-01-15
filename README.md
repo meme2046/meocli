@@ -43,7 +43,7 @@ $ npm install -g meocli
 $ me COMMAND
 running command...
 $ me (--version)
-meocli/0.0.8 win32-x64 node-v24.12.0
+meocli/0.0.9 win32-x64 node-v24.12.0
 $ me --help [COMMAND]
 USAGE
   $ me COMMAND
@@ -91,7 +91,7 @@ EXAMPLES
   hello friend from oclif! (./src/commands/hello/index.ts)
 ```
 
-_See code: [src/commands/hello/index.ts](https://github.com/meme2046/meocli/blob/v0.0.8/src/commands/hello/index.ts)_
+_See code: [src/commands/hello/index.ts](https://github.com/meme2046/meocli/blob/v0.0.9/src/commands/hello/index.ts)_
 
 ## `me hello world`
 
@@ -109,7 +109,7 @@ EXAMPLES
   hello world! (./src/commands/hello/world.ts)
 ```
 
-_See code: [src/commands/hello/world.ts](https://github.com/meme2046/meocli/blob/v0.0.8/src/commands/hello/world.ts)_
+_See code: [src/commands/hello/world.ts](https://github.com/meme2046/meocli/blob/v0.0.9/src/commands/hello/world.ts)_
 
 ## `me help [COMMAND]`
 
@@ -448,5 +448,5 @@ EXAMPLES
   $ me pr ./src/file.ts --config ./.prettierrc.yaml
 ```
 
-_See code: [src/commands/pr/index.ts](https://github.com/meme2046/meocli/blob/v0.0.8/src/commands/pr/index.ts)_
+_See code: [src/commands/pr/index.ts](https://github.com/meme2046/meocli/blob/v0.0.9/src/commands/pr/index.ts)_
 <!-- commandsstop -->
