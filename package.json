@@ -1,6 +1,6 @@
 {
   "name": "meocli",
-  "description": "A new CLI generated with oclif",
+  "description": "node CLI generated with oclif, Integrate Prettier",
   "version": "0.1.2",
   "author": "meme2046",
   "bin": {
@@ -49,7 +49,9 @@
   ],
   "homepage": "https://github.com/meme2046/meocli",
   "keywords": [
-    "oclif"
+    "oclif",
+    "prettier",
+    "formatting"
   ],
   "license": "MIT",
   "main": "dist/index.js",
