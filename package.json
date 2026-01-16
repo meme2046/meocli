@@ -1,6 +1,6 @@
 {
   "name": "meocli",
-  "description": "node CLI generated with oclif, Integrate Prettier",
+  "description": "Node CLI generated with oclif, Integrate Prettier",
   "version": "0.1.3",
   "author": "meme2046",
   "bin": {
