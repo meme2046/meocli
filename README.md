@@ -10,9 +10,10 @@ A new CLI generated with oclif
 
 - [meocli](#meocli)
 - [Dev](#dev)
-- [安装使用](#安装使用)
+- [Prettier](#prettier)
+- [me prettier reset --verbose # 重置Prettier配置](#me-prettier-reset---verbose--重置prettier配置)
+- [Prettier.Vscode](#prettiervscode)
 - [Publish](#publish)
-- [Vscode](#vscode)
 - [Usage](#usage)
 - [Commands](#commands)
 <!-- tocstop -->
@@ -38,7 +39,7 @@ $ pnpm run dev prettier ./tmp/test.svg --config=built_in --ignore=auto
 ```sh-session
 $ pnpm install -g meocli
 $ me prettier --help
-# me prettier reset --verbose # 重置Prettier配置
+$ me prettier reset --verbose # 重置Prettier配置
 $ me prettier ./test.svg --verbose # 使用prettier格式化文件
 ```
 
@@ -119,7 +120,7 @@ $ npm install -g meocli
 $ me COMMAND
 running command...
 $ me (--version)
-meocli/0.1.1 win32-x64 node-v24.12.0
+meocli/0.1.2 win32-x64 node-v24.12.0
 $ me --help [COMMAND]
 USAGE
   $ me COMMAND
@@ -146,6 +147,7 @@ USAGE
 - [`me plugins unlink [PLUGIN]`](#me-plugins-unlink-plugin)
 - [`me plugins update`](#me-plugins-update)
 - [`me prettier FILEPATH`](#me-prettier-filepath)
+- [`me prettier reset`](#me-prettier-reset)
 
 ## `me hello PERSON`
 
@@ -169,7 +171,7 @@ EXAMPLES
   hello friend from oclif! (./src/commands/hello/index.ts)
 ```
 
-_See code: [src/commands/hello/index.ts](https://github.com/meme2046/meocli/blob/v0.1.1/src/commands/hello/index.ts)_
+_See code: [src/commands/hello/index.ts](https://github.com/meme2046/meocli/blob/v0.1.2/src/commands/hello/index.ts)_
 
 ## `me hello world`
 
@@ -187,7 +189,7 @@ EXAMPLES
   hello world! (./src/commands/hello/world.ts)
 ```
 
-_See code: [src/commands/hello/world.ts](https://github.com/meme2046/meocli/blob/v0.1.1/src/commands/hello/world.ts)_
+_See code: [src/commands/hello/world.ts](https://github.com/meme2046/meocli/blob/v0.1.2/src/commands/hello/world.ts)_
 
 ## `me help [COMMAND]`
 
@@ -501,7 +503,7 @@ _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/
 
 ## `me prettier FILEPATH`
 
-Use Prettier to format file
+Use Prettier to format file,集成:『@prettier/plugin-xml、prettier-plugin-toml、prettier-plugin-sh』、prettier-plugin-nginx
 
 ```
 USAGE
@@ -518,14 +520,35 @@ FLAGS
                         auto:自动检测ignore file
 
 DESCRIPTION
-  Use Prettier to format file
+  Use Prettier to format
+  file,集成:『@prettier/plugin-xml、prettier-plugin-toml、prettier-plugin-sh』、prettier-plugin-nginx
 
 EXAMPLES
-  $ me prettier ./tests/test.json
+  $ me prettier ./tests/test.svg
 
   $ me prettier ./src/file.ts --config ./.prettierrc.yaml
 ```
 
-_See code: [src/commands/prettier/index.ts](https://github.com/meme2046/meocli/blob/v0.1.1/src/commands/prettier/index.ts)_
+_See code: [src/commands/prettier/index.ts](https://github.com/meme2046/meocli/blob/v0.1.2/src/commands/prettier/index.ts)_
+
+## `me prettier reset`
+
+reset prettier config and ignore file,『~/.meocli/.prettierrc.yaml, ~/.meocli/.prettierignore』
+
+```
+USAGE
+  $ me prettier reset [-v]
+
+FLAGS
+  -v, --verbose  Show verbose output
+
+DESCRIPTION
+  reset prettier config and ignore file,『~/.meocli/.prettierrc.yaml, ~/.meocli/.prettierignore』
+
+EXAMPLES
+  $ me prettier reset --verbose
+```
+
+_See code: [src/commands/prettier/reset.ts](https://github.com/meme2046/meocli/blob/v0.1.2/src/commands/prettier/reset.ts)_
 
 <!-- commandsstop -->
