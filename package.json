@@ -72,7 +72,7 @@
   "repository": "meme2046/meocli",
   "scripts": {
     "ncu": "ncu --target minor --reject webpack,shx",
-    "dev": "node --no-deprecation --no-warnings --loader ts-node/esm --disable-warning=ExperimentalWarning bin/dev.js",
+    "dev": "node --no-deprecation --no-warnings --disable-warning=ExperimentalWarning --loader ts-node/esm bin/dev.js",
     "prod": "node bin/run.js",
     "build": "shx rm -rf dist && tsc -b",
     "lint": "eslint",

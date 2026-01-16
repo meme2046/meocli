@@ -7,13 +7,14 @@ A new CLI generated with oclif
 [![Downloads/week](https://img.shields.io/npm/dw/meocli.svg)](https://npmjs.org/package/meocli)
 
 <!-- toc -->
-* [meocli](#meocli)
-* [Dev](#dev)
-* [安装使用](#安装使用)
-* [Publish](#publish)
-* [Vscode](#vscode)
-* [Usage](#usage)
-* [Commands](#commands)
+
+- [meocli](#meocli)
+- [Dev](#dev)
+- [安装使用](#安装使用)
+- [Publish](#publish)
+- [Vscode](#vscode)
+- [Usage](#usage)
+- [Commands](#commands)
 <!-- tocstop -->
 
 # Dev
@@ -32,27 +33,19 @@ $ pnpm run dev prettier ./tmp/test.json --config=auto --ignore=auto
 $ pnpm run dev prettier ./tmp/test.svg --config=built_in --ignore=auto
 ```
 
-# 安装使用
+# Prettier
 
 ```sh-session
 $ pnpm install -g meocli
-$ me --version
+$ me prettier --help
+# me prettier reset --verbose # 重置Prettier配置
 $ me prettier ./test.svg --verbose # 使用prettier格式化文件
-$ me hello world
-$ me hello foo -f bar
 ```
 
-# Publish
-
-```sh-session
-$ pnpm login
-$ pnpm build
-$ pnpm publish
-```
-
-# Vscode
+# Prettier.Vscode
 
 1. `pnpm install -g meocli`
+
 2. 配合vscode插件:[emeraldwalk.RunOnSave](https://marketplace.visualstudio.com/items?itemName=emeraldwalk.RunOnSave) 保存时自动格式化
 3. 配置 `.vscode/settings.json` 添加 `"emeraldwalk.runonsave"` 节点,以下为参考配置⤵︎
 
@@ -103,9 +96,18 @@ $ pnpm publish
 }
 ```
 
+# Publish
+
+```sh-session
+$ pnpm login
+$ pnpm build
+$ pnpm publish
+```
+
 # Usage
 
 <!-- usage -->
+
 ```sh-session
 $ npm install -g meocli
 $ me COMMAND
@@ -117,25 +119,27 @@ USAGE
   $ me COMMAND
 ...
 ```
+
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-* [`me hello PERSON`](#me-hello-person)
-* [`me hello world`](#me-hello-world)
-* [`me help [COMMAND]`](#me-help-command)
-* [`me plugins`](#me-plugins)
-* [`me plugins add PLUGIN`](#me-plugins-add-plugin)
-* [`me plugins:inspect PLUGIN...`](#me-pluginsinspect-plugin)
-* [`me plugins install PLUGIN`](#me-plugins-install-plugin)
-* [`me plugins link PATH`](#me-plugins-link-path)
-* [`me plugins remove [PLUGIN]`](#me-plugins-remove-plugin)
-* [`me plugins reset`](#me-plugins-reset)
-* [`me plugins uninstall [PLUGIN]`](#me-plugins-uninstall-plugin)
-* [`me plugins unlink [PLUGIN]`](#me-plugins-unlink-plugin)
-* [`me plugins update`](#me-plugins-update)
-* [`me prettier FILEPATH`](#me-prettier-filepath)
+
+- [`me hello PERSON`](#me-hello-person)
+- [`me hello world`](#me-hello-world)
+- [`me help [COMMAND]`](#me-help-command)
+- [`me plugins`](#me-plugins)
+- [`me plugins add PLUGIN`](#me-plugins-add-plugin)
+- [`me plugins:inspect PLUGIN...`](#me-pluginsinspect-plugin)
+- [`me plugins install PLUGIN`](#me-plugins-install-plugin)
+- [`me plugins link PATH`](#me-plugins-link-path)
+- [`me plugins remove [PLUGIN]`](#me-plugins-remove-plugin)
+- [`me plugins reset`](#me-plugins-reset)
+- [`me plugins uninstall [PLUGIN]`](#me-plugins-uninstall-plugin)
+- [`me plugins unlink [PLUGIN]`](#me-plugins-unlink-plugin)
+- [`me plugins update`](#me-plugins-update)
+- [`me prettier FILEPATH`](#me-prettier-filepath)
 
 ## `me hello PERSON`
 
@@ -517,4 +521,5 @@ EXAMPLES
 ```
 
 _See code: [src/commands/prettier/index.ts](https://github.com/meme2046/meocli/blob/v0.1.1/src/commands/prettier/index.ts)_
+
 <!-- commandsstop -->
