@@ -90,6 +90,12 @@ $ me prettier ./test.svg --verbose # 使用prettier格式化文件
         "match": "Dockerfile$",
         "isAsync": true,
         "cmd": "me prettier ${file}"
+      },
+      {
+        // nushell
+        "match": "\\.(nu)$",
+        "isAsync": true,
+        "cmd": "topiary format ${file}"
       }
     ]
   }
