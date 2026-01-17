@@ -166,7 +166,7 @@ export default class Prettier extends Command {
       this.warn(stderr);
     }
 
-    this.log(`Successfully formatted ${filePath}`);
+    this.log(`✔ Formatted ${filePath}`);
   }
 
   private detectPackageManager(): string {
