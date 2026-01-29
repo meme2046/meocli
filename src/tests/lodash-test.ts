@@ -1,5 +1,5 @@
 import lodash from "lodash";
-const { isNaN, isNumber } = lodash;
+const { flatMap, isNaN, isNumber, round } = lodash;
 
 console.log(isNumber("123"));
 console.log(isNumber(null));
@@ -34,3 +34,5 @@ const filteredB2 = lodash.pickBy(
 const result2 = { ...A2, ...filteredB2 };
 
 console.log(result2); // 输出：{ a: '1', b: '2', c: '33' }
+console.log(round(123, -1));
+console.log(flatMap([1, 2, 3], (num) => [num, num * 2]));
