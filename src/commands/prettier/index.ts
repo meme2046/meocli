@@ -34,6 +34,7 @@ export default class Prettier extends Command {
       required: false,
     }),
     ignore: Flags.string({
+      char: "i",
       default: "built_in",
       description:
         "built_in:使用内置规则(默认值), 传入路径则是使用自定义规则, auto:自动检测ignore file",

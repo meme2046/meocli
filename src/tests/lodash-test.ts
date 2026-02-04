@@ -1,5 +1,5 @@
 import lodash from "lodash";
-const { flatMap, isNaN, isNumber, round } = lodash;
+const { flatMap, isNaN, isNumber, map, round, toNumber } = lodash;
 
 console.log(isNumber("123"));
 console.log(isNumber(null));
@@ -36,3 +36,20 @@ const result2 = { ...A2, ...filteredB2 };
 console.log(result2); // 输出：{ a: '1', b: '2', c: '33' }
 console.log(round(123, -1));
 console.log(flatMap([1, 2, 3], (num) => [num, num * 2]));
+
+console.log(Number(""));
+if (Number("")) {
+  console.log("真");
+} else {
+  console.log("假");
+}
+
+// 原始数组
+const strArr = ["1", "2", "3"];
+
+// 转换为数字数组
+const numArr = map(strArr, Number);
+console.log(numArr);
+
+console.log(Number(""));
+console.log(isNumber(toNumber("")));

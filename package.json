@@ -8,7 +8,7 @@
   },
   "bugs": "https://github.com/meme2046/meocli/issues",
   "dependencies": {
-    "@oclif/core": "^4",
+    "@oclif/core": "^4.8.0",
     "@oclif/plugin-help": "^6",
     "@oclif/plugin-plugins": "^5",
     "@prettier/plugin-xml": "^3.4.2",
@@ -39,7 +39,7 @@
     "eslint-config-oclif": "^6",
     "eslint-config-prettier": "^10",
     "mocha": "^10",
-    "npm-check-updates": "^19.3.1",
+    "npm-check-updates": "^19.3.2",
     "oclif": "^4",
     "shx": "^0.3.3",
     "ts-node": "^10",
@@ -80,6 +80,7 @@
   "repository": "meme2046/meocli",
   "scripts": {
     "ncu": "ncu --target minor --reject webpack,shx",
+    "tsv": "tsc -v",
     "dev": "node --no-deprecation --no-warnings --disable-warning=ExperimentalWarning --loader ts-node/esm bin/dev.js",
     "prod": "node bin/run.js",
     "build": "shx rm -rf dist && tsc -b",

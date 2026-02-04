@@ -1,25 +1,28 @@
 {
+  "explorer.confirmDelete": true,
   "editor.fontSize": 13,
   "editor.fontFamily": "Consolas,'Courier New',monospace",
   "terminal.integrated.fontFamily": "FiraCode Nerd Font Mono",
   "terminal.integrated.fontSize": 12,
+  "editor.colorDecorators": true,
+  "editor.defaultColorDecorators": "always",
+  "tailwindCSS.colorDecorators": true,
   // 📝powershelel配置
   "terminal.integrated.profiles.windows": {
     "pwsh": {
-      "path": "c:/scoop/shims/pwsh.exe",
+      "path": "c:/.scoop/shims/pwsh.exe",
       "args": [],
       "icon": "terminal-powershell"
     },
     "nu": {
-      "path": "c:/scoop/shims/nu.exe",
+      "path": "c:/.scoop/shims/nu.exe",
       "args": []
     }
   },
-  "window.commandCenter": false,
   "git.autofetch": true,
   "terminal.integrated.defaultProfile.windows": "nu",
   "terminal.integrated.automationProfile.windows": {
-    "path": "c:/scoop/shims/pwsh.exe",
+    "path": "c:/.scoop/shims/pwsh.exe",
     "args": []
   },
   // 终端日志级别
@@ -37,7 +40,6 @@
       "source.organizeImports.ruff": "explicit" // 保存时自动排序 import 语句
     }
   },
-  "python.analysis.typeCheckingMode": "standard",
   "python.envFile": "${workspaceFolder}/.env",
   "terminal.integrated.env.windows": {
     "PYTHONPATH": "${workspaceFolder}"
@@ -61,7 +63,7 @@
     "commands": [
       {
         // prettier
-        "match": "\\.(ts|js|json|html|css|graphql|gql|yaml|yml|md)$",
+        "match": "\\.(txt|ts|js|jsx|tsx|json|html|css|graphql|gql|yaml|yml|md)$",
         "notMatch": "node_modules/*$",
         "isAsync": true,
         "cmd": "me prettier ${file}"
@@ -96,12 +98,6 @@
         "match": "Dockerfile$",
         "isAsync": true,
         "cmd": "me prettier ${file}"
-      },
-      {
-        // nushell
-        "match": "\\.(nu)$",
-        "isAsync": true,
-        "cmd": "topiary format ${file}"
       }
     ]
   },
@@ -139,11 +135,11 @@
   "code-runner.clearPreviousOutput": true,
   "code-runner.executorMap": {
     "python": "set PYTHONPATH=. && set PYTHONIOENCODING=utf-8 && $pythonPath $fullFileName",
-    "typescript": "node --no-deprecation --no-warnings --loader ts-node/esm --disable-warning=ExperimentalWarning"
+    "typescript": "node --loader ts-node/esm --disable-warning=ExperimentalWarning"
   },
   "json.format.enable": true,
   "workbench.iconTheme": "vscode-icons",
-  "workbench.colorTheme": "GitHub Light Colorblind (Beta)",
+  "workbench.colorTheme": "Monokai Dimmed",
   "terminal.integrated.enableMultiLinePasteWarning": "auto",
   // 📝vscode自带css规则配置
   "css.validate": true,
