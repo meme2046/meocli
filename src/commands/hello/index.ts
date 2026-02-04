@@ -1,7 +1,5 @@
 import { Args, Command, Flags } from "@oclif/core";
 
-// module "D:/.github/meme2046/meocli/node_modules/.pnpm/@oclif+core@4.8.0/node_modules/@oclif/core/lib/interfaces/parser"
-
 export default class Hello extends Command {
   static args = {
     person: Args.string({
