@@ -48,7 +48,7 @@ export default class Env extends Command {
     }).parsed;
 
     if (envConfig) {
-      this.debug(`✔『${filePath}』\n`, envConfig);
+      this.debug(`✔ 『${filePath}』\n`, envConfig);
     }
 
     return envConfig;

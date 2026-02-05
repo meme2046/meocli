@@ -7,14 +7,13 @@ Node CLI generated with oclif, Integrate Prettier
 [![Downloads/week](https://img.shields.io/npm/dw/meocli.svg)](https://npmjs.org/package/meocli)
 
 <!-- toc -->
-
-- [meocli](#meocli)
-- [Dev](#dev)
-- [Prettier](#prettier)
-- [Prettier.Vscode](#prettiervscode)
-- [Publish](#publish)
-- [Usage](#usage)
-- [Commands](#commands)
+* [meocli](#meocli)
+* [Dev](#dev)
+* [Prettier](#prettier)
+* [Prettier.Vscode](#prettiervscode)
+* [Publish](#publish)
+* [Usage](#usage)
+* [Commands](#commands)
 <!-- tocstop -->
 
 # Dev
@@ -112,7 +111,6 @@ $ pnpm publish
 # Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g meocli
 $ me COMMAND
@@ -124,29 +122,27 @@ USAGE
   $ me COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-
-- [`me env [FILEPATH]`](#me-env-filepath)
-- [`me hello PERSON`](#me-hello-person)
-- [`me hello world`](#me-hello-world)
-- [`me help [COMMAND]`](#me-help-command)
-- [`me plugins`](#me-plugins)
-- [`me plugins add PLUGIN`](#me-plugins-add-plugin)
-- [`me plugins:inspect PLUGIN...`](#me-pluginsinspect-plugin)
-- [`me plugins install PLUGIN`](#me-plugins-install-plugin)
-- [`me plugins link PATH`](#me-plugins-link-path)
-- [`me plugins remove [PLUGIN]`](#me-plugins-remove-plugin)
-- [`me plugins reset`](#me-plugins-reset)
-- [`me plugins uninstall [PLUGIN]`](#me-plugins-uninstall-plugin)
-- [`me plugins unlink [PLUGIN]`](#me-plugins-unlink-plugin)
-- [`me plugins update`](#me-plugins-update)
-- [`me prettier FILEPATH`](#me-prettier-filepath)
-- [`me prettier reset`](#me-prettier-reset)
+* [`me env [FILEPATH]`](#me-env-filepath)
+* [`me hello PERSON`](#me-hello-person)
+* [`me hello world`](#me-hello-world)
+* [`me help [COMMAND]`](#me-help-command)
+* [`me plugins`](#me-plugins)
+* [`me plugins add PLUGIN`](#me-plugins-add-plugin)
+* [`me plugins:inspect PLUGIN...`](#me-pluginsinspect-plugin)
+* [`me plugins install PLUGIN`](#me-plugins-install-plugin)
+* [`me plugins link PATH`](#me-plugins-link-path)
+* [`me plugins remove [PLUGIN]`](#me-plugins-remove-plugin)
+* [`me plugins reset`](#me-plugins-reset)
+* [`me plugins uninstall [PLUGIN]`](#me-plugins-uninstall-plugin)
+* [`me plugins unlink [PLUGIN]`](#me-plugins-unlink-plugin)
+* [`me plugins update`](#me-plugins-update)
+* [`me prettier FILEPATH`](#me-prettier-filepath)
+* [`me prettier reset`](#me-prettier-reset)
 
 ## `me env [FILEPATH]`
 
@@ -572,5 +568,4 @@ EXAMPLES
 ```
 
 _See code: [src/commands/prettier/reset.ts](https://github.com/meme2046/meocli/blob/v0.1.5/src/commands/prettier/reset.ts)_
-
 <!-- commandsstop -->
