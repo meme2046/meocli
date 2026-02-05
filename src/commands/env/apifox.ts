@@ -4,7 +4,7 @@ import { existsSync } from "node:fs";
 
 import { require } from "../../lib/commonjs.js";
 
-export default class Env extends Command {
+export default class Apifox extends Command {
   static args = {
     filePath: Args.string({
       default: ".env",
@@ -12,7 +12,7 @@ export default class Env extends Command {
       required: false,
     }),
   };
-  static description = "读取.env环境变量并打印(json格式)";
+  static description = "读取.env环境变量,输出apifox需要的csv格式";
   static examples = [
     `
     <%= config.bin %> <%= command.id %> .env
@@ -27,7 +27,7 @@ export default class Env extends Command {
   };
 
   async run(): Promise<dotenv.DotenvParseOutput | undefined> {
-    const { args, flags } = await this.parse(Env);
+    const { args, flags } = await this.parse(Apifox);
 
     const { filePath } = args;
     const { verbose } = flags;
@@ -38,7 +38,7 @@ export default class Env extends Command {
     }
 
     if (verbose) {
-      process.env.DEBUG = "oclif:me:env";
+      process.env.DEBUG = "oclif:me:env:apifox";
       require("debug").enable(process.env.DEBUG);
     }
 
@@ -47,9 +47,11 @@ export default class Env extends Command {
     }).parsed;
 
     if (envConfig) {
-      this.debug(`✔ 『${filePath}』\n`);
+      this.debug(`✔ 『${filePath}』`);
 
-      this.log(JSON.stringify(envConfig, null, 2));
+      for (const [key, value] of Object.entries(envConfig || {})) {
+        console.log(`${key},default,,false,${value},`);
+      }
     }
 
     return envConfig;
