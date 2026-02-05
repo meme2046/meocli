@@ -9,15 +9,17 @@ export default class Hello extends Command {
   };
   static description = "Say hello";
   static examples = [
-    `<%= config.bin %> <%= command.id %> friend --from oclif
-hello friend from oclif! (./src/commands/hello/index.ts)
-`,
+    `
+    <%= config.bin %> <%= command.id %> friend --from oclif
+    hello friend --from oclif (./src/commands/hello/index.ts)
+    `,
   ];
   static flags = {
     from: Flags.string({
       char: "f",
+      default: "meocli",
       description: "Who is saying hello",
-      required: true,
+      required: false,
     }),
   };
 
@@ -25,7 +27,7 @@ hello friend from oclif! (./src/commands/hello/index.ts)
     const { args, flags } = await this.parse(Hello);
 
     this.log(
-      `hello ${args.person} from ${flags.from}! (./src/commands/hello/index.ts)`,
+      `✔ Hello ${args.person} from ${flags.from}! (./src/commands/hello/index.ts)`,
     );
   }
 }
