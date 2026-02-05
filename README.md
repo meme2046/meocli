@@ -7,13 +7,14 @@ Node CLI generated with oclif, Integrate Prettier
 [![Downloads/week](https://img.shields.io/npm/dw/meocli.svg)](https://npmjs.org/package/meocli)
 
 <!-- toc -->
-* [meocli](#meocli)
-* [Dev](#dev)
-* [Prettier](#prettier)
-* [Prettier.Vscode](#prettiervscode)
-* [Publish](#publish)
-* [Usage](#usage)
-* [Commands](#commands)
+
+- [meocli](#meocli)
+- [Dev](#dev)
+- [Prettier](#prettier)
+- [Prettier.Vscode](#prettiervscode)
+- [Publish](#publish)
+- [Usage](#usage)
+- [Commands](#commands)
 <!-- tocstop -->
 
 # Dev
@@ -23,9 +24,8 @@ Node CLI generated with oclif, Integrate Prettier
 $ pnpm ncu # 检查更新
 $ pnpm ncu -u # 升级更新
 <!-- demo -->
-$ pnpm run dev hello world
-$ pnpm run prod hello world
-$ pnpm run dev hello foo -f bar
+$ pnpm run dev hello foo
+$ pnpm run prod hello foo -f bar
 <!-- prettier -->
 $ pnpm run dev prettier ./tmp/test.svg --verbose
 $ pnpm run dev prettier ./tmp/test.json --config=auto --ignore=auto
@@ -112,37 +112,64 @@ $ pnpm publish
 # Usage
 
 <!-- usage -->
+
 ```sh-session
 $ npm install -g meocli
 $ me COMMAND
 running command...
 $ me (--version)
-meocli/0.1.4 win32-x64 node-v24.12.0
+meocli/0.1.5 win32-x64 node-v24.13.0
 $ me --help [COMMAND]
 USAGE
   $ me COMMAND
 ...
 ```
+
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-* [`me hello PERSON`](#me-hello-person)
-* [`me hello world`](#me-hello-world)
-* [`me help [COMMAND]`](#me-help-command)
-* [`me plugins`](#me-plugins)
-* [`me plugins add PLUGIN`](#me-plugins-add-plugin)
-* [`me plugins:inspect PLUGIN...`](#me-pluginsinspect-plugin)
-* [`me plugins install PLUGIN`](#me-plugins-install-plugin)
-* [`me plugins link PATH`](#me-plugins-link-path)
-* [`me plugins remove [PLUGIN]`](#me-plugins-remove-plugin)
-* [`me plugins reset`](#me-plugins-reset)
-* [`me plugins uninstall [PLUGIN]`](#me-plugins-uninstall-plugin)
-* [`me plugins unlink [PLUGIN]`](#me-plugins-unlink-plugin)
-* [`me plugins update`](#me-plugins-update)
-* [`me prettier FILEPATH`](#me-prettier-filepath)
-* [`me prettier reset`](#me-prettier-reset)
+
+- [`me env [FILEPATH]`](#me-env-filepath)
+- [`me hello PERSON`](#me-hello-person)
+- [`me hello world`](#me-hello-world)
+- [`me help [COMMAND]`](#me-help-command)
+- [`me plugins`](#me-plugins)
+- [`me plugins add PLUGIN`](#me-plugins-add-plugin)
+- [`me plugins:inspect PLUGIN...`](#me-pluginsinspect-plugin)
+- [`me plugins install PLUGIN`](#me-plugins-install-plugin)
+- [`me plugins link PATH`](#me-plugins-link-path)
+- [`me plugins remove [PLUGIN]`](#me-plugins-remove-plugin)
+- [`me plugins reset`](#me-plugins-reset)
+- [`me plugins uninstall [PLUGIN]`](#me-plugins-uninstall-plugin)
+- [`me plugins unlink [PLUGIN]`](#me-plugins-unlink-plugin)
+- [`me plugins update`](#me-plugins-update)
+- [`me prettier FILEPATH`](#me-prettier-filepath)
+- [`me prettier reset`](#me-prettier-reset)
+
+## `me env [FILEPATH]`
+
+读取.env环境变量,返回DotenvParseOutput:{[name: string]: string;}
+
+```
+USAGE
+  $ me env [FILEPATH] [-v]
+
+ARGUMENTS
+  [FILEPATH]  [default: .env] .env文件路径,不传默认值为.env
+
+FLAGS
+  -v, --verbose  Show verbose output
+
+DESCRIPTION
+  读取.env环境变量,返回DotenvParseOutput:{[name: string]: string;}
+
+EXAMPLES
+      me env .env
+```
+
+_See code: [src/commands/env/index.ts](https://github.com/meme2046/meocli/blob/v0.1.5/src/commands/env/index.ts)_
 
 ## `me hello PERSON`
 
@@ -150,23 +177,23 @@ Say hello
 
 ```
 USAGE
-  $ me hello PERSON -f <value>
+  $ me hello PERSON [-f <value>]
 
 ARGUMENTS
   PERSON  Person to say hello to
 
 FLAGS
-  -f, --from=<value>  (required) Who is saying hello
+  -f, --from=<value>  [default: meocli] Who is saying hello
 
 DESCRIPTION
   Say hello
 
 EXAMPLES
-  $ me hello friend --from oclif
-  hello friend from oclif! (./src/commands/hello/index.ts)
+      me hello friend --from oclif
+      hello friend --from oclif (./src/commands/hello/index.ts)
 ```
 
-_See code: [src/commands/hello/index.ts](https://github.com/meme2046/meocli/blob/v0.1.4/src/commands/hello/index.ts)_
+_See code: [src/commands/hello/index.ts](https://github.com/meme2046/meocli/blob/v0.1.5/src/commands/hello/index.ts)_
 
 ## `me hello world`
 
@@ -184,7 +211,7 @@ EXAMPLES
   hello world! (./src/commands/hello/world.ts)
 ```
 
-_See code: [src/commands/hello/world.ts](https://github.com/meme2046/meocli/blob/v0.1.4/src/commands/hello/world.ts)_
+_See code: [src/commands/hello/world.ts](https://github.com/meme2046/meocli/blob/v0.1.5/src/commands/hello/world.ts)_
 
 ## `me help [COMMAND]`
 
@@ -204,7 +231,7 @@ DESCRIPTION
   Display help for me.
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.2.36/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.2.37/src/commands/help.ts)_
 
 ## `me plugins`
 
@@ -227,7 +254,7 @@ EXAMPLES
   $ me plugins
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.54/src/commands/plugins/index.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.55/src/commands/plugins/index.ts)_
 
 ## `me plugins add PLUGIN`
 
@@ -301,7 +328,7 @@ EXAMPLES
   $ me plugins inspect myplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.54/src/commands/plugins/inspect.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.55/src/commands/plugins/inspect.ts)_
 
 ## `me plugins install PLUGIN`
 
@@ -350,7 +377,7 @@ EXAMPLES
     $ me plugins install someuser/someplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.54/src/commands/plugins/install.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.55/src/commands/plugins/install.ts)_
 
 ## `me plugins link PATH`
 
@@ -381,7 +408,7 @@ EXAMPLES
   $ me plugins link myplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.54/src/commands/plugins/link.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.55/src/commands/plugins/link.ts)_
 
 ## `me plugins remove [PLUGIN]`
 
@@ -422,7 +449,7 @@ FLAGS
   --reinstall  Reinstall all plugins after uninstalling.
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.54/src/commands/plugins/reset.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.55/src/commands/plugins/reset.ts)_
 
 ## `me plugins uninstall [PLUGIN]`
 
@@ -450,7 +477,7 @@ EXAMPLES
   $ me plugins uninstall myplugin
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.54/src/commands/plugins/uninstall.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.55/src/commands/plugins/uninstall.ts)_
 
 ## `me plugins unlink [PLUGIN]`
 
@@ -494,7 +521,7 @@ DESCRIPTION
   Update installed plugins.
 ```
 
-_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.54/src/commands/plugins/update.ts)_
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.55/src/commands/plugins/update.ts)_
 
 ## `me prettier FILEPATH`
 
@@ -502,7 +529,7 @@ Use Prettier to format file,集成:『@prettier/plugin-xml、prettier-plugin-tom
 
 ```
 USAGE
-  $ me prettier FILEPATH [-c <value>] [--ignore <value>] [-v]
+  $ me prettier FILEPATH [-c <value>] [-i <value>] [-v]
 
 ARGUMENTS
   FILEPATH  file path that need to be formatted by Prettier
@@ -510,9 +537,9 @@ ARGUMENTS
 FLAGS
   -c, --config=<value>  [default: built_in] built_in:使用内置规则(默认值), 传入路径则是使用自定义配置,
                         auto:自动检测config file
-  -v, --verbose         Show verbose output
-      --ignore=<value>  [default: built_in] built_in:使用内置规则(默认值), 传入路径则是使用自定义规则,
+  -i, --ignore=<value>  [default: built_in] built_in:使用内置规则(默认值), 传入路径则是使用自定义规则,
                         auto:自动检测ignore file
+  -v, --verbose         Show verbose output
 
 DESCRIPTION
   Use Prettier to format
@@ -524,7 +551,7 @@ EXAMPLES
   $ me prettier ./src/file.ts --config ./.prettierrc.yaml
 ```
 
-_See code: [src/commands/prettier/index.ts](https://github.com/meme2046/meocli/blob/v0.1.4/src/commands/prettier/index.ts)_
+_See code: [src/commands/prettier/index.ts](https://github.com/meme2046/meocli/blob/v0.1.5/src/commands/prettier/index.ts)_
 
 ## `me prettier reset`
 
@@ -544,5 +571,6 @@ EXAMPLES
   $ me prettier reset --verbose
 ```
 
-_See code: [src/commands/prettier/reset.ts](https://github.com/meme2046/meocli/blob/v0.1.4/src/commands/prettier/reset.ts)_
+_See code: [src/commands/prettier/reset.ts](https://github.com/meme2046/meocli/blob/v0.1.5/src/commands/prettier/reset.ts)_
+
 <!-- commandsstop -->
