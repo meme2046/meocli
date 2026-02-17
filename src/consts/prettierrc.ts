@@ -105,7 +105,7 @@ export const DEFAULT_CONFIG = {
   wrapParameters: false, // nginx
   xmlSelfClosingSpace: true, // xml
   xmlSortAttributesByKey: true, // xml
-  xmlWhitespaceSensitivity: "strict", // xml
+  xmlWhitespaceSensitivity: "ignore", // xml
 };
 
 // 默认的 Prettier 插件列表
