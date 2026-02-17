@@ -116,7 +116,7 @@ $ npm install -g meocli
 $ me COMMAND
 running command...
 $ me (--version)
-meocli/0.1.5 win32-x64 node-v24.13.0
+meocli/0.1.6 win32-x64 node-v24.13.1
 $ me --help [COMMAND]
 USAGE
   $ me COMMAND
@@ -128,6 +128,7 @@ USAGE
 
 <!-- commands -->
 * [`me env [FILEPATH]`](#me-env-filepath)
+* [`me env apifox [FILEPATH]`](#me-env-apifox-filepath)
 * [`me hello PERSON`](#me-hello-person)
 * [`me hello world`](#me-hello-world)
 * [`me help [COMMAND]`](#me-help-command)
@@ -146,7 +147,7 @@ USAGE
 
 ## `me env [FILEPATH]`
 
-读取.env环境变量,返回DotenvParseOutput:{[name: string]: string;}
+读取.env环境变量并打印(json格式)
 
 ```
 USAGE
@@ -159,13 +160,36 @@ FLAGS
   -v, --verbose  Show verbose output
 
 DESCRIPTION
-  读取.env环境变量,返回DotenvParseOutput:{[name: string]: string;}
+  读取.env环境变量并打印(json格式)
 
 EXAMPLES
       me env .env
 ```
 
-_See code: [src/commands/env/index.ts](https://github.com/meme2046/meocli/blob/v0.1.5/src/commands/env/index.ts)_
+_See code: [src/commands/env/index.ts](https://github.com/meme2046/meocli/blob/v0.1.6/src/commands/env/index.ts)_
+
+## `me env apifox [FILEPATH]`
+
+读取.env环境变量,输出apifox需要的csv格式
+
+```
+USAGE
+  $ me env apifox [FILEPATH] [-v]
+
+ARGUMENTS
+  [FILEPATH]  [default: .env] .env文件路径,不传默认值为.env
+
+FLAGS
+  -v, --verbose  Show verbose output
+
+DESCRIPTION
+  读取.env环境变量,输出apifox需要的csv格式
+
+EXAMPLES
+      me env apifox .env
+```
+
+_See code: [src/commands/env/apifox.ts](https://github.com/meme2046/meocli/blob/v0.1.6/src/commands/env/apifox.ts)_
 
 ## `me hello PERSON`
 
@@ -189,7 +213,7 @@ EXAMPLES
       hello friend --from oclif (./src/commands/hello/index.ts)
 ```
 
-_See code: [src/commands/hello/index.ts](https://github.com/meme2046/meocli/blob/v0.1.5/src/commands/hello/index.ts)_
+_See code: [src/commands/hello/index.ts](https://github.com/meme2046/meocli/blob/v0.1.6/src/commands/hello/index.ts)_
 
 ## `me hello world`
 
@@ -207,7 +231,7 @@ EXAMPLES
   hello world! (./src/commands/hello/world.ts)
 ```
 
-_See code: [src/commands/hello/world.ts](https://github.com/meme2046/meocli/blob/v0.1.5/src/commands/hello/world.ts)_
+_See code: [src/commands/hello/world.ts](https://github.com/meme2046/meocli/blob/v0.1.6/src/commands/hello/world.ts)_
 
 ## `me help [COMMAND]`
 
@@ -547,7 +571,7 @@ EXAMPLES
   $ me prettier ./src/file.ts --config ./.prettierrc.yaml
 ```
 
-_See code: [src/commands/prettier/index.ts](https://github.com/meme2046/meocli/blob/v0.1.5/src/commands/prettier/index.ts)_
+_See code: [src/commands/prettier/index.ts](https://github.com/meme2046/meocli/blob/v0.1.6/src/commands/prettier/index.ts)_
 
 ## `me prettier reset`
 
@@ -567,5 +591,5 @@ EXAMPLES
   $ me prettier reset --verbose
 ```
 
-_See code: [src/commands/prettier/reset.ts](https://github.com/meme2046/meocli/blob/v0.1.5/src/commands/prettier/reset.ts)_
+_See code: [src/commands/prettier/reset.ts](https://github.com/meme2046/meocli/blob/v0.1.6/src/commands/prettier/reset.ts)_
 <!-- commandsstop -->
