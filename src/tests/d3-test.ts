@@ -15,4 +15,4 @@ console.log(formatNumberWithUnit(1));
 console.log(formatNumberWithUnit(150_123)); // 输出: 150.1k
 console.log(formatNumberWithUnit(23_200_000)); // 输出: 23.2M
 console.log(formatNumberWithUnit(1_600_000_000)); // 输出: 1.6B
-console.log(formatNumberWithUnit(123_456, 2)); // 输出: 123.46k（自定义精度）
+console.log(formatNumberWithUnit(123_456, 2)); // 输出: 124.46k（自定义精度）
