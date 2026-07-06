@@ -102,7 +102,7 @@ export default class ClashModify extends Command {
           }
 
           this.log(
-            `✅ 已添加 fake-ip-filter 域名: ${fakeIpFilterDomains.join(", ")}`,
+            `✓ 已添加 fake-ip-filter 域名:\n ${JSON.stringify(fakeIpFilterDomains)}\n`,
           );
         }
       },
@@ -110,8 +110,28 @@ export default class ClashModify extends Command {
       FunctionDeclaration: (path) => {
         // 修改 injectRuleProviders 函数内的 rule-providers
         if (path.node.id?.name === "injectRuleProviders") {
-          // 直接在函数体末尾添加所有 rule-providers
-          for (const [name, config] of Object.entries(ruleProviders)) {
+          // 找到 if (!config["rule-providers"]) config["rule-providers"] = {}; 的位置
+          let insertIndex = 0;
+          for (let i = 0; i < path.node.body.body.length; i++) {
+            const stmt = path.node.body.body[i];
+            // 匹配 if 语句
+            if (
+              stmt.type === "IfStatement" &&
+              stmt.test.type === "UnaryExpression" &&
+              stmt.test.operator === "!" &&
+              stmt.test.argument.type === "MemberExpression" &&
+              stmt.test.argument.object.type === "Identifier" &&
+              stmt.test.argument.object.name === "config" &&
+              stmt.test.argument.property.type === "StringLiteral" &&
+              stmt.test.argument.property.value === "rule-providers"
+            ) {
+              insertIndex = i + 1; // 在 if 语句之后插入
+              break;
+            }
+          }
+
+          // 在找到的位置之后插入新的赋值语句
+          for (const [name, cfg] of Object.entries(ruleProviders)) {
             const newAssignment = {
               expression: {
                 left: {
@@ -129,15 +149,17 @@ export default class ClashModify extends Command {
                   type: "MemberExpression",
                 },
                 operator: "=",
-                right: objToAst(config as Record<string, unknown>),
+                right: objToAst(cfg as Record<string, unknown>),
                 type: "AssignmentExpression",
               },
               type: "ExpressionStatement",
             };
 
-            path.node.body.body.push(newAssignment as never);
-            this.log(`✅ rule-provider '${name}' 已添加/更新`);
-            this.log(`${JSON.stringify(config, null, 2)}`);
+            // 使用 splice 在指定位置插入
+            path.node.body.body.splice(insertIndex, 0, newAssignment as never);
+            insertIndex++; // 下一个插入位置后移
+            this.log(`✓ rule-provider '${name}' 已添加/更新:`);
+            this.log(`${JSON.stringify(cfg, null, 2)}\n`);
           }
         }
 
@@ -149,7 +171,7 @@ export default class ClashModify extends Command {
               const { id } = innerPath.node;
               if (id.type === "Identifier" && id.name === "myCustomRules") {
                 innerPath.remove();
-                this.log("✅ 已删除原有的 myCustomRules");
+                this.log("✓ 已删除原有的 myCustomRules\n");
               }
             },
           });
@@ -167,8 +189,8 @@ export default class ClashModify extends Command {
             type: "VariableDeclaration",
           };
           path.node.body.body.unshift(varDecl as never);
-          this.log("✅ 已添加 myCustomRules");
-          this.log(`${JSON.stringify(customRules, null, 2)}`);
+          this.log("✓ 已添加 myCustomRules:");
+          this.log(`${JSON.stringify(customRules, null, 2)}\n`);
 
           // 在 config.rules 数组前面添加 ...myCustomRules
           path.traverse({
@@ -191,7 +213,7 @@ export default class ClashModify extends Command {
                   argument: { name: "myCustomRules", type: "Identifier" },
                   type: "SpreadElement",
                 });
-                this.log("✅ 已在 config.rules 前面添加 ...myCustomRules");
+                this.log("✓ 已在 config.rules 前面添加 ...myCustomRules\n");
               }
             },
           });
@@ -206,6 +228,6 @@ export default class ClashModify extends Command {
 
     await writeAst(ast, outputPath); // 保存到新文件
     // 3. 写回文件
-    this.log("\n✅ 文件修改完成:");
+    this.log("✓ 自定义clash配置添加完成");
   }
 }
