@@ -102,7 +102,7 @@ export default class ClashModify extends Command {
           }
 
           this.log(
-            `✓ 已添加 fake-ip-filter 域名:\n ${JSON.stringify(fakeIpFilterDomains)}\n`,
+            `✔ 已添加 fake-ip-filter 域名:\n ${JSON.stringify(fakeIpFilterDomains)}\n`,
           );
         }
       },
@@ -158,7 +158,7 @@ export default class ClashModify extends Command {
             // 使用 splice 在指定位置插入
             path.node.body.body.splice(insertIndex, 0, newAssignment as never);
             insertIndex++; // 下一个插入位置后移
-            this.log(`✓ rule-provider '${name}' 已添加/更新:`);
+            this.log(`✔ rule-provider '${name}' 已添加/更新:`);
             this.log(`${JSON.stringify(cfg, null, 2)}\n`);
           }
         }
@@ -171,7 +171,7 @@ export default class ClashModify extends Command {
               const { id } = innerPath.node;
               if (id.type === "Identifier" && id.name === "myCustomRules") {
                 innerPath.remove();
-                this.log("✓ 已删除原有的 myCustomRules\n");
+                this.log("✔ 已删除原有的 myCustomRules\n");
               }
             },
           });
@@ -189,7 +189,7 @@ export default class ClashModify extends Command {
             type: "VariableDeclaration",
           };
           path.node.body.body.unshift(varDecl as never);
-          this.log("✓ 已添加 myCustomRules:");
+          this.log("✔ 已添加 myCustomRules:");
           this.log(`${JSON.stringify(customRules, null, 2)}\n`);
 
           // 在 config.rules 数组前面添加 ...myCustomRules
@@ -213,7 +213,7 @@ export default class ClashModify extends Command {
                   argument: { name: "myCustomRules", type: "Identifier" },
                   type: "SpreadElement",
                 });
-                this.log("✓ 已在 config.rules 前面添加 ...myCustomRules\n");
+                this.log("✔ 已在 config.rules 前面添加 ...myCustomRules\n");
               }
             },
           });
@@ -228,6 +228,6 @@ export default class ClashModify extends Command {
 
     await writeAst(ast, outputPath); // 保存到新文件
     // 3. 写回文件
-    this.log("✓ 自定义clash配置添加完成");
+    this.log("✔ 自定义clash配置添加完成");
   }
 }
