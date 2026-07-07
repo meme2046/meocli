@@ -7,14 +7,13 @@ Node CLI generated with oclif, Integrate Prettier
 [![Downloads/week](https://img.shields.io/npm/dw/meocli.svg)](https://npmjs.org/package/meocli)
 
 <!-- toc -->
-
-- [meocli](#meocli)
-- [Dev](#dev)
-- [Prettier](#prettier)
-- [Prettier.Vscode](#prettiervscode)
-- [Publish](#publish)
-- [Usage](#usage)
-- [Commands](#commands)
+* [meocli](#meocli)
+* [Dev](#dev)
+* [Prettier](#prettier)
+* [Prettier.Vscode](#prettiervscode)
+* [Publish](#publish)
+* [Usage](#usage)
+* [Commands](#commands)
 <!-- tocstop -->
 
 # Dev
@@ -104,42 +103,40 @@ $ pnpm publish
 # Usage
 
 <!-- usage -->
-
 ```sh-session
 $ npm install -g meocli
 $ me COMMAND
 running command...
 $ me (--version)
-meocli/0.1.6 win32-x64 node-v24.13.1
+meocli/0.1.7 win32-x64 node-v24.14.0
 $ me --help [COMMAND]
 USAGE
   $ me COMMAND
 ...
 ```
-
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-
-- [`me env [FILEPATH]`](#me-env-filepath)
-- [`me env apifox [FILEPATH]`](#me-env-apifox-filepath)
-- [`me hello PERSON`](#me-hello-person)
-- [`me hello world`](#me-hello-world)
-- [`me help [COMMAND]`](#me-help-command)
-- [`me plugins`](#me-plugins)
-- [`me plugins add PLUGIN`](#me-plugins-add-plugin)
-- [`me plugins:inspect PLUGIN...`](#me-pluginsinspect-plugin)
-- [`me plugins install PLUGIN`](#me-plugins-install-plugin)
-- [`me plugins link PATH`](#me-plugins-link-path)
-- [`me plugins remove [PLUGIN]`](#me-plugins-remove-plugin)
-- [`me plugins reset`](#me-plugins-reset)
-- [`me plugins uninstall [PLUGIN]`](#me-plugins-uninstall-plugin)
-- [`me plugins unlink [PLUGIN]`](#me-plugins-unlink-plugin)
-- [`me plugins update`](#me-plugins-update)
-- [`me prettier FILEPATH`](#me-prettier-filepath)
-- [`me prettier reset`](#me-prettier-reset)
+* [`me env [FILEPATH]`](#me-env-filepath)
+* [`me env apifox [FILEPATH]`](#me-env-apifox-filepath)
+* [`me hello PERSON`](#me-hello-person)
+* [`me hello world`](#me-hello-world)
+* [`me help [COMMAND]`](#me-help-command)
+* [`me js clash FILEPATH`](#me-js-clash-filepath)
+* [`me plugins`](#me-plugins)
+* [`me plugins add PLUGIN`](#me-plugins-add-plugin)
+* [`me plugins:inspect PLUGIN...`](#me-pluginsinspect-plugin)
+* [`me plugins install PLUGIN`](#me-plugins-install-plugin)
+* [`me plugins link PATH`](#me-plugins-link-path)
+* [`me plugins remove [PLUGIN]`](#me-plugins-remove-plugin)
+* [`me plugins reset`](#me-plugins-reset)
+* [`me plugins uninstall [PLUGIN]`](#me-plugins-uninstall-plugin)
+* [`me plugins unlink [PLUGIN]`](#me-plugins-unlink-plugin)
+* [`me plugins update`](#me-plugins-update)
+* [`me prettier FILEPATH`](#me-prettier-filepath)
+* [`me prettier reset`](#me-prettier-reset)
 
 ## `me env [FILEPATH]`
 
@@ -162,7 +159,7 @@ EXAMPLES
       me env .env
 ```
 
-_See code: [src/commands/env/index.ts](https://github.com/meme2046/meocli/blob/v0.1.6/src/commands/env/index.ts)_
+_See code: [src/commands/env/index.ts](https://github.com/meme2046/meocli/blob/v0.1.7/src/commands/env/index.ts)_
 
 ## `me env apifox [FILEPATH]`
 
@@ -185,7 +182,7 @@ EXAMPLES
       me env apifox .env
 ```
 
-_See code: [src/commands/env/apifox.ts](https://github.com/meme2046/meocli/blob/v0.1.6/src/commands/env/apifox.ts)_
+_See code: [src/commands/env/apifox.ts](https://github.com/meme2046/meocli/blob/v0.1.7/src/commands/env/apifox.ts)_
 
 ## `me hello PERSON`
 
@@ -209,7 +206,7 @@ EXAMPLES
       hello friend --from oclif (./src/commands/hello/index.ts)
 ```
 
-_See code: [src/commands/hello/index.ts](https://github.com/meme2046/meocli/blob/v0.1.6/src/commands/hello/index.ts)_
+_See code: [src/commands/hello/index.ts](https://github.com/meme2046/meocli/blob/v0.1.7/src/commands/hello/index.ts)_
 
 ## `me hello world`
 
@@ -227,7 +224,7 @@ EXAMPLES
   hello world! (./src/commands/hello/world.ts)
 ```
 
-_See code: [src/commands/hello/world.ts](https://github.com/meme2046/meocli/blob/v0.1.6/src/commands/hello/world.ts)_
+_See code: [src/commands/hello/world.ts](https://github.com/meme2046/meocli/blob/v0.1.7/src/commands/hello/world.ts)_
 
 ## `me help [COMMAND]`
 
@@ -248,6 +245,29 @@ DESCRIPTION
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.2.37/src/commands/help.ts)_
+
+## `me js clash FILEPATH`
+
+修改Clash脚本
+
+```
+USAGE
+  $ me js clash FILEPATH [-v]
+
+ARGUMENTS
+  FILEPATH  目标js文件路径
+
+FLAGS
+  -v, --verbose  Show verbose output
+
+DESCRIPTION
+  修改Clash脚本
+
+EXAMPLES
+  $ me js clash ./tests/test.js
+```
+
+_See code: [src/commands/js/clash.ts](https://github.com/meme2046/meocli/blob/v0.1.7/src/commands/js/clash.ts)_
 
 ## `me plugins`
 
@@ -567,7 +587,7 @@ EXAMPLES
   $ me prettier ./src/file.ts --config ./.prettierrc.yaml
 ```
 
-_See code: [src/commands/prettier/index.ts](https://github.com/meme2046/meocli/blob/v0.1.6/src/commands/prettier/index.ts)_
+_See code: [src/commands/prettier/index.ts](https://github.com/meme2046/meocli/blob/v0.1.7/src/commands/prettier/index.ts)_
 
 ## `me prettier reset`
 
@@ -587,6 +607,5 @@ EXAMPLES
   $ me prettier reset --verbose
 ```
 
-_See code: [src/commands/prettier/reset.ts](https://github.com/meme2046/meocli/blob/v0.1.6/src/commands/prettier/reset.ts)_
-
+_See code: [src/commands/prettier/reset.ts](https://github.com/meme2046/meocli/blob/v0.1.7/src/commands/prettier/reset.ts)_
 <!-- commandsstop -->
