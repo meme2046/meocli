@@ -47,7 +47,7 @@ export default class ClashModify extends Command {
       "my-proxy": {
         behavior: "classical",
         format: "yaml",
-        interval: 311,
+        interval: 333,
         path: "./ruleset/my-proxy.yaml",
         type: "http",
         url: "https://raw.githubusercontent.com/meme2046/data/main/clash/proxy.yaml?_t={{timestamp}}",
@@ -55,7 +55,7 @@ export default class ClashModify extends Command {
       "my-reject": {
         behavior: "classical",
         format: "yaml",
-        interval: 322,
+        interval: 444,
         path: "./ruleset/my-reject.yaml",
         type: "http",
         url: "https://raw.githubusercontent.com/meme2046/data/main/clash/reject.yaml?_t={{timestamp}}",
