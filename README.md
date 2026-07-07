@@ -7,13 +7,14 @@ Node CLI generated with oclif, Integrate Prettier
 [![Downloads/week](https://img.shields.io/npm/dw/meocli.svg)](https://npmjs.org/package/meocli)
 
 <!-- toc -->
-* [meocli](#meocli)
-* [Dev](#dev)
-* [Prettier](#prettier)
-* [Prettier.Vscode](#prettiervscode)
-* [Publish](#publish)
-* [Usage](#usage)
-* [Commands](#commands)
+
+- [meocli](#meocli)
+- [Dev](#dev)
+- [Prettier](#prettier)
+- [Prettier.Vscode](#prettiervscode)
+- [Publish](#publish)
+- [Usage](#usage)
+- [Commands](#commands)
 <!-- tocstop -->
 
 # Dev
@@ -48,56 +49,48 @@ $ me prettier ./test.svg --verbose # 使用prettier格式化文件
 3. 配置 `.vscode/settings.json` 添加 `"emeraldwalk.runonsave"` 节点,以下为参考配置⤵︎
 
 ```json
-{
-  "emeraldwalk.runonsave": {
+"emeraldwalk.runonsave": {
     "commands": [
       {
         // prettier
-        "match": "\\.(ts|js|json|html|css|graphql|gql|yaml|yml|md)$",
+        "match": "\\.(txt|ts|js|jsx|tsx|json|html|css|graphql|gql|yaml|yml|md)$",
         "notMatch": "node_modules/*$",
         "isAsync": true,
-        "cmd": "me prettier ${file}"
+        "cmd": "me prettier \"${file}\""
       },
       {
         // @prettier/plugin-xml
         "match": "\\.(xml|svg)$",
         "isAsync": true,
-        "cmd": "me prettier ${file}"
+        "cmd": "me prettier \"${file}\""
       },
       {
         // prettier-plugin-toml
         "match": "\\.(toml)$",
         "isAsync": true,
-        "cmd": "me prettier ${file}"
+        "cmd": "me prettier \"${file}\""
       },
       {
         // prettier-plugin-nginx
         "match": "\\.(nginx)$",
         "isAsync": true,
-        "cmd": "me prettier ${file}"
+        "cmd": "me prettier \"${file}\""
       },
       {
         // prettier-plugin-sh
         "match": "\\.(sh|env|Dockerfile|properties|gitignore|dockerignore|prettierignore)$",
         "notMatch": "\\.(nu)$",
         "isAsync": true,
-        "cmd": "me prettier ${file}"
+        "cmd": "me prettier \"${file}\""
       },
       {
         // no-dot-ext
-        "match": "Dockerfile$",
+        "match": "Dockerfile$|web.config",
         "isAsync": true,
-        "cmd": "me prettier ${file}"
-      },
-      {
-        // nushell
-        "match": "\\.(nu)$",
-        "isAsync": true,
-        "cmd": "topiary format ${file}"
+        "cmd": "me prettier \"${file}\""
       }
     ]
   }
-}
 ```
 
 # Publish
@@ -111,6 +104,7 @@ $ pnpm publish
 # Usage
 
 <!-- usage -->
+
 ```sh-session
 $ npm install -g meocli
 $ me COMMAND
@@ -122,28 +116,30 @@ USAGE
   $ me COMMAND
 ...
 ```
+
 <!-- usagestop -->
 
 # Commands
 
 <!-- commands -->
-* [`me env [FILEPATH]`](#me-env-filepath)
-* [`me env apifox [FILEPATH]`](#me-env-apifox-filepath)
-* [`me hello PERSON`](#me-hello-person)
-* [`me hello world`](#me-hello-world)
-* [`me help [COMMAND]`](#me-help-command)
-* [`me plugins`](#me-plugins)
-* [`me plugins add PLUGIN`](#me-plugins-add-plugin)
-* [`me plugins:inspect PLUGIN...`](#me-pluginsinspect-plugin)
-* [`me plugins install PLUGIN`](#me-plugins-install-plugin)
-* [`me plugins link PATH`](#me-plugins-link-path)
-* [`me plugins remove [PLUGIN]`](#me-plugins-remove-plugin)
-* [`me plugins reset`](#me-plugins-reset)
-* [`me plugins uninstall [PLUGIN]`](#me-plugins-uninstall-plugin)
-* [`me plugins unlink [PLUGIN]`](#me-plugins-unlink-plugin)
-* [`me plugins update`](#me-plugins-update)
-* [`me prettier FILEPATH`](#me-prettier-filepath)
-* [`me prettier reset`](#me-prettier-reset)
+
+- [`me env [FILEPATH]`](#me-env-filepath)
+- [`me env apifox [FILEPATH]`](#me-env-apifox-filepath)
+- [`me hello PERSON`](#me-hello-person)
+- [`me hello world`](#me-hello-world)
+- [`me help [COMMAND]`](#me-help-command)
+- [`me plugins`](#me-plugins)
+- [`me plugins add PLUGIN`](#me-plugins-add-plugin)
+- [`me plugins:inspect PLUGIN...`](#me-pluginsinspect-plugin)
+- [`me plugins install PLUGIN`](#me-plugins-install-plugin)
+- [`me plugins link PATH`](#me-plugins-link-path)
+- [`me plugins remove [PLUGIN]`](#me-plugins-remove-plugin)
+- [`me plugins reset`](#me-plugins-reset)
+- [`me plugins uninstall [PLUGIN]`](#me-plugins-uninstall-plugin)
+- [`me plugins unlink [PLUGIN]`](#me-plugins-unlink-plugin)
+- [`me plugins update`](#me-plugins-update)
+- [`me prettier FILEPATH`](#me-prettier-filepath)
+- [`me prettier reset`](#me-prettier-reset)
 
 ## `me env [FILEPATH]`
 
@@ -592,4 +588,5 @@ EXAMPLES
 ```
 
 _See code: [src/commands/prettier/reset.ts](https://github.com/meme2046/meocli/blob/v0.1.6/src/commands/prettier/reset.ts)_
+
 <!-- commandsstop -->
