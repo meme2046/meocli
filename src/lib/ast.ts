@@ -51,7 +51,13 @@ export function objToAst(
       valNode = objToAst(v as Record<string, unknown>);
     }
 
-    props.push(t.objectProperty(t.identifier(k), valNode));
+    // 判断键名是否为有效标识符，不是则使用字符串字面量
+    const keyNode = /^[a-zA-Z_$][a-zA-Z0-9_$]*$/.test(k)
+      ? t.identifier(k)
+      : t.stringLiteral(k);
+    // shorthand 只能在 key 是 Identifier 时为 true
+    // computed: false 表示不使用方括号语法
+    props.push(t.objectProperty(keyNode, valNode, false, false));
   }
 
   return t.objectExpression(props);

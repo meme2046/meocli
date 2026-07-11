@@ -120,39 +120,49 @@ export default class ClashModify extends Command {
                     ]);
                     insertStatements.push(ruleProvidersVar);
 
-                    const ruleProvidersAssign = t.expressionStatement(
-                      t.assignmentExpression(
-                        "=",
+                    // 使用 forEach 方式合并 ruleProviders
+                    const forEachRuleProviders = t.expressionStatement(
+                      t.callExpression(
                         t.memberExpression(
-                          t.identifier("config"),
-                          t.stringLiteral("rule-providers"),
-                          true,
+                          t.callExpression(
+                            t.memberExpression(
+                              t.identifier("Object"),
+                              t.identifier("keys"),
+                            ),
+                            [t.identifier("ruleProviders")],
+                          ),
+                          t.identifier("forEach"),
                         ),
-                        t.objectExpression([
-                          t.objectProperty(
-                            t.identifier("ruleProviders"),
-                            t.identifier("ruleProviders"),
-                            false,
-                            true,
+                        [
+                          t.functionExpression(
+                            null,
+                            [t.identifier("key")],
+                            t.blockStatement([
+                              t.expressionStatement(
+                                t.assignmentExpression(
+                                  "=",
+                                  t.memberExpression(
+                                    t.memberExpression(
+                                      t.identifier("config"),
+                                      t.stringLiteral("rule-providers"),
+                                      true,
+                                    ),
+                                    t.identifier("key"),
+                                    true,
+                                  ),
+                                  t.memberExpression(
+                                    t.identifier("ruleProviders"),
+                                    t.identifier("key"),
+                                    true,
+                                  ),
+                                ),
+                              ),
+                            ]),
                           ),
-                          t.objectProperty(
-                            t.memberExpression(
-                              t.identifier("config"),
-                              t.stringLiteral("rule-providers"),
-                              true,
-                            ),
-                            t.memberExpression(
-                              t.identifier("config"),
-                              t.stringLiteral("rule-providers"),
-                              true,
-                            ),
-                            true,
-                            false,
-                          ),
-                        ]),
+                        ],
                       ),
                     );
-                    insertStatements.push(ruleProvidersAssign);
+                    insertStatements.push(forEachRuleProviders);
                     this.log(
                       `✔ 已合并 ruleProviders: ${Object.keys(ruleProviders).join(", ")}`,
                     );
@@ -194,7 +204,7 @@ export default class ClashModify extends Command {
                     );
 
                     // domesticDoH
-                    const domesticDoHDecl = t.variableDeclaration("var", [
+                    const domesticDoHDecl = t.variableDeclaration("const", [
                       t.variableDeclarator(
                         t.identifier("domesticDoH"),
                         t.arrayExpression([
@@ -254,6 +264,7 @@ export default class ClashModify extends Command {
                                       true,
                                     ),
                                     t.identifier("host"),
+                                    true,
                                   ),
                                 ),
                                 t.blockStatement([
@@ -270,6 +281,7 @@ export default class ClashModify extends Command {
                                           true,
                                         ),
                                         t.identifier("host"),
+                                        true,
                                       ),
                                       t.callExpression(
                                         t.memberExpression(
