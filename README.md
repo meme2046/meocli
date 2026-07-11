@@ -15,6 +15,14 @@ Node CLI generated with oclif, Integrate Prettier
 * [Usage](#usage)
 * [Commands](#commands)
 <!-- tocstop -->
+* [meocli](#meocli)
+* [Dev](#dev)
+* [Prettier](#prettier)
+* [Prettier.Vscode](#prettiervscode)
+* [Publish](#publish)
+* [Usage](#usage)
+* [Commands](#commands)
+<!-- tocstop -->
 
 # Dev
 
@@ -108,6 +116,18 @@ $ npm install -g meocli
 $ me COMMAND
 running command...
 $ me (--version)
+meocli/0.1.8 win32-x64 node-v24.18.0
+$ me --help [COMMAND]
+USAGE
+  $ me COMMAND
+...
+```
+<!-- usagestop -->
+```sh-session
+$ npm install -g meocli
+$ me COMMAND
+running command...
+$ me (--version)
 meocli/0.1.7 win32-x64 node-v24.14.0
 $ me --help [COMMAND]
 USAGE
@@ -119,6 +139,497 @@ USAGE
 # Commands
 
 <!-- commands -->
+* [`me env [FILEPATH]`](#me-env-filepath)
+* [`me env apifox [FILEPATH]`](#me-env-apifox-filepath)
+* [`me hello PERSON`](#me-hello-person)
+* [`me hello world`](#me-hello-world)
+* [`me help [COMMAND]`](#me-help-command)
+* [`me js clash FILEPATH TEMPLATEPATH`](#me-js-clash-filepath-templatepath)
+* [`me plugins`](#me-plugins)
+* [`me plugins add PLUGIN`](#me-plugins-add-plugin)
+* [`me plugins:inspect PLUGIN...`](#me-pluginsinspect-plugin)
+* [`me plugins install PLUGIN`](#me-plugins-install-plugin)
+* [`me plugins link PATH`](#me-plugins-link-path)
+* [`me plugins remove [PLUGIN]`](#me-plugins-remove-plugin)
+* [`me plugins reset`](#me-plugins-reset)
+* [`me plugins uninstall [PLUGIN]`](#me-plugins-uninstall-plugin)
+* [`me plugins unlink [PLUGIN]`](#me-plugins-unlink-plugin)
+* [`me plugins update`](#me-plugins-update)
+* [`me prettier FILEPATH`](#me-prettier-filepath)
+* [`me prettier reset`](#me-prettier-reset)
+
+## `me env [FILEPATH]`
+
+读取.env环境变量并打印(json格式)
+
+```
+USAGE
+  $ me env [FILEPATH] [-v]
+
+ARGUMENTS
+  [FILEPATH]  [default: .env] .env文件路径,不传默认值为.env
+
+FLAGS
+  -v, --verbose  Show verbose output
+
+DESCRIPTION
+  读取.env环境变量并打印(json格式)
+
+EXAMPLES
+      me env .env
+```
+
+_See code: [src/commands/env/index.ts](https://github.com/meme2046/meocli/blob/v0.1.8/src/commands/env/index.ts)_
+
+## `me env apifox [FILEPATH]`
+
+读取.env环境变量,输出apifox需要的csv格式
+
+```
+USAGE
+  $ me env apifox [FILEPATH] [-v]
+
+ARGUMENTS
+  [FILEPATH]  [default: .env] .env文件路径,不传默认值为.env
+
+FLAGS
+  -v, --verbose  Show verbose output
+
+DESCRIPTION
+  读取.env环境变量,输出apifox需要的csv格式
+
+EXAMPLES
+      me env apifox .env
+```
+
+_See code: [src/commands/env/apifox.ts](https://github.com/meme2046/meocli/blob/v0.1.8/src/commands/env/apifox.ts)_
+
+## `me hello PERSON`
+
+Say hello
+
+```
+USAGE
+  $ me hello PERSON [-f <value>]
+
+ARGUMENTS
+  PERSON  Person to say hello to
+
+FLAGS
+  -f, --from=<value>  [default: meocli] Who is saying hello
+
+DESCRIPTION
+  Say hello
+
+EXAMPLES
+      me hello friend --from oclif
+      hello friend --from oclif (./src/commands/hello/index.ts)
+```
+
+_See code: [src/commands/hello/index.ts](https://github.com/meme2046/meocli/blob/v0.1.8/src/commands/hello/index.ts)_
+
+## `me hello world`
+
+Say hello world
+
+```
+USAGE
+  $ me hello world
+
+DESCRIPTION
+  Say hello world
+
+EXAMPLES
+  $ me hello world
+  hello world! (./src/commands/hello/world.ts)
+```
+
+_See code: [src/commands/hello/world.ts](https://github.com/meme2046/meocli/blob/v0.1.8/src/commands/hello/world.ts)_
+
+## `me help [COMMAND]`
+
+Display help for me.
+
+```
+USAGE
+  $ me help [COMMAND...] [-n]
+
+ARGUMENTS
+  [COMMAND...]  Command to show help for.
+
+FLAGS
+  -n, --nested-commands  Include all nested commands in the output.
+
+DESCRIPTION
+  Display help for me.
+```
+
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.2.37/src/commands/help.ts)_
+
+## `me js clash FILEPATH TEMPLATEPATH`
+
+修改Clash脚本
+
+```
+USAGE
+  $ me js clash FILEPATH TEMPLATEPATH [-v]
+
+ARGUMENTS
+  FILEPATH      目标js文件路径
+  TEMPLATEPATH  template.json配置文件路径
+
+FLAGS
+  -v, --verbose  Show verbose output
+
+DESCRIPTION
+  修改Clash脚本
+
+EXAMPLES
+  $ me js clash ./test.js ./template.json
+```
+
+_See code: [src/commands/js/clash.ts](https://github.com/meme2046/meocli/blob/v0.1.8/src/commands/js/clash.ts)_
+
+## `me plugins`
+
+List installed plugins.
+
+```
+USAGE
+  $ me plugins [--json] [--core]
+
+FLAGS
+  --core  Show core plugins.
+
+GLOBAL FLAGS
+  --json  Format output as json.
+
+DESCRIPTION
+  List installed plugins.
+
+EXAMPLES
+  $ me plugins
+```
+
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.55/src/commands/plugins/index.ts)_
+
+## `me plugins add PLUGIN`
+
+Installs a plugin into me.
+
+```
+USAGE
+  $ me plugins add PLUGIN... [--json] [-f] [-h] [-s | -v]
+
+ARGUMENTS
+  PLUGIN...  Plugin to install.
+
+FLAGS
+  -f, --force    Force npm to fetch remote resources even if a local copy exists on disk.
+  -h, --help     Show CLI help.
+  -s, --silent   Silences npm output.
+  -v, --verbose  Show verbose npm output.
+
+GLOBAL FLAGS
+  --json  Format output as json.
+
+DESCRIPTION
+  Installs a plugin into me.
+
+  Uses npm to install plugins.
+
+  Installation of a user-installed plugin will override a core plugin.
+
+  Use the ME_NPM_LOG_LEVEL environment variable to set the npm loglevel.
+  Use the ME_NPM_REGISTRY environment variable to set the npm registry.
+
+ALIASES
+  $ me plugins add
+
+EXAMPLES
+  Install a plugin from npm registry.
+
+    $ me plugins add myplugin
+
+  Install a plugin from a github url.
+
+    $ me plugins add https://github.com/someuser/someplugin
+
+  Install a plugin from a github slug.
+
+    $ me plugins add someuser/someplugin
+```
+
+## `me plugins:inspect PLUGIN...`
+
+Displays installation properties of a plugin.
+
+```
+USAGE
+  $ me plugins inspect PLUGIN...
+
+ARGUMENTS
+  PLUGIN...  [default: .] Plugin to inspect.
+
+FLAGS
+  -h, --help     Show CLI help.
+  -v, --verbose
+
+GLOBAL FLAGS
+  --json  Format output as json.
+
+DESCRIPTION
+  Displays installation properties of a plugin.
+
+EXAMPLES
+  $ me plugins inspect myplugin
+```
+
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.55/src/commands/plugins/inspect.ts)_
+
+## `me plugins install PLUGIN`
+
+Installs a plugin into me.
+
+```
+USAGE
+  $ me plugins install PLUGIN... [--json] [-f] [-h] [-s | -v]
+
+ARGUMENTS
+  PLUGIN...  Plugin to install.
+
+FLAGS
+  -f, --force    Force npm to fetch remote resources even if a local copy exists on disk.
+  -h, --help     Show CLI help.
+  -s, --silent   Silences npm output.
+  -v, --verbose  Show verbose npm output.
+
+GLOBAL FLAGS
+  --json  Format output as json.
+
+DESCRIPTION
+  Installs a plugin into me.
+
+  Uses npm to install plugins.
+
+  Installation of a user-installed plugin will override a core plugin.
+
+  Use the ME_NPM_LOG_LEVEL environment variable to set the npm loglevel.
+  Use the ME_NPM_REGISTRY environment variable to set the npm registry.
+
+ALIASES
+  $ me plugins add
+
+EXAMPLES
+  Install a plugin from npm registry.
+
+    $ me plugins install myplugin
+
+  Install a plugin from a github url.
+
+    $ me plugins install https://github.com/someuser/someplugin
+
+  Install a plugin from a github slug.
+
+    $ me plugins install someuser/someplugin
+```
+
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.55/src/commands/plugins/install.ts)_
+
+## `me plugins link PATH`
+
+Links a plugin into the CLI for development.
+
+```
+USAGE
+  $ me plugins link PATH [-h] [--install] [-v]
+
+ARGUMENTS
+  PATH  [default: .] path to plugin
+
+FLAGS
+  -h, --help          Show CLI help.
+  -v, --verbose
+      --[no-]install  Install dependencies after linking the plugin.
+
+DESCRIPTION
+  Links a plugin into the CLI for development.
+
+  Installation of a linked plugin will override a user-installed or core plugin.
+
+  e.g. If you have a user-installed or core plugin that has a 'hello' command, installing a linked plugin with a 'hello'
+  command will override the user-installed or core plugin implementation. This is useful for development work.
+
+
+EXAMPLES
+  $ me plugins link myplugin
+```
+
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.55/src/commands/plugins/link.ts)_
+
+## `me plugins remove [PLUGIN]`
+
+Removes a plugin from the CLI.
+
+```
+USAGE
+  $ me plugins remove [PLUGIN...] [-h] [-v]
+
+ARGUMENTS
+  [PLUGIN...]  plugin to uninstall
+
+FLAGS
+  -h, --help     Show CLI help.
+  -v, --verbose
+
+DESCRIPTION
+  Removes a plugin from the CLI.
+
+ALIASES
+  $ me plugins unlink
+  $ me plugins remove
+
+EXAMPLES
+  $ me plugins remove myplugin
+```
+
+## `me plugins reset`
+
+Remove all user-installed and linked plugins.
+
+```
+USAGE
+  $ me plugins reset [--hard] [--reinstall]
+
+FLAGS
+  --hard       Delete node_modules and package manager related files in addition to uninstalling plugins.
+  --reinstall  Reinstall all plugins after uninstalling.
+```
+
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.55/src/commands/plugins/reset.ts)_
+
+## `me plugins uninstall [PLUGIN]`
+
+Removes a plugin from the CLI.
+
+```
+USAGE
+  $ me plugins uninstall [PLUGIN...] [-h] [-v]
+
+ARGUMENTS
+  [PLUGIN...]  plugin to uninstall
+
+FLAGS
+  -h, --help     Show CLI help.
+  -v, --verbose
+
+DESCRIPTION
+  Removes a plugin from the CLI.
+
+ALIASES
+  $ me plugins unlink
+  $ me plugins remove
+
+EXAMPLES
+  $ me plugins uninstall myplugin
+```
+
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.55/src/commands/plugins/uninstall.ts)_
+
+## `me plugins unlink [PLUGIN]`
+
+Removes a plugin from the CLI.
+
+```
+USAGE
+  $ me plugins unlink [PLUGIN...] [-h] [-v]
+
+ARGUMENTS
+  [PLUGIN...]  plugin to uninstall
+
+FLAGS
+  -h, --help     Show CLI help.
+  -v, --verbose
+
+DESCRIPTION
+  Removes a plugin from the CLI.
+
+ALIASES
+  $ me plugins unlink
+  $ me plugins remove
+
+EXAMPLES
+  $ me plugins unlink myplugin
+```
+
+## `me plugins update`
+
+Update installed plugins.
+
+```
+USAGE
+  $ me plugins update [-h] [-v]
+
+FLAGS
+  -h, --help     Show CLI help.
+  -v, --verbose
+
+DESCRIPTION
+  Update installed plugins.
+```
+
+_See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/v5.4.55/src/commands/plugins/update.ts)_
+
+## `me prettier FILEPATH`
+
+Use Prettier to format file,集成:『@prettier/plugin-xml、prettier-plugin-toml、prettier-plugin-sh』、prettier-plugin-nginx
+
+```
+USAGE
+  $ me prettier FILEPATH [-c <value>] [-i <value>] [-v]
+
+ARGUMENTS
+  FILEPATH  file path that need to be formatted by Prettier
+
+FLAGS
+  -c, --config=<value>  [default: built_in] built_in:使用内置规则(默认值), 传入路径则是使用自定义配置,
+                        auto:自动检测config file
+  -i, --ignore=<value>  [default: built_in] built_in:使用内置规则(默认值), 传入路径则是使用自定义规则,
+                        auto:自动检测ignore file
+  -v, --verbose         Show verbose output
+
+DESCRIPTION
+  Use Prettier to format
+  file,集成:『@prettier/plugin-xml、prettier-plugin-toml、prettier-plugin-sh』、prettier-plugin-nginx
+
+EXAMPLES
+  $ me prettier ./tests/test.svg
+
+  $ me prettier ./src/file.ts --config ./.prettierrc.yaml
+```
+
+_See code: [src/commands/prettier/index.ts](https://github.com/meme2046/meocli/blob/v0.1.8/src/commands/prettier/index.ts)_
+
+## `me prettier reset`
+
+reset prettier config and ignore file,『~/.meocli/.prettierrc.yaml, ~/.meocli/.prettierignore』
+
+```
+USAGE
+  $ me prettier reset [-v]
+
+FLAGS
+  -v, --verbose  Show verbose output
+
+DESCRIPTION
+  reset prettier config and ignore file,『~/.meocli/.prettierrc.yaml, ~/.meocli/.prettierignore』
+
+EXAMPLES
+  $ me prettier reset --verbose
+```
+
+_See code: [src/commands/prettier/reset.ts](https://github.com/meme2046/meocli/blob/v0.1.8/src/commands/prettier/reset.ts)_
+<!-- commandsstop -->
 * [`me env [FILEPATH]`](#me-env-filepath)
 * [`me env apifox [FILEPATH]`](#me-env-apifox-filepath)
 * [`me hello PERSON`](#me-hello-person)
