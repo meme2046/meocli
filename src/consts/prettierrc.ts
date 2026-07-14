@@ -38,15 +38,9 @@ export const DEFAULT_ARGS = [
   "false",
   "--embedded-language-formatting",
   "auto",
-  // plugins
-  // '--plugin',
-  // '@prettier/plugin-xml',
-  // '--plugin',
-  // 'prettier-plugin-toml',
-  // '--plugin',
-  // 'prettier-plugin-sh',
-  // '--plugin',
-  // 'prettier-plugin-nginx',
+  // prettier-plugin-ini
+  "--ini-space-around-equals",
+  "true",
   // xml
   "--xml-whitespace-sensitivity",
   "strict",
@@ -77,6 +71,7 @@ export const DEFAULT_CONFIG = {
   experimentalTernaries: false,
   htmlWhitespaceSensitivity: "css",
   indentEntries: true, // toml
+  iniSpaceAroundEquals: true, // prettier-plugin-ini
   insertPragma: false,
   jsxSingleQuote: false,
   objectWrap: "preserve",
@@ -89,6 +84,7 @@ export const DEFAULT_CONFIG = {
     "prettier-plugin-toml",
     "prettier-plugin-sh",
     "prettier-plugin-nginx",
+    "prettier-plugin-ini",
   ],
   printWidth: 80,
   proseWrap: "preserve",
@@ -114,6 +110,7 @@ export const DEFAULT_PLUGINS = [
   { main: "lib/index.cjs", name: "prettier-plugin-toml" },
   { main: "lib/index.cjs", name: "prettier-plugin-sh" },
   { main: "dist/index.js", name: "prettier-plugin-nginx" },
+  { main: "src/plugin.js", name: "prettier-plugin-ini" },
 ];
 
 // 默认的忽略模式
