@@ -116,7 +116,7 @@ $ npm install -g meocli
 $ me COMMAND
 running command...
 $ me (--version)
-meocli/0.1.8 win32-x64 node-v24.18.0
+meocli/0.1.9 win32-x64 node-v24.18.0
 $ me --help [COMMAND]
 USAGE
   $ me COMMAND
@@ -179,7 +179,7 @@ EXAMPLES
       me env .env
 ```
 
-_See code: [src/commands/env/index.ts](https://github.com/meme2046/meocli/blob/v0.1.8/src/commands/env/index.ts)_
+_See code: [src/commands/env/index.ts](https://github.com/meme2046/meocli/blob/v0.1.9/src/commands/env/index.ts)_
 
 ## `me env apifox [FILEPATH]`
 
@@ -202,7 +202,7 @@ EXAMPLES
       me env apifox .env
 ```
 
-_See code: [src/commands/env/apifox.ts](https://github.com/meme2046/meocli/blob/v0.1.8/src/commands/env/apifox.ts)_
+_See code: [src/commands/env/apifox.ts](https://github.com/meme2046/meocli/blob/v0.1.9/src/commands/env/apifox.ts)_
 
 ## `me hello PERSON`
 
@@ -226,7 +226,7 @@ EXAMPLES
       hello friend --from oclif (./src/commands/hello/index.ts)
 ```
 
-_See code: [src/commands/hello/index.ts](https://github.com/meme2046/meocli/blob/v0.1.8/src/commands/hello/index.ts)_
+_See code: [src/commands/hello/index.ts](https://github.com/meme2046/meocli/blob/v0.1.9/src/commands/hello/index.ts)_
 
 ## `me hello world`
 
@@ -244,7 +244,7 @@ EXAMPLES
   hello world! (./src/commands/hello/world.ts)
 ```
 
-_See code: [src/commands/hello/world.ts](https://github.com/meme2046/meocli/blob/v0.1.8/src/commands/hello/world.ts)_
+_See code: [src/commands/hello/world.ts](https://github.com/meme2046/meocli/blob/v0.1.9/src/commands/hello/world.ts)_
 
 ## `me help [COMMAND]`
 
@@ -288,7 +288,7 @@ EXAMPLES
   $ me js clash ./test.js ./template.json
 ```
 
-_See code: [src/commands/js/clash.ts](https://github.com/meme2046/meocli/blob/v0.1.8/src/commands/js/clash.ts)_
+_See code: [src/commands/js/clash.ts](https://github.com/meme2046/meocli/blob/v0.1.9/src/commands/js/clash.ts)_
 
 ## `me plugins`
 
@@ -582,7 +582,7 @@ _See code: [@oclif/plugin-plugins](https://github.com/oclif/plugin-plugins/blob/
 
 ## `me prettier FILEPATH`
 
-Use Prettier to format file,集成:『@prettier/plugin-xml、prettier-plugin-toml、prettier-plugin-sh』、prettier-plugin-nginx
+Use Prettier to format file,集成:『@prettier/plugin-xml、prettier-plugin-toml、prettier-plugin-sh、prettier-plugin-nginx、prettier-plugin-ini』
 
 ```
 USAGE
@@ -599,8 +599,8 @@ FLAGS
   -v, --verbose         Show verbose output
 
 DESCRIPTION
-  Use Prettier to format
-  file,集成:『@prettier/plugin-xml、prettier-plugin-toml、prettier-plugin-sh』、prettier-plugin-nginx
+  Use Prettier to format file,集成:『@prettier/plugin-xml、prettier-plugin-toml、prettier-plugin-sh、prettier-plugin-ngi
+  nx、prettier-plugin-ini』
 
 EXAMPLES
   $ me prettier ./tests/test.svg
@@ -608,7 +608,7 @@ EXAMPLES
   $ me prettier ./src/file.ts --config ./.prettierrc.yaml
 ```
 
-_See code: [src/commands/prettier/index.ts](https://github.com/meme2046/meocli/blob/v0.1.8/src/commands/prettier/index.ts)_
+_See code: [src/commands/prettier/index.ts](https://github.com/meme2046/meocli/blob/v0.1.9/src/commands/prettier/index.ts)_
 
 ## `me prettier reset`
 
@@ -628,7 +628,7 @@ EXAMPLES
   $ me prettier reset --verbose
 ```
 
-_See code: [src/commands/prettier/reset.ts](https://github.com/meme2046/meocli/blob/v0.1.8/src/commands/prettier/reset.ts)_
+_See code: [src/commands/prettier/reset.ts](https://github.com/meme2046/meocli/blob/v0.1.9/src/commands/prettier/reset.ts)_
 <!-- commandsstop -->
 * [`me env [FILEPATH]`](#me-env-filepath)
 * [`me env apifox [FILEPATH]`](#me-env-apifox-filepath)
