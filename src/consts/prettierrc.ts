@@ -74,6 +74,7 @@ export const DEFAULT_CONFIG = {
   iniSpaceAroundEquals: true, // prettier-plugin-ini
   insertPragma: false,
   jsxSingleQuote: false,
+  // keySeparator: "=", // prettier-plugin-properties
   objectWrap: "preserve",
   overrides: [
     { files: ["*.env"], options: { parser: "sh" } },
