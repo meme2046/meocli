@@ -19,8 +19,18 @@ export default class Prettier extends Command {
       required: true,
     }),
   };
-  static description =
-    "Use Prettier to format file,集成:『@prettier/plugin-xml、prettier-plugin-toml、prettier-plugin-sh、prettier-plugin-nginx、prettier-plugin-ini』";
+  static description = `Use Prettier to format file,集成:
+@prettier/plugin-xml
+prettier-plugin-toml
+prettier-plugin-sh
+prettier-plugin-nginx
+prettier-plugin-properties
+prettier-plugin-java
+prettier-plugin-kotlin
+prettier-plugin-powershell
+prettier-plugin-solidity
+prettier-plugin-motoko
+prettier-plugin-sql-cst`;
   static examples = [
     "<%= config.bin %> <%= command.id %> ./tests/test.svg",
     "<%= config.bin %> <%= command.id %> ./src/file.ts --config ./.prettierrc.yaml",

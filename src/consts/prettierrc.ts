@@ -88,6 +88,7 @@ export const DEFAULT_CONFIG = {
     "prettier-plugin-kotlin",
     "prettier-plugin-powershell",
     "prettier-plugin-solidity",
+    "prettier-plugin-motoko",
     "prettier-plugin-sql-cst",
   ],
   printWidth: 80,
