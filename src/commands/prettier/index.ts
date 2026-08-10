@@ -130,11 +130,6 @@ export default class Prettier extends Command {
       }
     }
 
-    // const resolvedPluginArgs = this.resolvePluginPaths(DEFAULT_PLUGINS, projectRoot)
-    // const argsWithResolvedPlugins = this.replacePluginArgs(DEFAULT_ARGS, resolvedPluginArgs)
-    // const pluginArgs = this.resolvePluginArgs(DEFAULT_PLUGINS)
-    // const completeArgs = [...DEFAULT_ARGS, ...pluginArgs, ...prettierArgs]
-
     if (config === "built_in") {
       // 为插件参数使用绝对路径，避免全局安装时找不到插件
       prettierArgs.unshift("--config", configPath);

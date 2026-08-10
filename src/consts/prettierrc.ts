@@ -1,3 +1,4 @@
+/*
 export const DEFAULT_ARGS = [
   "--arrow-parens",
   "always",
@@ -38,9 +39,6 @@ export const DEFAULT_ARGS = [
   "false",
   "--embedded-language-formatting",
   "auto",
-  // prettier-plugin-ini
-  "--ini-space-around-equals",
-  "true",
   // xml
   "--xml-whitespace-sensitivity",
   "strict",
@@ -59,6 +57,7 @@ export const DEFAULT_ARGS = [
   "--continuation-indent",
   "2",
 ];
+*/
 
 export const DEFAULT_CONFIG = {
   arrowParens: "always",
@@ -71,10 +70,9 @@ export const DEFAULT_CONFIG = {
   experimentalTernaries: false,
   htmlWhitespaceSensitivity: "css",
   indentEntries: true, // toml
-  iniSpaceAroundEquals: true, // prettier-plugin-ini
   insertPragma: false,
   jsxSingleQuote: false,
-  // keySeparator: "=", // prettier-plugin-properties
+  keySeparator: "=", // prettier-plugin-properties
   objectWrap: "preserve",
   overrides: [
     { files: ["*.env"], options: { parser: "sh" } },
@@ -85,7 +83,12 @@ export const DEFAULT_CONFIG = {
     "prettier-plugin-toml",
     "prettier-plugin-sh",
     "prettier-plugin-nginx",
-    "prettier-plugin-ini",
+    "prettier-plugin-properties",
+    "prettier-plugin-java",
+    "prettier-plugin-kotlin",
+    "prettier-plugin-powershell",
+    "prettier-plugin-solidity",
+    "prettier-plugin-sql-cst",
   ],
   printWidth: 80,
   proseWrap: "preserve",
@@ -105,14 +108,16 @@ export const DEFAULT_CONFIG = {
   xmlWhitespaceSensitivity: "ignore", // xml
 };
 
+/*
 // 默认的 Prettier 插件列表
 export const DEFAULT_PLUGINS = [
   { main: "src/plugin.js", name: "@prettier/plugin-xml" },
   { main: "lib/index.cjs", name: "prettier-plugin-toml" },
   { main: "lib/index.cjs", name: "prettier-plugin-sh" },
   { main: "dist/index.js", name: "prettier-plugin-nginx" },
-  { main: "src/plugin.js", name: "prettier-plugin-ini" },
+  { main: "index.js", name: "prettier-plugin-properties" },
 ];
+*/
 
 // 默认的忽略模式
 export const DEFAULT_IGNORE_PATTERNS = [
