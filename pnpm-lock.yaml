@@ -21,8 +21,8 @@ importers:
         specifier: ^8.0.4
         version: 8.0.4
       '@oclif/core':
-        specifier: ^4.13.3
-        version: 4.13.3
+        specifier: ^4.14.0
+        version: 4.14.0
       '@oclif/plugin-help':
         specifier: ^6
         version: 6.2.37
@@ -36,8 +36,8 @@ importers:
         specifier: ^3.1.2
         version: 3.1.2
       dayjs:
-        specifier: ^1.11.21
-        version: 1.11.21
+        specifier: ^1.11.23
+        version: 1.11.23
       debug:
         specifier: ^4.4.3
         version: 4.4.3(supports-color@8.1.1)
@@ -48,8 +48,8 @@ importers:
         specifier: ^9.6.1
         version: 9.6.1
       js-yaml:
-        specifier: ^4.3.1
-        version: 4.3.1
+        specifier: ^4.3.2
+        version: 4.3.2
       lodash:
         specifier: ^4.18.1
         version: 4.18.1
@@ -69,8 +69,8 @@ importers:
         specifier: ^1.0.3
         version: 1.0.3
       prettier-plugin-powershell:
-        specifier: ^2.1.10
-        version: 2.1.10(prettier@3.9.6)(typescript@5.9.3)
+        specifier: ^2.1.12
+        version: 2.1.12(prettier@3.9.6)
       prettier-plugin-properties:
         specifier: ^0.3.1
         version: 0.3.1(prettier@3.9.6)
@@ -78,8 +78,8 @@ importers:
         specifier: ^0.19.0
         version: 0.19.0(prettier@3.9.6)
       prettier-plugin-solidity:
-        specifier: ^2.4.0
-        version: 2.4.0(prettier@3.9.6)
+        specifier: ^2.4.1
+        version: 2.4.1(prettier@3.9.6)
       prettier-plugin-sql-cst:
         specifier: ^0.22.1
         version: 0.22.1
@@ -98,7 +98,7 @@ importers:
         version: 0.2.1
       '@oclif/test':
         specifier: ^4
-        version: 4.1.16(@oclif/core@4.13.3)(supports-color@8.1.1)
+        version: 4.1.16(@oclif/core@4.14.0)(supports-color@8.1.1)
       '@types/chai':
         specifier: ^4
         version: 4.3.20
@@ -670,11 +670,11 @@ packages:
     resolution: {integrity: sha512-nn5ozdjYQpUCZlWGuxcJY/KpxkWQs4DcbMCmKojjyrYDEAGy4Ce19NN4v5MduafTwJlbKc99UA8YhSVqq9yPZA==}
     engines: {node: '>=12.4.0'}
 
-  '@nomicfoundation/slang@1.3.7':
-    resolution: {integrity: sha512-ryH2soSaqnv+lbHNe2dGA/05gZOB1c2OvAoNbqPfT341P3WC/1xwEGJeQWclIIFjl70FKLU8+LdIOdxMvW1evg==}
+  '@nomicfoundation/slang@1.3.8':
+    resolution: {integrity: sha512-it0o2vGb56kqOEUiIreLTqEwiWitWDDOiUCWCO3PfzBXD3kkIFLQ3Ly/4xNgCo0LF5xqGECr+DcCNbfspSClPA==}
 
-  '@oclif/core@4.13.3':
-    resolution: {integrity: sha512-wBp2igI2KVwq2ZmpnfmGtOROo7aXZIr3OEtAS16g1wHFBqyEuswL+9K50NJWJvlpAmxd+4dVj/ycawXESU3wQQ==}
+  '@oclif/core@4.14.0':
+    resolution: {integrity: sha512-QCJIZoVJxV7jywgVAUlsQwl3dr3Sa21kfi5z9KrYolbexWJUtFSEtMoNiBWojD05mYycLnB50gp/VxlGdaOCRA==}
     engines: {node: '>=18.0.0'}
 
   '@oclif/plugin-help@6.2.37':
@@ -1504,8 +1504,8 @@ packages:
     resolution: {integrity: sha512-BS8PfmtDGnrgYdOonGZQdLZslWIeCGFP9tpan0hi1Co2Zr2NKADsvGYA8XxuG/4UWgJ6Cjtv+YJnB6MM69QGlQ==}
     engines: {node: '>= 0.4'}
 
-  dayjs@1.11.21:
-    resolution: {integrity: sha512-98IT+HOahAisibz/yjKbzuOBwYcjJ7BCLPzARyHiyEBmRz4fatF+KPJszEHXsGYjUG234aH/cOjW1wwTbKUZlA==}
+  dayjs@1.11.23:
+    resolution: {integrity: sha512-QDTCU0M0MxR3hQfnlDJfwekQiaanm1ubOD231u73WBckQ/fsamwRLiE2GBz6D3a/xF1NgfiDLJjXBa1hYOYTtQ==}
 
   debug@3.2.7:
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
@@ -1591,6 +1591,11 @@ packages:
   ejs@3.1.10:
     resolution: {integrity: sha512-UeJmFfOrAQS8OJWPZ4qtgHyWExa088/MtK5UEyoJGFH67cDEXkZSviOiKRCZ4Xij0zxI3JECgYs3oKx+AizQBA==}
     engines: {node: '>=0.10.0'}
+    hasBin: true
+
+  ejs@6.0.1:
+    resolution: {integrity: sha512-UaaM14yby8U3k02ihS1Bmj5Kz2d7CCQM1scxpgs4Mhkq8F1wR2gl3+Ts4h5Ne4Mnt7M9m4Dw7jsuMr3+xO4vZA==}
+    engines: {node: '>=0.12.18'}
     hasBin: true
 
   electron-to-chromium@1.5.286:
@@ -1818,6 +1823,7 @@ packages:
   eslint@9.39.2:
     resolution: {integrity: sha512-LEyamqS7W5HB3ujJyvi0HQK/dtVINZvd5mAAp9eT5S/ujByGjiZLCzPcHVzuXbpJDJF/cxwHlfceVUDZ2lnSTw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    deprecated: This version is no longer supported. Please see https://eslint.org/version-support for other options.
     hasBin: true
     peerDependencies:
       jiti: '*'
@@ -2191,9 +2197,9 @@ packages:
     resolution: {integrity: sha512-PwwhEakHVKTdRNVOw+/Gyh0+MzlCl4R6qKvkhuvLtPMggI1WAHt9sOwZxQLSGpUaDnrdyDsomoRgNnCfKNSXXg==}
     engines: {node: '>= 0.4'}
 
-  is-docker@2.2.1:
-    resolution: {integrity: sha512-F+i2BKsFrH66iaUFc0woD8sLy8getkwTwtOBjvs56Cx4CgJDeKQeqfz8wAYiSb8JOprWhHH5p77PbmYCvvUuXQ==}
-    engines: {node: '>=8'}
+  is-docker@3.0.0:
+    resolution: {integrity: sha512-eljcgEDlEns/7AXFosB5K/2nCM4P7FQPkGc/DWLy5rmFEWvZayGrik1d9/QIY5nJ4f9YsVvBkA6kJpHn9rISdQ==}
+    engines: {node: ^12.20.0 || ^14.13.1 || >=16.0.0}
     hasBin: true
 
   is-extglob@2.1.1:
@@ -2215,6 +2221,11 @@ packages:
   is-glob@4.0.3:
     resolution: {integrity: sha512-xelSayHH36ZgE7ZWhli7pW34hNbNl8Ojv5KVmkJD4hBdD3th8Tfk9vYasLM+mXWOZhFkgZfxhLSnrwRr4elSSg==}
     engines: {node: '>=0.10.0'}
+
+  is-inside-container@1.0.0:
+    resolution: {integrity: sha512-KIYLCCJghfHZxqjYBE7rEy0OBuTd5xCHS7tHVgvCLkx7StIoaxwNW3hCALgEUjFfeRk+MG/Qxmp/vtETEF3tRA==}
+    engines: {node: '>=14.16'}
+    hasBin: true
 
   is-map@2.0.3:
     resolution: {integrity: sha512-1Qed0/Hr2m+YqxnM09CjA2d/i6YZNfF6R2oRAOj36eUdS6qIV/huPJNSEpKbupewFs+ZsJlxsjjPbc0/afW6Lw==}
@@ -2296,9 +2307,9 @@ packages:
     resolution: {integrity: sha512-mfcwb6IzQyOKTs84CQMrOwW4gQcaTOAWJ0zzJCl2WSPDrWk/OzDaImWFH3djXhb24g4eudZfLRozAvPGw4d9hQ==}
     engines: {node: '>= 0.4'}
 
-  is-wsl@2.2.0:
-    resolution: {integrity: sha512-fKzAra0rGJUUBwGBgNkHZuToZcn+TtXHpeCgmkMJMMYx1sQDYaCSyjJBSCa2nH1DGm7s3n1oBnohoVTBaN7Lww==}
-    engines: {node: '>=8'}
+  is-wsl@3.1.1:
+    resolution: {integrity: sha512-e6rvdUCiQCAuumZslxRJWR/Doq4VpPR82kqclvcS0efgt430SlGIk05vdCN58+VrzgtIcfNODjozVielycD4Sw==}
+    engines: {node: '>=16'}
 
   isarray@2.0.5:
     resolution: {integrity: sha512-xHjhDr3cNBK0BzdUJSPXZntQUx/mwMS5Rw4A7lPJ90XGAO6ISP/ePDNuo0vhqOZU+UD5JoodwCAAoZQd3FeAKw==}
@@ -2321,8 +2332,8 @@ packages:
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
 
-  js-yaml@4.3.1:
-    resolution: {integrity: sha512-CY6crGq313MX8GkwvB7tzgp99vjQxY1++5y10/BKN/GUfHqWaOGQMNZkBvqSzsZKWk/ijwHlWzzkLulsGHhjWQ==}
+  js-yaml@4.3.2:
+    resolution: {integrity: sha512-SFNOvSJ+Dgf/9An904Yx+CgSlIPCkIpao4qo51lpee25TIRejdH3rhR4EZMGoNx3/TP3O+wzWuiTFl4sqbltzA==}
     hasBin: true
 
   jsdoc-type-pratt-parser@4.1.0:
@@ -2737,6 +2748,10 @@ packages:
     resolution: {integrity: sha512-/+5VFTchJDoVj3bhoqi6UeymcD00DAwb1nJwamzPvHEszJ4FpF6SNNbUbOS8yI56qHzdV8eK0qEfOSiodkTdxg==}
     engines: {node: '>= 0.4'}
 
+  powershell-utils@0.1.0:
+    resolution: {integrity: sha512-dM0jVuXJPsDN6DvRpea484tCUaMiXWjuCn++HGTqUWzGDjv5tZkEZldAJ/UMlqRYGFrD/etByo4/xOuC/snX2A==}
+    engines: {node: '>=20'}
+
   prelude-ls@1.2.1:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
@@ -2757,12 +2772,11 @@ packages:
   prettier-plugin-nginx@1.0.3:
     resolution: {integrity: sha512-vV5q85s8XnV6NEgvz1gVLfZhmxAxY03MyOYj2ApBpjFkbs00lRsRkTmqO9L39ADuD18z1RRCcfZ3eVxKhI/nqg==}
 
-  prettier-plugin-powershell@2.1.10:
-    resolution: {integrity: sha512-+8VtfYthhE973AHlmhwfi/nySjvf8vnbogxaJimWvkItfMZodyNb5Ns7obvcv7W16tIKMZpuJk9G7W0hr0OvQQ==}
+  prettier-plugin-powershell@2.1.12:
+    resolution: {integrity: sha512-tcN2Vm/TP3ZRePQuXOW12AQXTuR/Dj9JU5c1l4C4BtBhDUDiZ+F6i0bjscHheTD1gr4UbA48AGee+QubHLCxcw==}
     engines: {node: '>=20.11.0'}
     peerDependencies:
       prettier: ^3.0.0 || ^3.9.0
-      typescript: ^6.0.3
 
   prettier-plugin-properties@0.3.1:
     resolution: {integrity: sha512-TE85dg+1ED7Dnz8lJqrlT9qXh7EKftrvmZgXwRC6jYT0/Ru2MlGkmvLDRUwoAGNaDCn8ijNjw0T33q6nVXgQ4Q==}
@@ -2775,8 +2789,8 @@ packages:
     peerDependencies:
       prettier: ^3.6.0
 
-  prettier-plugin-solidity@2.4.0:
-    resolution: {integrity: sha512-Z/zXRhdWzz3zq7gOmQ7k0mDOFZwhbZxT+u6C+9c4Mzq0iXsc4ONdq78rgIGD9KSZ5NAJ7KrRsalPcN4A0XOfnw==}
+  prettier-plugin-solidity@2.4.1:
+    resolution: {integrity: sha512-12w85zZt9gXgGvLW7nK4h+U6sLY8qa688E+tFDP0Oic9zuM5TSQcWQdcE/RP3dLBuBAbA5yUl6lgXmSnjuRsGA==}
     engines: {node: '>=20'}
     peerDependencies:
       prettier: '>=3.0.0'
@@ -3300,6 +3314,10 @@ packages:
 
   wrappy@1.0.2:
     resolution: {integrity: sha512-l4Sp/DRseor9wL6EvV2+TuQn63dMkPjZ/sp9XkghTEbV9KlPS1xUsZ3u7/IQO4wxtcFB4bgpQPRcR3QCvezPcQ==}
+
+  wsl-utils@0.4.0:
+    resolution: {integrity: sha512-9YmF+2sFEd+T7TkwlmE337F0IVzfDvDknhtpBQxxXzEOfgPphGlFYpyx0cTuCIFj8/p+sqwBYAeGxOMNSzPPDA==}
+    engines: {node: '>=20'}
 
   y18n@5.0.8:
     resolution: {integrity: sha512-0pfFzegeDWJHJIAmTLRP2DwHjdF5s7jo9tuztdQxAhINCdvS+3nGINqPd00AphqJR/0LhANUS6/+7SCb98YOfA==}
@@ -4021,7 +4039,7 @@ snapshots:
       globals: 14.0.0
       ignore: 5.3.2
       import-fresh: 3.3.1
-      js-yaml: 4.3.1
+      js-yaml: 4.3.2
       minimatch: 3.1.2
       strip-json-comments: 3.1.1
     transitivePeerDependencies:
@@ -4258,21 +4276,20 @@ snapshots:
 
   '@nolyfill/is-core-module@1.0.39': {}
 
-  '@nomicfoundation/slang@1.3.7':
+  '@nomicfoundation/slang@1.3.8':
     dependencies:
       '@bytecodealliance/preview2-shim': 0.19.0
 
-  '@oclif/core@4.13.3':
+  '@oclif/core@4.14.0':
     dependencies:
       ansi-escapes: 4.3.2
       ansis: 3.17.0
       clean-stack: 3.0.1
       cli-spinners: 2.9.2
       debug: 4.4.3(supports-color@8.1.1)
-      ejs: 3.1.10
+      ejs: 6.0.1
       get-package-type: 0.1.0
       indent-string: 4.0.0
-      is-wsl: 2.2.0
       lilconfig: 3.1.3
       minimatch: 10.2.5
       semver: 7.8.5
@@ -4282,15 +4299,16 @@ snapshots:
       widest-line: 3.1.0
       wordwrap: 1.0.0
       wrap-ansi: 7.0.0
+      wsl-utils: 0.4.0
 
   '@oclif/plugin-help@6.2.37':
     dependencies:
-      '@oclif/core': 4.13.3
+      '@oclif/core': 4.14.0
 
   '@oclif/plugin-not-found@3.2.74(@types/node@18.19.130)':
     dependencies:
       '@inquirer/prompts': 7.10.1(@types/node@18.19.130)
-      '@oclif/core': 4.13.3
+      '@oclif/core': 4.14.0
       ansis: 3.17.0
       fast-levenshtein: 3.0.0
     transitivePeerDependencies:
@@ -4298,7 +4316,7 @@ snapshots:
 
   '@oclif/plugin-plugins@5.4.55(supports-color@8.1.1)':
     dependencies:
-      '@oclif/core': 4.13.3
+      '@oclif/core': 4.14.0
       ansis: 3.17.0
       debug: 4.4.3(supports-color@8.1.1)
       npm: 10.9.4
@@ -4314,7 +4332,7 @@ snapshots:
 
   '@oclif/plugin-warn-if-update-available@3.1.55(supports-color@8.1.1)':
     dependencies:
-      '@oclif/core': 4.13.3
+      '@oclif/core': 4.14.0
       ansis: 3.17.0
       debug: 4.4.3(supports-color@8.1.1)
       http-call: 5.3.0(supports-color@8.1.1)
@@ -4325,9 +4343,9 @@ snapshots:
 
   '@oclif/prettier-config@0.2.1': {}
 
-  '@oclif/test@4.1.16(@oclif/core@4.13.3)(supports-color@8.1.1)':
+  '@oclif/test@4.1.16(@oclif/core@4.14.0)(supports-color@8.1.1)':
     dependencies:
-      '@oclif/core': 4.13.3
+      '@oclif/core': 4.14.0
       ansis: 3.17.0
       debug: 4.4.3(supports-color@8.1.1)
     transitivePeerDependencies:
@@ -5278,7 +5296,7 @@ snapshots:
       es-errors: 1.3.0
       is-data-view: 1.0.2
 
-  dayjs@1.11.21: {}
+  dayjs@1.11.23: {}
 
   debug@3.2.7(supports-color@8.1.1):
     dependencies:
@@ -5352,6 +5370,8 @@ snapshots:
   ejs@3.1.10:
     dependencies:
       jake: 10.9.4
+
+  ejs@6.0.1: {}
 
   electron-to-chromium@1.5.286: {}
 
@@ -5533,7 +5553,7 @@ snapshots:
       get-tsconfig: 4.13.1
       is-bun-module: 2.0.0
       stable-hash: 0.0.5
-      tinyglobby: 0.2.15
+      tinyglobby: 0.2.17
       unrs-resolver: 1.11.1
     optionalDependencies:
       eslint-plugin-import: 2.32.0(@typescript-eslint/parser@8.54.0(eslint@9.39.2(supports-color@8.1.1))(supports-color@8.1.1)(typescript@5.9.3))(eslint-import-resolver-typescript@3.10.1)(eslint@9.39.2(supports-color@8.1.1))(supports-color@8.1.1)
@@ -5604,7 +5624,7 @@ snapshots:
       espree: 10.4.0
       esquery: 1.7.0
       parse-imports-exports: 0.2.4
-      semver: 7.7.3
+      semver: 7.8.5
       spdx-expression-parse: 4.0.0
     transitivePeerDependencies:
       - supports-color
@@ -5638,7 +5658,7 @@ snapshots:
       globals: 15.15.0
       globrex: 0.1.2
       ignore: 5.3.2
-      semver: 7.7.3
+      semver: 7.8.5
       ts-declaration-location: 1.0.7(typescript@5.9.3)
     transitivePeerDependencies:
       - typescript
@@ -5689,7 +5709,7 @@ snapshots:
       read-pkg-up: 7.0.1
       regexp-tree: 0.1.27
       regjsparser: 0.10.0
-      semver: 7.7.3
+      semver: 7.8.5
       strip-indent: 3.0.0
 
   eslint-scope@8.4.0:
@@ -6133,7 +6153,7 @@ snapshots:
       call-bound: 1.0.4
       has-tostringtag: 1.0.2
 
-  is-docker@2.2.1: {}
+  is-docker@3.0.0: {}
 
   is-extglob@2.1.1: {}
 
@@ -6154,6 +6174,10 @@ snapshots:
   is-glob@4.0.3:
     dependencies:
       is-extglob: 2.1.1
+
+  is-inside-container@1.0.0:
+    dependencies:
+      is-docker: 3.0.0
 
   is-map@2.0.3: {}
 
@@ -6219,9 +6243,9 @@ snapshots:
       call-bound: 1.0.4
       get-intrinsic: 1.3.0
 
-  is-wsl@2.2.0:
+  is-wsl@3.1.1:
     dependencies:
-      is-docker: 2.2.1
+      is-inside-container: 1.0.0
 
   isarray@2.0.5: {}
 
@@ -6239,7 +6263,7 @@ snapshots:
 
   js-tokens@4.0.0: {}
 
-  js-yaml@4.3.1:
+  js-yaml@4.3.2:
     dependencies:
       argparse: 2.0.1
 
@@ -6355,7 +6379,7 @@ snapshots:
       find-up: 5.0.0
       glob: 8.1.0
       he: 1.2.0
-      js-yaml: 4.3.1
+      js-yaml: 4.3.2
       log-symbols: 4.1.0
       minimatch: 5.1.6
       ms: 2.1.3
@@ -6467,7 +6491,7 @@ snapshots:
       '@inquirer/confirm': 3.2.0
       '@inquirer/input': 2.3.0
       '@inquirer/select': 2.5.0
-      '@oclif/core': 4.13.3
+      '@oclif/core': 4.14.0
       '@oclif/plugin-help': 6.2.37
       '@oclif/plugin-not-found': 3.2.74(@types/node@18.19.130)
       '@oclif/plugin-warn-if-update-available': 3.1.55(supports-color@8.1.1)
@@ -6593,6 +6617,8 @@ snapshots:
 
   possible-typed-array-names@1.1.0: {}
 
+  powershell-utils@0.1.0: {}
+
   prelude-ls@1.2.1: {}
 
   prettier-plugin-java@2.10.3(prettier@3.9.6):
@@ -6612,12 +6638,10 @@ snapshots:
 
   prettier-plugin-nginx@1.0.3: {}
 
-  prettier-plugin-powershell@2.1.10(prettier@3.9.6)(typescript@5.9.3):
+  prettier-plugin-powershell@2.1.12(prettier@3.9.6):
     dependencies:
       prettier: 3.9.6
       ts-extras: 1.3.0
-      type-fest: 5.8.0
-      typescript: 5.9.3
 
   prettier-plugin-properties@0.3.1(prettier@3.9.6):
     dependencies:
@@ -6630,9 +6654,9 @@ snapshots:
       prettier: 3.9.6
       sh-syntax: 0.6.0
 
-  prettier-plugin-solidity@2.4.0(prettier@3.9.6):
+  prettier-plugin-solidity@2.4.1(prettier@3.9.6):
     dependencies:
-      '@nomicfoundation/slang': 1.3.7
+      '@nomicfoundation/slang': 1.3.8
       '@solidity-parser/parser': 0.20.2
       prettier: 3.9.6
       semver: 7.8.5
@@ -7229,6 +7253,11 @@ snapshots:
       strip-ansi: 6.0.1
 
   wrappy@1.0.2: {}
+
+  wsl-utils@0.4.0:
+    dependencies:
+      is-wsl: 3.1.1
+      powershell-utils: 0.1.0
 
   y18n@5.0.8: {}
 
