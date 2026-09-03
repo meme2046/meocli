@@ -1,5 +1,5 @@
 const PROJECT_NAME = "meocli"
-const DIR_PATH = "d:/AudioBooks/opus/诡秘之主_upload"
+const DIR_PATH = "d:/AudioBooks/opus/大奉打更人_头陀渊"
 const DEFAULT_EXTS = ["mp3" "m4a" "opus" "jpg" "jpeg" "png" "txt" "pdf" "json" "html"]
 
 def main [] {
@@ -13,14 +13,14 @@ def main [] {
 #   irys ud --dp ./audio --skip 10 --take 20 --threads 4
 def "main ud" [
   dp: string = $DIR_PATH
-  --env-file: string = "d:/irys1.env"
+  --env-file: string = "d:/irys.env"
   --token: string = "pol"
   --network: string = "mainnet"
   --rpc-url: string = ""
   --tags: string = ""
-  --threads: int = 2
-  --skip: int = 2
-  --take: int = 1
+  --threads: int = 3
+  --skip: int = 0
+  --take: int = 3
   --exts: string = "" # 逗号分隔扩展名，覆盖默认
   --output-file: string = "./tmp/irys_output.txt" # 输出 JSON 文件路径
 ] {
