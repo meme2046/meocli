@@ -1,7 +1,7 @@
 {
   "name": "meocli",
   "description": "Node CLI generated with oclif, Integrate Prettier",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "meme2046",
   "bin": {
     "me": "./bin/run.js"
