@@ -1,6 +1,6 @@
 const PROJECT_NAME = "meocli"
 const DIR_PATH = "d:/AudioBooks/opus/大奉打更人_头陀渊"
-const DEFAULT_EXTS = ["mp3" "m4a" "opus" "jpg" "jpeg" "png" "txt" "pdf" "json" "html"]
+const DEFAULT_EXTS = ["jpg" "jpeg" "png" "opus" "txt" "pdf" "json" "html"]
 
 def main [] {
   print 'irys script'
@@ -20,7 +20,7 @@ def "main ud" [
   --tags: string = ""
   --threads: int = 3
   --skip: int = 0
-  --take: int = 3
+  --take: int = 1
   --exts: string = "" # 逗号分隔扩展名，覆盖默认
   --output-file: string = "./tmp/irys_output.txt" # 输出 JSON 文件路径
 ] {
@@ -28,7 +28,7 @@ def "main ud" [
   let exts = if $exts == "" { $DEFAULT_EXTS } else { ($exts | split column "," | where {|r| $r != "" }) }
   let exts_comma = $exts | str join ","
 
-  let files = glob $"($dp)/**/*.{($exts_comma)}" | sort --natural
+  let files = glob $"($dp)/**/*.{($exts_comma)}" | sort --ignore-case --natural
 
   if ($files | length) == 0 {
     print $"✗ 未找到任何 ($exts_comma) 文件 in ($dp)"
@@ -83,12 +83,12 @@ def "main ud" [
 
       let tx_id = (
         if $success and ($output | str contains "✓") {
-          $output | lines | where {|l| ($l | str trim) | str starts-with "ID:" } | str trim | str replace "ID:" "" | str trim
+          $output | lines | where {|l| ($l | str trim) | str starts-with "ID:" } | first | str trim | str replace "ID:" "" | str trim
         } else { "" }
       )
       let url = (
         if $success and ($output | str contains "✓") {
-          $output | lines | where {|l| ($l | str trim) | str starts-with "URL:" } | str trim | str replace "URL:" "" | str trim
+          $output | lines | where {|l| ($l | str trim) | str starts-with "URL:" } | first | str trim | str replace "URL:" "" | str trim
         } else { "" }
       )
 
