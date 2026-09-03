@@ -37,7 +37,7 @@ export default class IrysReset extends Command {
           privateKey: flags.key,
           token: flags.token,
         });
-        this.log(`✔ 连接成功`);
+        this.log(`✓ 连接成功`);
         this.log(`  代币: ${irys.token}`);
         this.log(`  RPC: ${irys.tokenConfig?.providerUrl ?? "(default)"}`);
         this.log(`  地址: ${irys.address}`);

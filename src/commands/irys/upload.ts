@@ -104,7 +104,7 @@ export default class Upload extends Command {
         anchor: flags.anchor,
         tags,
       });
-      this.log(`✔ 文本上传成功`);
+      this.log(`✓ 文本上传成功`);
       this.log(`  ID: ${receipt.id}`);
       this.log(`  URL: https://gateway.irys.xyz/${receipt.id}`);
       return;
@@ -125,9 +125,9 @@ export default class Upload extends Command {
         `预估费用: ${irys.utils.fromAtomic(price).toFixed(0)} ${flags.token}`,
       );
       const receipt = await irys.uploadFile(path, { tags });
-      this.log(`✔ 文件上传成功`);
-      this.log(`  ID: ${receipt.id}`);
-      this.log(`  URL: https://gateway.irys.xyz/${receipt.id}`);
+      this.log(`✓ 文件上传成功`);
+      this.log(`ID: ${receipt.id}`);
+      this.log(`URL: https://gateway.irys.xyz/${receipt.id}`);
       return;
     }
 
@@ -142,8 +142,8 @@ export default class Upload extends Command {
       keepDeleted: false,
       manifestTags,
     });
-    this.log(`✔ 目录上传成功`);
-    this.log(`  Manifest ID: ${manifest.id}`);
-    this.log(`  URL: https://gateway.irys.xyz/${manifest.id}/`);
+    this.log(`✓ 目录上传成功`);
+    this.log(`Manifest ID: ${manifest.id}`);
+    this.log(`URL: https://gateway.irys.xyz/${manifest.id}/`);
   }
 }

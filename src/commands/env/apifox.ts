@@ -33,7 +33,7 @@ export default class Apifox extends Command {
     const { verbose } = flags;
 
     if (!existsSync(filePath)) {
-      this.log(`✘ 『${filePath}』 not found!`);
+      this.log(`✗ 『${filePath}』 not found!`);
       return undefined;
     }
 
@@ -44,10 +44,11 @@ export default class Apifox extends Command {
 
     const envConfig: dotenv.DotenvParseOutput | undefined = dotenv.config({
       path: filePath,
+      quiet: true,
     }).parsed;
 
     if (envConfig) {
-      this.debug(`✔ 『${filePath}』`);
+      this.debug(`✓ 『${filePath}』`);
 
       for (const [key, value] of Object.entries(envConfig || {})) {
         console.log(`${key},default,,false,${value},`);

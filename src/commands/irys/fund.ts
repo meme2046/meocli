@@ -105,7 +105,7 @@ export default class Fund extends Command {
       "fund 链上交易未完成",
     );
 
-    this.log(`✔ 充值成功`);
+    this.log(`✓ 充值成功`);
     this.log(
       `  数量: ${irys.utils.fromAtomic(receipt.quantity).toFixed(0)} ${flags.token}`,
     );

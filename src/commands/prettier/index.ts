@@ -172,7 +172,7 @@ prettier-plugin-sql-cst`;
       this.warn(stderr);
     }
 
-    this.log(`✔ Formatted ${filePath}`);
+    this.log(`✓ Formatted ${filePath}`);
   }
 
   private detectPackageManager(): string {

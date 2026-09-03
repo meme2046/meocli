@@ -27,7 +27,7 @@ export default class Hello extends Command {
     const { args, flags } = await this.parse(Hello);
 
     this.log(
-      `✔ Hello ${args.person} from ${flags.from}! (./src/commands/hello/index.ts)`,
+      `✓ Hello ${args.person} from ${flags.from}! (./src/commands/hello/index.ts)`,
     );
   }
 }

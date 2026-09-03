@@ -53,7 +53,7 @@ export default class Download extends Command {
 
     const contentType = res.headers.get("content-type") ?? "";
     const buffer = Buffer.from(await res.arrayBuffer());
-    this.log(`✔ 下载成功 (${buffer.length} bytes, ${contentType})`);
+    this.log(`✓ 下载成功 (${buffer.length} bytes, ${contentType})`);
 
     if (flags.output) {
       const outPath =

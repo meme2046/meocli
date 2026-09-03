@@ -66,7 +66,7 @@ export default class Withdraw extends Command {
     if (flags.all) {
       this.log("提现全部余额...");
       const res = await irys.withdrawAll();
-      this.log(`✔ 提现成功`);
+      this.log(`✓ 提现成功`);
       this.log(`  Tx ID: ${res["tx-id"] ?? res.id ?? "(pending)"}`);
       this.log(
         `  Requested: ${irys.utils.fromAtomic(res.requested).toFixed(0)} ${flags.token}`,
@@ -104,7 +104,7 @@ export default class Withdraw extends Command {
 
     this.log("发送提现请求中...");
     const res = await irys.withdrawBalance(atomic);
-    this.log(`✔ 提现成功`);
+    this.log(`✓ 提现成功`);
     this.log(`  Tx ID: ${res["tx-id"] ?? res.id ?? "(pending)"}`);
     this.log(
       `  Requested: ${irys.utils.fromAtomic(res.requested).toFixed(0)} ${flags.token}`,

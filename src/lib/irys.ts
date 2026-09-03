@@ -62,7 +62,7 @@ function resolveEnvPath(customPath?: string): string {
 function loadEnv(envPath?: string): dotenv.DotenvParseOutput | undefined {
   const path = resolveEnvPath(envPath);
   if (!existsSync(path)) return undefined;
-  return dotenv.config({ path }).parsed;
+  return dotenv.config({ path, quiet: true }).parsed;
 }
 
 /**

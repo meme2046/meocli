@@ -53,7 +53,7 @@ export default class ClashModify extends Command {
     const template = JSON.parse(templateContent);
     const { ruleProviders, ruleSet, v6Domains } = template;
 
-    this.log("✔ 已读取 template.json 配置:");
+    this.log("✓ 已读取 template.json 配置:");
     this.log(`  - ruleSet: ${JSON.stringify(ruleSet)}`);
     this.log(
       `  - ruleProviders: ${Object.keys(ruleProviders || {}).join(", ")}`,
@@ -107,7 +107,7 @@ export default class ClashModify extends Command {
                       ),
                     );
                     insertStatements.push(rulesAssign);
-                    this.log("✔ 已添加 ruleSet 到 config.rules 开头");
+                    this.log("✓ 已添加 ruleSet 到 config.rules 开头");
                   }
 
                   // 2. ruleProviders
@@ -164,7 +164,7 @@ export default class ClashModify extends Command {
                     );
                     insertStatements.push(forEachRuleProviders);
                     this.log(
-                      `✔ 已合并 ruleProviders: ${Object.keys(ruleProviders).join(", ")}`,
+                      `✓ 已合并 ruleProviders: ${Object.keys(ruleProviders).join(", ")}`,
                     );
                   }
 
@@ -358,7 +358,7 @@ export default class ClashModify extends Command {
                     insertStatements.push(forEachFakeIpFilter);
 
                     this.log(
-                      `✔ 已添加 IPv6 配置，目标域名: ${v6Domains.join(", ")}`,
+                      `✓ 已添加 IPv6 配置，目标域名: ${v6Domains.join(", ")}`,
                     );
                   }
 
@@ -381,6 +381,6 @@ export default class ClashModify extends Command {
     const outputPath = `${baseName}_update${ext}`;
 
     await writeAst(ast, outputPath);
-    this.log("✔ 自定义clash配置添加完成");
+    this.log("✓ 自定义clash配置添加完成");
   }
 }

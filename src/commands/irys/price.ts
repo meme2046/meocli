@@ -73,7 +73,7 @@ export default class Price extends Command {
 
     // 100 KiB 以下免费
     if (numBytes < 102_400) {
-      this.log("✔ 小于 100 KiB，上传免费");
+      this.log("✓ 小于 100 KiB，上传免费");
       return;
     }
 

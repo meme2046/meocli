@@ -50,6 +50,6 @@ export default class Reset extends Command {
     this.debug("Prettier config >:", DEFAULT_CONFIG);
     toYamlFile(configPath, DEFAULT_CONFIG);
 
-    this.log("✔ Prettier config and ignore file reset success!");
+    this.log("✓ Prettier config and ignore file reset success!");
   }
 }
