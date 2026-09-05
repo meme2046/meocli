@@ -108,7 +108,7 @@ $ npm install -g meocli
 $ me COMMAND
 running command...
 $ me (--version)
-meocli/0.2.0 win32-x64 node-v24.19.0
+meocli/0.2.1 win32-x64 node-v24.20.0
 $ me --help [COMMAND]
 USAGE
   $ me COMMAND
@@ -124,6 +124,13 @@ USAGE
 * [`me hello PERSON`](#me-hello-person)
 * [`me hello world`](#me-hello-world)
 * [`me help [COMMAND]`](#me-help-command)
+* [`me irys balance [ADDRESS]`](#me-irys-balance-address)
+* [`me irys download ID`](#me-irys-download-id)
+* [`me irys fund AMOUNT`](#me-irys-fund-amount)
+* [`me irys price [BYTES]`](#me-irys-price-bytes)
+* [`me irys reset`](#me-irys-reset)
+* [`me irys upload PATH`](#me-irys-upload-path)
+* [`me irys withdraw [AMOUNT]`](#me-irys-withdraw-amount)
 * [`me js clash FILEPATH TEMPLATEPATH`](#me-js-clash-filepath-templatepath)
 * [`me plugins`](#me-plugins)
 * [`me plugins add PLUGIN`](#me-plugins-add-plugin)
@@ -159,7 +166,7 @@ EXAMPLES
       me env .env
 ```
 
-_See code: [src/commands/env/index.ts](https://github.com/meme2046/meocli/blob/v0.2.0/src/commands/env/index.ts)_
+_See code: [src/commands/env/index.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/env/index.ts)_
 
 ## `me env apifox [FILEPATH]`
 
@@ -182,7 +189,7 @@ EXAMPLES
       me env apifox .env
 ```
 
-_See code: [src/commands/env/apifox.ts](https://github.com/meme2046/meocli/blob/v0.2.0/src/commands/env/apifox.ts)_
+_See code: [src/commands/env/apifox.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/env/apifox.ts)_
 
 ## `me hello PERSON`
 
@@ -206,7 +213,7 @@ EXAMPLES
       hello friend --from oclif (./src/commands/hello/index.ts)
 ```
 
-_See code: [src/commands/hello/index.ts](https://github.com/meme2046/meocli/blob/v0.2.0/src/commands/hello/index.ts)_
+_See code: [src/commands/hello/index.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/hello/index.ts)_
 
 ## `me hello world`
 
@@ -224,7 +231,7 @@ EXAMPLES
   hello world! (./src/commands/hello/world.ts)
 ```
 
-_See code: [src/commands/hello/world.ts](https://github.com/meme2046/meocli/blob/v0.2.0/src/commands/hello/world.ts)_
+_See code: [src/commands/hello/world.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/hello/world.ts)_
 
 ## `me help [COMMAND]`
 
@@ -245,6 +252,237 @@ DESCRIPTION
 ```
 
 _See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/v6.2.37/src/commands/help.ts)_
+
+## `me irys balance [ADDRESS]`
+
+查询 Irys bundler 上的账户余额
+
+```
+USAGE
+  $ me irys balance [ADDRESS] [-e <value>] [-k <value>] [-n mainnet|devnet] [-r <value>] [-t <value>]
+
+ARGUMENTS
+  [ADDRESS]  要查询的地址。不传则查询 ~/.meocli/.env 中配置的私钥对应地址
+
+FLAGS
+  -e, --env=<value>       自定义 .env 文件路径（默认 ~/.meocli/.env）
+  -k, --key=<value>       私钥。不传则从 ~/.meocli/.env 读取
+  -n, --network=<option>  [default: mainnet] 网络：mainnet 或 devnet
+                          <options: mainnet|devnet>
+  -r, --rpc-url=<value>   自定义 RPC URL（devnet 或自定义链时常用）
+  -t, --token=<value>     [default: ethereum] 支付代币，支持的代币请用 me irys 查看
+
+DESCRIPTION
+  查询 Irys bundler 上的账户余额
+
+EXAMPLES
+  $ me irys balance
+
+  $ me irys balance 0x591B5Ce7cA10a55A9B5d1516eF89693D5b3586b8
+
+  $ me irys balance -t solana -n devnet
+```
+
+_See code: [src/commands/irys/balance.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/irys/balance.ts)_
+
+## `me irys download ID`
+
+从 Irys gateway 下载数据
+
+```
+USAGE
+  $ me irys download ID [--devnet] [-o <value>]
+
+ARGUMENTS
+  ID  Irys 事务 ID（transaction ID）
+
+FLAGS
+  -o, --output=<value>  保存到文件（不传则打印到 stdout）。目录形式会自动用 ID 作文件名
+      --devnet          从 devnet gateway 下载（数据留存 ~60 天）
+
+DESCRIPTION
+  从 Irys gateway 下载数据
+
+EXAMPLES
+  $ me irys download CO9EpX0lekJEfXUOeXncUmMuG8eEp5WJHXl9U9yZUYA
+
+  $ me irys download CO9EpX0lekJEfXUOeXncUmMuG8eEp5WJHXl9U9yZUYA -o ./image.png
+
+  $ me irys download CO9EpX0lekJEfXUOeXncUmMuG8eEp5WJHXl9U9yZUYA --devnet
+```
+
+_See code: [src/commands/irys/download.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/irys/download.ts)_
+
+## `me irys fund AMOUNT`
+
+向 Irys bundler 充值
+
+```
+USAGE
+  $ me irys fund AMOUNT [-e <value>] [-k <value>] [--multiplier <value>] [-n mainnet|devnet] [-r <value>] [-t
+    <value>]
+
+ARGUMENTS
+  AMOUNT  充值金额。支持两种格式:
+          · 十进制（如 0.05）— 自动换算为原子单位
+          · 原子单位（如 50000000000000000）— 末尾加 'u' 后缀，如 50000000000000000u
+
+FLAGS
+  -e, --env=<value>         自定义 .env 文件路径（默认 ~/.meocli/.env）
+  -k, --key=<value>         私钥。不传则从 ~/.meocli/.env 读取
+  -n, --network=<option>    [default: mainnet] 网络
+                            <options: mainnet|devnet>
+  -r, --rpc-url=<value>     自定义 RPC URL（devnet 必需）
+  -t, --token=<value>       [default: ethereum] 支付代币
+      --multiplier=<value>  [default: 1.0] gas fee multiplier（特定代币支持）
+
+DESCRIPTION
+  向 Irys bundler 充值
+
+EXAMPLES
+  $ me irys fund 0.05
+
+  $ me irys fund 50000000000000000u
+
+  $ me irys fund 1 -t solana -n devnet
+```
+
+_See code: [src/commands/irys/fund.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/irys/fund.ts)_
+
+## `me irys price [BYTES]`
+
+预估上传指定大小数据到 Irys 的费用
+
+```
+USAGE
+  $ me irys price [BYTES] [-e <value>] [-f <value>] [-k <value>] [-n mainnet|devnet] [-r <value>] [-t <value>]
+
+ARGUMENTS
+  [BYTES]  要预估费用的字节数。也可以用 --file 指定文件路径自动计算。100 KiB 以下免费
+
+FLAGS
+  -e, --env=<value>       自定义 .env 文件路径（默认 ~/.meocli/.env）
+  -f, --file=<value>      指定文件路径，自动读取字节数（覆盖 bytes 参数）
+  -k, --key=<value>       私钥（此命令仅读公开接口，可不提供）
+  -n, --network=<option>  [default: mainnet] 网络
+                          <options: mainnet|devnet>
+  -r, --rpc-url=<value>   自定义 RPC URL（devnet 必需）
+  -t, --token=<value>     [default: ethereum] 支付代币
+
+DESCRIPTION
+  预估上传指定大小数据到 Irys 的费用
+
+EXAMPLES
+  $ me irys price 1048576
+
+  $ me irys price --file ./myImage.png
+
+  $ me irys price 1048576 -t solana
+```
+
+_See code: [src/commands/irys/price.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/irys/price.ts)_
+
+## `me irys reset`
+
+Irys 辅助工具：查看支持的代币列表、获取示例配置、验证私钥
+
+```
+USAGE
+  $ me irys reset [-e <value>] [-k <value>] [-t <value>]
+
+FLAGS
+  -e, --env=<value>    自定义 .env 文件路径（默认 ~/.meocli/.env）
+  -k, --key=<value>    私钥。不传则从 ~/.meocli/.env 读取
+  -t, --token=<value>  指定代币后，会尝试建立连接并打印钱包地址（仅验证私钥是否可用，不发交易）
+
+DESCRIPTION
+  Irys 辅助工具：查看支持的代币列表、获取示例配置、验证私钥
+
+EXAMPLES
+  $ me irys reset
+
+  $ me irys reset -t ethereum
+```
+
+_See code: [src/commands/irys/reset.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/irys/reset.ts)_
+
+## `me irys upload PATH`
+
+上传文件、目录或文本到 Irys
+
+```
+USAGE
+  $ me irys upload PATH [--anchor <value>] [--batch-size <value>] [-e <value>] [--index-file <value>] [-k
+    <value>] [--manifest-tags <value>] [-n mainnet|devnet] [-r <value>] [--tags <value>] [--text] [-t <value>]
+
+ARGUMENTS
+  PATH  要上传的文件或目录路径，或 --text 模式下的纯文本内容
+
+FLAGS
+  -e, --env=<value>            自定义 .env 文件路径（默认 ~/.meocli/.env）
+  -k, --key=<value>            私钥。不传则从 ~/.meocli/.env 读取
+  -n, --network=<option>       [default: mainnet] 网络
+                               <options: mainnet|devnet>
+  -r, --rpc-url=<value>        自定义 RPC URL（devnet 必需）
+  -t, --token=<value>          [default: ethereum] 支付代币
+      --anchor=<value>         仅 --text 模式：指定 deterministic anchor 值（默认自动生成）。用于可重复的数据 item ID
+      --batch-size=<value>     [default: 50] 上传目录时并发上传数量
+      --index-file=<value>     上传目录时指定 index 文件（如 index.html），用于 manifest
+      --manifest-tags=<value>  上传目录时，添加到 manifest 事务本身的 tags（格式同 --tags）。与 --tags（每个文件的
+                               tag）分开
+      --tags=<value>           元数据 tags（上传文本 / 文件时直接应用；上传目录时作用于每个文件），格式:
+                               name1=value1,name2=value2
+      --text                   将 path 参数视为纯文本内容上传，而非文件路径（绕过文件系统查找）
+
+DESCRIPTION
+  上传文件、目录或文本到 Irys
+
+EXAMPLES
+  $ me irys upload ./myImage.png
+
+  $ me irys upload ./dist
+
+  $ me irys upload ./myImage.png -t solana --tags type=image,lang=zh
+
+  $ me irys upload 'hello irys' --text
+```
+
+_See code: [src/commands/irys/upload.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/irys/upload.ts)_
+
+## `me irys withdraw [AMOUNT]`
+
+从 Irys bundler 提现余额回到链上钱包
+
+```
+USAGE
+  $ me irys withdraw [AMOUNT] [--all] [-e <value>] [-k <value>] [-n mainnet|devnet] [-r <value>] [-t <value>]
+
+ARGUMENTS
+  [AMOUNT]  提现金额（十进制）或原子单位（末尾 'u' 后缀，如 1000000u）。搭配 --all 时可省略
+
+FLAGS
+  -e, --env=<value>       自定义 .env 文件路径（默认 ~/.meocli/.env）
+  -k, --key=<value>       私钥。不传则从 ~/.meocli/.env 读取
+  -n, --network=<option>  [default: mainnet] 网络
+                          <options: mainnet|devnet>
+  -r, --rpc-url=<value>   自定义 RPC URL（devnet 必需）
+  -t, --token=<value>     [default: ethereum] 代币（提现只对当前代币余额生效）
+      --all               提现全部余额（调用 withdrawAll）。指定后 amount 参数可省略
+
+DESCRIPTION
+  从 Irys bundler 提现余额回到链上钱包
+
+EXAMPLES
+  $ me irys withdraw 0.01
+
+  $ me irys withdraw 1000000000000000u
+
+  $ me irys withdraw --all
+
+  $ me irys withdraw 0.1 -t solana -n devnet
+```
+
+_See code: [src/commands/irys/withdraw.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/irys/withdraw.ts)_
 
 ## `me js clash FILEPATH TEMPLATEPATH`
 
@@ -268,7 +506,7 @@ EXAMPLES
   $ me js clash ./test.js ./template.json
 ```
 
-_See code: [src/commands/js/clash.ts](https://github.com/meme2046/meocli/blob/v0.2.0/src/commands/js/clash.ts)_
+_See code: [src/commands/js/clash.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/js/clash.ts)_
 
 ## `me plugins`
 
@@ -598,7 +836,7 @@ EXAMPLES
   $ me prettier ./src/file.ts --config ./.prettierrc.yaml
 ```
 
-_See code: [src/commands/prettier/index.ts](https://github.com/meme2046/meocli/blob/v0.2.0/src/commands/prettier/index.ts)_
+_See code: [src/commands/prettier/index.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/prettier/index.ts)_
 
 ## `me prettier reset`
 
@@ -618,5 +856,5 @@ EXAMPLES
   $ me prettier reset --verbose
 ```
 
-_See code: [src/commands/prettier/reset.ts](https://github.com/meme2046/meocli/blob/v0.2.0/src/commands/prettier/reset.ts)_
+_See code: [src/commands/prettier/reset.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/prettier/reset.ts)_
 <!-- commandsstop -->

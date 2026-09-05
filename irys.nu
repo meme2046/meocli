@@ -22,7 +22,7 @@ def "main ud" [
   --skip: int = 0
   --take: int = 1
   --exts: string = "" # 逗号分隔扩展名，覆盖默认
-  --output-file: string = "./tmp/irys_output.txt" # 输出 JSON 文件路径
+  --output-file: string = "./tmp/irys_output.json" # 输出 JSON 文件路径
 ] {
 
   let exts = if $exts == "" { $DEFAULT_EXTS } else { ($exts | split column "," | where {|r| $r != "" }) }
@@ -126,7 +126,7 @@ def "main ud" [
   }
 
   if $output_file != "" {
-    $results | save --append $output_file
+    $results | save $output_file
     print $"\n(ansi y)END. 结果已写入:(ansi rst) (ansi bu)($output_file)(ansi rst)"
   }
 
