@@ -108,7 +108,7 @@ $ npm install -g meocli
 $ me COMMAND
 running command...
 $ me (--version)
-meocli/0.2.1 win32-x64 node-v24.20.0
+meocli/0.2.1 win32-x64 node-v24.21.0
 $ me --help [COMMAND]
 USAGE
   $ me COMMAND
@@ -119,6 +119,8 @@ USAGE
 # Commands
 
 <!-- commands -->
+* [`me biome FILEPATH`](#me-biome-filepath)
+* [`me biome reset`](#me-biome-reset)
 * [`me env [FILEPATH]`](#me-env-filepath)
 * [`me env apifox [FILEPATH]`](#me-env-apifox-filepath)
 * [`me hello PERSON`](#me-hello-person)
@@ -144,6 +146,55 @@ USAGE
 * [`me plugins update`](#me-plugins-update)
 * [`me prettier FILEPATH`](#me-prettier-filepath)
 * [`me prettier reset`](#me-prettier-reset)
+
+## `me biome FILEPATH`
+
+Use Biome to format file
+
+```
+USAGE
+  $ me biome FILEPATH [-c <value>] [-v]
+
+ARGUMENTS
+  FILEPATH  file path that need to be formatted by Biome
+
+FLAGS
+  -c, --config=<value>  [default: built_in] built_in:使用内置规则(默认值), 传入路径则是使用自定义配置,
+                        auto:自动检测项目中的 biome.json
+  -v, --verbose         Show verbose output
+
+DESCRIPTION
+  Use Biome to format file
+  支持 JS/TS/JSX/TSX/JSON/JSONC/CSS/GraphQL/HTML/Vue/Svelte/Astro/SVG
+  Biome 不支持 TOML/SH/Java/Kotlin/SQL/Nginx/PowerShell/Solidity/Motoko/XML(通用) — 这些请用 prettier 命令
+
+EXAMPLES
+  $ me biome ./src/file.tsx
+
+  $ me biome ./src/file.tsx --config ./biome.json
+```
+
+_See code: [src/commands/biome/index.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/biome/index.ts)_
+
+## `me biome reset`
+
+reset biome config file,『~/.meocli/biome.json』
+
+```
+USAGE
+  $ me biome reset [-v]
+
+FLAGS
+  -v, --verbose  Show verbose output
+
+DESCRIPTION
+  reset biome config file,『~/.meocli/biome.json』
+
+EXAMPLES
+  $ me biome reset --verbose
+```
+
+_See code: [src/commands/biome/reset.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/biome/reset.ts)_
 
 ## `me env [FILEPATH]`
 

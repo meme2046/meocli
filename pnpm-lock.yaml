@@ -9,17 +9,20 @@ importers:
   .:
     dependencies:
       '@babel/generator':
-        specifier: ^8.0.0
-        version: 8.0.0
+        specifier: ^8.0.6
+        version: 8.0.6
       '@babel/parser':
-        specifier: ^8.0.4
-        version: 8.0.4
+        specifier: ^8.0.6
+        version: 8.0.6
       '@babel/traverse':
-        specifier: ^8.0.4
-        version: 8.0.4
+        specifier: ^8.0.6
+        version: 8.0.6
       '@babel/types':
-        specifier: ^8.0.4
-        version: 8.0.4
+        specifier: ^8.0.6
+        version: 8.0.6
+      '@biomejs/biome':
+        specifier: ^2.5.14
+        version: 2.5.14
       '@irys/upload':
         specifier: ^0.0.15
         version: 0.0.15(@types/node@18.19.130)(arweave@1.15.7)(bufferutil@4.1.0)(debug@4.4.3(supports-color@8.1.1))(supports-color@8.1.1)(utf-8-validate@6.0.6)
@@ -40,7 +43,7 @@ importers:
         version: 5.4.55(supports-color@8.1.1)
       '@prettier/plugin-xml':
         specifier: ^3.4.2
-        version: 3.4.2(prettier@3.9.6)
+        version: 3.4.2(prettier@3.9.8)
       d3-format:
         specifier: ^3.1.2
         version: 3.1.2
@@ -63,38 +66,38 @@ importers:
         specifier: ^4.18.1
         version: 4.18.1
       prettier:
-        specifier: ^3.9.6
-        version: 3.9.6
+        specifier: ^3.9.8
+        version: 3.9.8
       prettier-plugin-java:
-        specifier: ^2.10.3
-        version: 2.10.3(prettier@3.9.6)
+        specifier: ^2.10.4
+        version: 2.10.4(prettier@3.9.8)
       prettier-plugin-kotlin:
         specifier: ^2.1.0
         version: 2.1.0
       prettier-plugin-motoko:
         specifier: ^0.13.0
-        version: 0.13.0(prettier@3.9.6)
+        version: 0.13.0(prettier@3.9.8)
       prettier-plugin-nginx:
         specifier: ^1.0.3
         version: 1.0.3
       prettier-plugin-powershell:
         specifier: ^2.1.12
-        version: 2.1.12(prettier@3.9.6)
+        version: 2.1.12(prettier@3.9.8)
       prettier-plugin-properties:
         specifier: ^0.3.1
-        version: 0.3.1(prettier@3.9.6)
+        version: 0.3.1(prettier@3.9.8)
       prettier-plugin-sh:
         specifier: ^0.19.0
-        version: 0.19.0(prettier@3.9.6)
+        version: 0.19.0(prettier@3.9.8)
       prettier-plugin-solidity:
         specifier: ^2.4.1
-        version: 2.4.1(prettier@3.9.6)
+        version: 2.4.1(prettier@3.9.8)
       prettier-plugin-sql-cst:
         specifier: ^0.22.1
         version: 0.22.1
       prettier-plugin-toml:
         specifier: ^2.0.6
-        version: 2.0.6(prettier@3.9.6)
+        version: 2.0.6(prettier@3.9.8)
       trading-signals:
         specifier: ^7.4.3
         version: 7.4.3
@@ -334,37 +337,45 @@ packages:
     resolution: {integrity: sha512-dYYg153EyN2Ekbqw2zAsbd6/JR+9N2SEoC7YV2GyyqMM7x9bLDTjBD6XBhSMLH0wtIVyJj03jWNriQhaN+eoCw==}
     engines: {node: ^22.18.0 || >=24.11.0}
 
-  '@babel/generator@8.0.0':
-    resolution: {integrity: sha512-NT9NrVwJsbSV6Y2FSstWa71EETOnzrjkL5/wX3D2mYHtKM+qvqB1DvR4D0Setb/gDBsHzRICifwEWMO8CnTF6g==}
+  '@babel/code-frame@8.0.6':
+    resolution: {integrity: sha512-uMHhvmDmwFiLuiozaoRYTZHqMFuu3fem/X9JY78lohAuLoh8LSGGC8JqUzo2cVuBsBxkjMZNk56CE7ock8Xxkw==}
     engines: {node: ^22.18.0 || >=24.11.0}
 
-  '@babel/helper-globals@8.0.0':
-    resolution: {integrity: sha512-lLozHOM6sWWlxNo8CYqHy4MBZeTvHXNgVPBfPOGsjPKUzHC2Az9QwB6gxdQmpwHl6GlQtbGgS+lj5887guDiLw==}
+  '@babel/generator@8.0.6':
+    resolution: {integrity: sha512-/pcanjdRsonCexCuxgGD8fKnBLLzk2i9uM4kmcmGyyev2R5YDs+rafMYZ89RvaGY1mW8T7C5au0TyYaEeHBGng==}
+    engines: {node: ^22.18.0 || >=24.11.0}
+
+  '@babel/helper-globals@8.0.6':
+    resolution: {integrity: sha512-OdnA/N52LhzFpeUuVz5YGuSWjc7TPHiFmVYZbPlSgExocO2GwbxVpSni9MVs5wwW+wZ4kPuwBEBN9pIPDYz1mA==}
     engines: {node: ^22.18.0 || >=24.11.0}
 
   '@babel/helper-string-parser@8.0.0':
     resolution: {integrity: sha512-6mJgmFFFIIO82vvoLt9XtRC7/TkzXfts1t/SpRX4IHSzMgqoPYCWesVu1udUPUWioAE/2fcG6WuI8zrkE1gwrg==}
     engines: {node: ^22.18.0 || >=24.11.0}
 
+  '@babel/helper-string-parser@8.0.6':
+    resolution: {integrity: sha512-+6HYEBnsDRZHJtUTAEfMQd0zMDqdFHS7C+5vAsEZqBUr3vEMWOWlHJ0Jz1gS8jJIlCvLsuA6ivmeoqzH936YcA==}
+    engines: {node: ^22.18.0 || >=24.11.0}
+
   '@babel/helper-validator-identifier@7.28.5':
     resolution: {integrity: sha512-qSs4ifwzKJSV39ucNjsvc6WVHs6b7S03sOh2OcHF9UHfVPqWWALUsNUVzhSBiItjRZoLHx7nIarVjqKVusUZ1Q==}
     engines: {node: '>=6.9.0'}
-
-  '@babel/helper-validator-identifier@8.0.2':
-    resolution: {integrity: sha512-9Fr9QeyCAyi1BR1jKZ6uYQ24EIhQUx5ReHfQU7drOE+TPOb+w11/dsqLkMOT2U29OdCT71XajrOT8xDc1C7orA==}
-    engines: {node: ^22.18.0 || >=24.11.0}
 
   '@babel/helper-validator-identifier@8.0.4':
     resolution: {integrity: sha512-4wFaiLd0bVo4cIoTXI3zKI038NIWE/cr3jvBjejOVYVxV/m8Ltav1USiGzG1fmS5J2RhgEOgXNNK46cRPnRsrg==}
     engines: {node: ^22.18.0 || >=24.11.0}
 
-  '@babel/parser@8.0.0':
-    resolution: {integrity: sha512-aLxAE+imI9bCcyaPrUDjBv3uSkWieifjLe0kuFOZF0zli0L6GCsTmsePnTr55adbIAgYz2zhN1vnFimCBUYcRQ==}
+  '@babel/helper-validator-identifier@8.0.6':
+    resolution: {integrity: sha512-HYx0YmuchRxRSpnjvcNffnPS8DCauKNmnumIuHG3jnQAVewRA7kfJGwF13ayEpSZs7s4R/oBH4eppuXcAQd5JQ==}
     engines: {node: ^22.18.0 || >=24.11.0}
-    hasBin: true
 
   '@babel/parser@8.0.4':
     resolution: {integrity: sha512-srpptsAkEbbNIC/q8nT7o+m6CQe8CJUTV/t7MYc9NnWlgYVtHOb7JH6SorxMhN0kuRJjVqXbKClG6xSbPtzz+g==}
+    engines: {node: ^22.18.0 || >=24.11.0}
+    hasBin: true
+
+  '@babel/parser@8.0.6':
+    resolution: {integrity: sha512-LpGDIYJAzc3Y3PT9x+FxBrGYu2PlWxLmyN7SwPTzaX0LSwEmFJBsRnPBqmaXF2r1v+Zhz6lNiEJ+7yKtM5+Ugg==}
     engines: {node: ^22.18.0 || >=24.11.0}
     hasBin: true
 
@@ -376,17 +387,74 @@ packages:
     resolution: {integrity: sha512-eAD0QW/AlbamBbw0FeGiwasbCVPq5ncW0HNVyLP3B9czqLyh4gvw+5JTSNt6le9+ziAU7mqDZsKTHf3jTb4chQ==}
     engines: {node: ^22.18.0 || >=24.11.0}
 
-  '@babel/traverse@8.0.4':
-    resolution: {integrity: sha512-bZnmqzGG8UZneG1lLxBoWIH0G6Gr1D846Yu4/3XnY6FhCndMR49u26nTY08u/dAxWmLWF9vGQOuC+84FfIUoeg==}
-    engines: {node: ^22.18.0 || >=24.11.0}
-
-  '@babel/types@8.0.0':
-    resolution: {integrity: sha512-K8ponJDxBwDHigkeFqaqT5wLGl4bTlwMafR8k7b5CPxr6Ww+UG9ls8Yx6Tcpboxu97eeGVEEyKcHmEyOwN1vSw==}
+  '@babel/traverse@8.0.6':
+    resolution: {integrity: sha512-ilYV+qLStGzSKLipJlETdvdtpK3rAuwfCmCoGKv15MU4EoeIuLkespSNoNLFGOPSciEHx9TLWtN5mv0fz5w5mQ==}
     engines: {node: ^22.18.0 || >=24.11.0}
 
   '@babel/types@8.0.4':
     resolution: {integrity: sha512-eY+Yn3dCqTGmyiq2QRU66lA5FL8lqqqvecHt0fF3uHONIa7ToYsaCiWV8lOKqAs0Rb2SjixiKFROngnulPtt2g==}
     engines: {node: ^22.18.0 || >=24.11.0}
+
+  '@babel/types@8.0.6':
+    resolution: {integrity: sha512-c+xgSWboV2pdwXP67BUWDVRHi2BO5Q3KwxyFVs7taVTY+fsK47/L51ZXQoV9rozHJDNHvJ4v4WEsI/IlxV2l2A==}
+    engines: {node: ^22.18.0 || >=24.11.0}
+
+  '@biomejs/biome@2.5.14':
+    resolution: {integrity: sha512-0FabLIjd4M/dm8VFI86RMaLLdgepzbdfiAL2R8cr7V81OYYrP1w7Z73KfAwPK5h9SrEBXTzNG2y+mBwPo9xRnw==}
+    engines: {node: '>=14.21.3'}
+    hasBin: true
+
+  '@biomejs/cli-darwin-arm64@2.5.14':
+    resolution: {integrity: sha512-UnzaXO65L4tsZimFITFP2M121GyhDcWFrT3pL5ZJ5U4XcS/0L5VHYytVohdCf/gnDUFHgl2I9xnt5bV/J1kxHQ==}
+    engines: {node: '>=14.21.3'}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@biomejs/cli-darwin-x64@2.5.14':
+    resolution: {integrity: sha512-kiy8qA16K93J7uvFfWi4LgjqDpnRKyePAna6A0Y4jxyUga35SYpIZ2cNWlhy0lsfgqRenCpfymnJWEZ6mgpRgA==}
+    engines: {node: '>=14.21.3'}
+    cpu: [x64]
+    os: [darwin]
+
+  '@biomejs/cli-linux-arm64-musl@2.5.14':
+    resolution: {integrity: sha512-SJ9PrZkBnnH9dHJDnxk34vKs0GB2dbsioaft6/hPhWJ7AHpwYH83Isnhj0FSRpFkGgpVfJ1lds23ApB2czUDLQ==}
+    engines: {node: '>=14.21.3'}
+    cpu: [arm64]
+    os: [linux]
+    libc: [musl]
+
+  '@biomejs/cli-linux-arm64@2.5.14':
+    resolution: {integrity: sha512-vO/9BaU1n30CiFNLx49gMTMtbCAAqlo/EqFoG0BU3deQInTbJrmXSmTQ9e3FoDZIKQnvSLDVNL4lx1ci7y1T1Q==}
+    engines: {node: '>=14.21.3'}
+    cpu: [arm64]
+    os: [linux]
+    libc: [glibc]
+
+  '@biomejs/cli-linux-x64-musl@2.5.14':
+    resolution: {integrity: sha512-2kI5PrMgW5dcEZYrstLPmUmCwkUwZY39rP4BN93Vxbwcs2O57LDQOktUZZYPvvspN5i0mhGr3TJtF5sU26NUWg==}
+    engines: {node: '>=14.21.3'}
+    cpu: [x64]
+    os: [linux]
+    libc: [musl]
+
+  '@biomejs/cli-linux-x64@2.5.14':
+    resolution: {integrity: sha512-VHZRa7CCQBUWKxNwUvHJeuW03WFRgN5NWO//SDGOitc9QIeNyfA42V9zlKm+x82xFSG9Bzi5fi+hbhm9anO8yA==}
+    engines: {node: '>=14.21.3'}
+    cpu: [x64]
+    os: [linux]
+    libc: [glibc]
+
+  '@biomejs/cli-win32-arm64@2.5.14':
+    resolution: {integrity: sha512-pHgAFffmZtaYoxavEsWEYNvcA7NwOIjLyqw2HXyLbt16xYryX0L4fMV2u0G9ag6LNYPIoqWaWqzUcnc6rLGGXg==}
+    engines: {node: '>=14.21.3'}
+    cpu: [arm64]
+    os: [win32]
+
+  '@biomejs/cli-win32-x64@2.5.14':
+    resolution: {integrity: sha512-oJWmBhoHsnhUKIke+0gXDX0mltJrWHA1UyHsrTlXwX0TL64ilVZAo+TYZm97baecV0esBdpzy3k96q+09JaZUQ==}
+    engines: {node: '>=14.21.3'}
+    cpu: [x64]
+    os: [win32]
 
   '@bytecodealliance/preview2-shim@0.19.0':
     resolution: {integrity: sha512-OSUlcM62fXLuzYP0DjBn/SwjKMZ/y/2PMXZ8v5cRiiFcroauntlPRl/oCnx0xYjYiqdYvE0PY50VCNutll0xOw==}
@@ -763,8 +831,8 @@ packages:
   '@irys/upload@0.0.15':
     resolution: {integrity: sha512-VS1ieI8Hipv7F/odL2rDfn0S9VCwj3GFhROI8el0RjzpcaXCobezP0V4yuvppyB+E4Oiu6xQTXooaIBh/S7xPA==}
 
-  '@jridgewell/gen-mapping@0.3.13':
-    resolution: {integrity: sha512-2kkt/7niJ6MgEPxF0bYdQ6etZaA+fQvDcLKckhy1yIQOzaoKjBBjSj63/aLVjYE3qhRt5dvM+uUyfCg6UKCBbA==}
+  '@jridgewell/gen-mapping@0.4.0-beta.0':
+    resolution: {integrity: sha512-JdGNkbE4GlNPYQhM0L95fBQr7ctLZJ276QXQLTad4t1oSdnnCI3fDq9DW3BqYAWv8Wc3+HS+4Gsii1oPMCfz1w==}
 
   '@jridgewell/resolve-uri@3.1.2':
     resolution: {integrity: sha512-bRISgCIjP20/tbWSPWMEi54QVPRZExkuD9lJL+UIxUKtwVJA8wW1Trb1jMs1RFXo1CBTNZ/5hpC9QvmKWdopKw==}
@@ -772,6 +840,9 @@ packages:
 
   '@jridgewell/sourcemap-codec@1.5.5':
     resolution: {integrity: sha512-cYQ9310grqxueWbl+WuIUIaiUaDcj7WOq5fVhEljNVgRfOUhY9fy2zTvfoqWsnebh8Sl70VScFbICvJnLKB0Og==}
+
+  '@jridgewell/sourcemap-codec@1.6.0':
+    resolution: {integrity: sha512-T7jf+5zgsZHwNJ4lvQ7/aezbyk0nNX+zJVWpmHA7VYsEx7a7qr5Rg5IbtJFqkgze5Y2sruq1RUY8Q837Od7iFw==}
 
   '@jridgewell/trace-mapping@0.3.31':
     resolution: {integrity: sha512-zzNR+SdQSDJzc8joaeP8QQoCQr8NuYx2dIIytl1QeBEZHJ9uW6hebsrYgbz8hJwUQao3TWCMtmfV8Nu1twOLAw==}
@@ -3359,8 +3430,8 @@ packages:
     resolution: {integrity: sha512-vkcDPrRZo1QZLbn5RLGPpg/WmIQ65qoWWhcGKf/b5eplkkarX0m9z8ppCat4mlOqUsWpyNuYgO3VRyrYHSzX5g==}
     engines: {node: '>= 0.8.0'}
 
-  prettier-plugin-java@2.10.3:
-    resolution: {integrity: sha512-/g52mTbsN2ee8JjLRpBWGGmcmRhdv2zRWyj4QbsL9CQ+nKR022GRJhebwEpRyaCc8hLV6aO3JPGNQyXp1DPrCA==}
+  prettier-plugin-java@2.10.4:
+    resolution: {integrity: sha512-Hinkucn49lx848MnWEktfGozLPp9dMYtdKPG+Z3pridBv71PJIVibe4jp0Lzb+rcA3eMZfU5+oWtJoI2oQ2XTg==}
     peerDependencies:
       prettier: ^3.0.0
 
@@ -3412,8 +3483,8 @@ packages:
     engines: {node: '>=4'}
     hasBin: true
 
-  prettier@3.9.6:
-    resolution: {integrity: sha512-OpN0zzVdiaiAhxpuuj5efpIS4sY9j7bY6uR5mnj5yPzGkdkjNKSJeUThPb60Jw29QuAZgA4o+/iB49kFiaBX6g==}
+  prettier@3.9.8:
+    resolution: {integrity: sha512-WRFq3Wn3WId7LLROfMLdH7xaFr2jR62wU8nLO6rQUOLOxNZUviyJQs1M0iIhLexSFy+L+w0ch66wtoO2jRjG0A==}
     engines: {node: '>=14'}
     hasBin: true
 
@@ -3986,8 +4057,8 @@ packages:
   wcwidth@1.0.1:
     resolution: {integrity: sha512-XHPEwS0q6TaxcvG85+8EYkbiCux2XtWG2mkc47Ng2A77BQu9+DqIOJldST4HgPkuea7dvKSj5VgX3P1d4rW8Tg==}
 
-  web-tree-sitter@0.26.11:
-    resolution: {integrity: sha512-Q5Dm3YTIXSXuH6FxX6RuzX2Qwpc4DPGiYMU87Wg5Z8OIStiQFiUex4zMDc0vBTw78EphaYJacncJghCHzbZptg==}
+  web-tree-sitter@0.27.0:
+    resolution: {integrity: sha512-XK08gj6RwTMQatAG7uVRP8MunqotL/XC19vHgkSPKmELgbGPBj4ECvB8haHOUnyj6ls2B8t42UTro14zxGgAHg==}
 
   webidl-conversions@3.0.1:
     resolution: {integrity: sha512-2JAn3z8AR6rjK8Sm8orRC0h/bcl/DqL7tRPdGZ4I1CjdF+EaMLmYxBHyXuKL849eucPFhvBoxMsflfOb8kxaeQ==}
@@ -4675,63 +4746,105 @@ snapshots:
 
   '@babel/code-frame@8.0.0':
     dependencies:
-      '@babel/helper-validator-identifier': 8.0.2
+      '@babel/helper-validator-identifier': 8.0.4
       js-tokens: 10.0.0
 
-  '@babel/generator@8.0.0':
+  '@babel/code-frame@8.0.6':
     dependencies:
-      '@babel/parser': 8.0.4
-      '@babel/types': 8.0.4
-      '@jridgewell/gen-mapping': 0.3.13
+      '@babel/helper-validator-identifier': 8.0.6
+      js-tokens: 10.0.0
+
+  '@babel/generator@8.0.6':
+    dependencies:
+      '@babel/parser': 8.0.6
+      '@babel/types': 8.0.6
+      '@jridgewell/gen-mapping': 0.4.0-beta.0
       '@jridgewell/trace-mapping': 0.3.31
       '@types/jsesc': 2.5.1
       jsesc: 3.1.0
 
-  '@babel/helper-globals@8.0.0': {}
+  '@babel/helper-globals@8.0.6': {}
 
   '@babel/helper-string-parser@8.0.0': {}
 
-  '@babel/helper-validator-identifier@7.28.5': {}
+  '@babel/helper-string-parser@8.0.6': {}
 
-  '@babel/helper-validator-identifier@8.0.2': {}
+  '@babel/helper-validator-identifier@7.28.5': {}
 
   '@babel/helper-validator-identifier@8.0.4': {}
 
-  '@babel/parser@8.0.0':
-    dependencies:
-      '@babel/types': 8.0.0
+  '@babel/helper-validator-identifier@8.0.6': {}
 
   '@babel/parser@8.0.4':
     dependencies:
       '@babel/types': 8.0.4
+
+  '@babel/parser@8.0.6':
+    dependencies:
+      '@babel/types': 8.0.6
 
   '@babel/runtime@7.29.7': {}
 
   '@babel/template@8.0.0':
     dependencies:
       '@babel/code-frame': 8.0.0
-      '@babel/parser': 8.0.0
-      '@babel/types': 8.0.0
-
-  '@babel/traverse@8.0.4':
-    dependencies:
-      '@babel/code-frame': 8.0.0
-      '@babel/generator': 8.0.0
-      '@babel/helper-globals': 8.0.0
       '@babel/parser': 8.0.4
-      '@babel/template': 8.0.0
       '@babel/types': 8.0.4
-      obug: 2.1.3
 
-  '@babel/types@8.0.0':
+  '@babel/traverse@8.0.6':
     dependencies:
-      '@babel/helper-string-parser': 8.0.0
-      '@babel/helper-validator-identifier': 8.0.2
+      '@babel/code-frame': 8.0.6
+      '@babel/generator': 8.0.6
+      '@babel/helper-globals': 8.0.6
+      '@babel/parser': 8.0.6
+      '@babel/template': 8.0.0
+      '@babel/types': 8.0.6
+      obug: 2.1.3
 
   '@babel/types@8.0.4':
     dependencies:
       '@babel/helper-string-parser': 8.0.0
       '@babel/helper-validator-identifier': 8.0.4
+
+  '@babel/types@8.0.6':
+    dependencies:
+      '@babel/helper-string-parser': 8.0.6
+      '@babel/helper-validator-identifier': 8.0.6
+
+  '@biomejs/biome@2.5.14':
+    optionalDependencies:
+      '@biomejs/cli-darwin-arm64': 2.5.14
+      '@biomejs/cli-darwin-x64': 2.5.14
+      '@biomejs/cli-linux-arm64': 2.5.14
+      '@biomejs/cli-linux-arm64-musl': 2.5.14
+      '@biomejs/cli-linux-x64': 2.5.14
+      '@biomejs/cli-linux-x64-musl': 2.5.14
+      '@biomejs/cli-win32-arm64': 2.5.14
+      '@biomejs/cli-win32-x64': 2.5.14
+
+  '@biomejs/cli-darwin-arm64@2.5.14':
+    optional: true
+
+  '@biomejs/cli-darwin-x64@2.5.14':
+    optional: true
+
+  '@biomejs/cli-linux-arm64-musl@2.5.14':
+    optional: true
+
+  '@biomejs/cli-linux-arm64@2.5.14':
+    optional: true
+
+  '@biomejs/cli-linux-x64-musl@2.5.14':
+    optional: true
+
+  '@biomejs/cli-linux-x64@2.5.14':
+    optional: true
+
+  '@biomejs/cli-win32-arm64@2.5.14':
+    optional: true
+
+  '@biomejs/cli-win32-x64@2.5.14':
+    optional: true
 
   '@bytecodealliance/preview2-shim@0.19.0': {}
 
@@ -5392,14 +5505,16 @@ snapshots:
       - supports-color
       - utf-8-validate
 
-  '@jridgewell/gen-mapping@0.3.13':
+  '@jridgewell/gen-mapping@0.4.0-beta.0':
     dependencies:
-      '@jridgewell/sourcemap-codec': 1.5.5
+      '@jridgewell/sourcemap-codec': 1.6.0
       '@jridgewell/trace-mapping': 0.3.31
 
   '@jridgewell/resolve-uri@3.1.2': {}
 
   '@jridgewell/sourcemap-codec@1.5.5': {}
+
+  '@jridgewell/sourcemap-codec@1.6.0': {}
 
   '@jridgewell/trace-mapping@0.3.31':
     dependencies:
@@ -5524,10 +5639,10 @@ snapshots:
       '@pnpm/network.ca-file': 1.0.2
       config-chain: 1.1.13
 
-  '@prettier/plugin-xml@3.4.2(prettier@3.9.6)':
+  '@prettier/plugin-xml@3.4.2(prettier@3.9.8)':
     dependencies:
       '@xml-tools/parser': 1.0.11
-      prettier: 3.9.6
+      prettier: 3.9.8
 
   '@randlabs/communication-bridge@1.0.1':
     optional: true
@@ -8370,10 +8485,10 @@ snapshots:
 
   prelude-ls@1.2.1: {}
 
-  prettier-plugin-java@2.10.3(prettier@3.9.6):
+  prettier-plugin-java@2.10.4(prettier@3.9.8):
     dependencies:
-      prettier: 3.9.6
-      web-tree-sitter: 0.26.11
+      prettier: 3.9.8
+      web-tree-sitter: 0.27.0
 
   prettier-plugin-kotlin@2.1.0:
     dependencies:
@@ -8381,48 +8496,48 @@ snapshots:
       glob: 7.2.3
       prettier: 1.19.1
 
-  prettier-plugin-motoko@0.13.0(prettier@3.9.6):
+  prettier-plugin-motoko@0.13.0(prettier@3.9.8):
     dependencies:
-      prettier: 3.9.6
+      prettier: 3.9.8
 
   prettier-plugin-nginx@1.0.3: {}
 
-  prettier-plugin-powershell@2.1.12(prettier@3.9.6):
+  prettier-plugin-powershell@2.1.12(prettier@3.9.8):
     dependencies:
-      prettier: 3.9.6
+      prettier: 3.9.8
       ts-extras: 1.3.0
 
-  prettier-plugin-properties@0.3.1(prettier@3.9.6):
+  prettier-plugin-properties@0.3.1(prettier@3.9.8):
     dependencies:
       dot-properties: 1.1.1
-      prettier: 3.9.6
+      prettier: 3.9.8
 
-  prettier-plugin-sh@0.19.0(prettier@3.9.6):
+  prettier-plugin-sh@0.19.0(prettier@3.9.8):
     dependencies:
       '@reteps/dockerfmt': 0.5.4
-      prettier: 3.9.6
+      prettier: 3.9.8
       sh-syntax: 0.6.0
 
-  prettier-plugin-solidity@2.4.1(prettier@3.9.6):
+  prettier-plugin-solidity@2.4.1(prettier@3.9.8):
     dependencies:
       '@nomicfoundation/slang': 1.3.8
       '@solidity-parser/parser': 0.20.2
-      prettier: 3.9.6
+      prettier: 3.9.8
       semver: 7.8.5
 
   prettier-plugin-sql-cst@0.22.1:
     dependencies:
-      prettier: 3.9.6
+      prettier: 3.9.8
       sql-parser-cst: 0.42.1
 
-  prettier-plugin-toml@2.0.6(prettier@3.9.6):
+  prettier-plugin-toml@2.0.6(prettier@3.9.8):
     dependencies:
       '@taplo/lib': 0.5.0
-      prettier: 3.9.6
+      prettier: 3.9.8
 
   prettier@1.19.1: {}
 
-  prettier@3.9.6: {}
+  prettier@3.9.8: {}
 
   pretty-ms@9.3.0:
     dependencies:
@@ -9064,7 +9179,7 @@ snapshots:
     dependencies:
       defaults: 1.0.4
 
-  web-tree-sitter@0.26.11: {}
+  web-tree-sitter@0.27.0: {}
 
   webidl-conversions@3.0.1: {}
 

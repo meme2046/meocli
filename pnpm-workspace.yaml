@@ -6,6 +6,17 @@ allowBuilds:
   unrs-resolver: true
   utf-8-validate: true
   yarn: true
+minimumReleaseAgeExclude:
+  - '@babel/code-frame@8.0.6'
+  - '@babel/generator@8.0.6'
+  - '@babel/helper-globals@8.0.6'
+  - '@babel/helper-string-parser@8.0.6'
+  - '@babel/helper-validator-identifier@8.0.6'
+  - '@babel/parser@8.0.6'
+  - '@babel/traverse@8.0.6'
+  - '@babel/types@8.0.6'
+  - prettier-plugin-java@2.10.4
+  - prettier@3.9.8
 onlyBuiltDependencies:
   - bigint-buffer
   - bufferutil
