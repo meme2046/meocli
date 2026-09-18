@@ -1,6 +1,6 @@
 # meocli
 
-Node CLI generated with oclif, Integrate Prettier
+Node CLI generated with oclif, Integrate Prettier, Biome
 
 [![oclif](https://img.shields.io/badge/cli-oclif-brightgreen.svg)](https://oclif.io)
 [![Version](https://img.shields.io/npm/v/meocli.svg)](https://npmjs.org/package/meocli)
@@ -108,7 +108,7 @@ $ npm install -g meocli
 $ me COMMAND
 running command...
 $ me (--version)
-meocli/0.2.1 win32-x64 node-v24.21.0
+meocli/0.2.2 win32-x64 node-v24.21.0
 $ me --help [COMMAND]
 USAGE
   $ me COMMAND
@@ -174,7 +174,7 @@ EXAMPLES
   $ me biome ./src/file.tsx --config ./biome.json
 ```
 
-_See code: [src/commands/biome/index.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/biome/index.ts)_
+_See code: [src/commands/biome/index.ts](https://github.com/meme2046/meocli/blob/v0.2.2/src/commands/biome/index.ts)_
 
 ## `me biome reset`
 
@@ -194,7 +194,7 @@ EXAMPLES
   $ me biome reset --verbose
 ```
 
-_See code: [src/commands/biome/reset.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/biome/reset.ts)_
+_See code: [src/commands/biome/reset.ts](https://github.com/meme2046/meocli/blob/v0.2.2/src/commands/biome/reset.ts)_
 
 ## `me env [FILEPATH]`
 
@@ -217,7 +217,7 @@ EXAMPLES
       me env .env
 ```
 
-_See code: [src/commands/env/index.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/env/index.ts)_
+_See code: [src/commands/env/index.ts](https://github.com/meme2046/meocli/blob/v0.2.2/src/commands/env/index.ts)_
 
 ## `me env apifox [FILEPATH]`
 
@@ -240,7 +240,7 @@ EXAMPLES
       me env apifox .env
 ```
 
-_See code: [src/commands/env/apifox.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/env/apifox.ts)_
+_See code: [src/commands/env/apifox.ts](https://github.com/meme2046/meocli/blob/v0.2.2/src/commands/env/apifox.ts)_
 
 ## `me hello PERSON`
 
@@ -264,7 +264,7 @@ EXAMPLES
       hello friend --from oclif (./src/commands/hello/index.ts)
 ```
 
-_See code: [src/commands/hello/index.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/hello/index.ts)_
+_See code: [src/commands/hello/index.ts](https://github.com/meme2046/meocli/blob/v0.2.2/src/commands/hello/index.ts)_
 
 ## `me hello world`
 
@@ -282,7 +282,7 @@ EXAMPLES
   hello world! (./src/commands/hello/world.ts)
 ```
 
-_See code: [src/commands/hello/world.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/hello/world.ts)_
+_See code: [src/commands/hello/world.ts](https://github.com/meme2046/meocli/blob/v0.2.2/src/commands/hello/world.ts)_
 
 ## `me help [COMMAND]`
 
@@ -334,7 +334,7 @@ EXAMPLES
   $ me irys balance -t solana -n devnet
 ```
 
-_See code: [src/commands/irys/balance.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/irys/balance.ts)_
+_See code: [src/commands/irys/balance.ts](https://github.com/meme2046/meocli/blob/v0.2.2/src/commands/irys/balance.ts)_
 
 ## `me irys download ID`
 
@@ -362,7 +362,7 @@ EXAMPLES
   $ me irys download CO9EpX0lekJEfXUOeXncUmMuG8eEp5WJHXl9U9yZUYA --devnet
 ```
 
-_See code: [src/commands/irys/download.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/irys/download.ts)_
+_See code: [src/commands/irys/download.ts](https://github.com/meme2046/meocli/blob/v0.2.2/src/commands/irys/download.ts)_
 
 ## `me irys fund AMOUNT`
 
@@ -398,7 +398,7 @@ EXAMPLES
   $ me irys fund 1 -t solana -n devnet
 ```
 
-_See code: [src/commands/irys/fund.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/irys/fund.ts)_
+_See code: [src/commands/irys/fund.ts](https://github.com/meme2046/meocli/blob/v0.2.2/src/commands/irys/fund.ts)_
 
 ## `me irys price [BYTES]`
 
@@ -431,7 +431,7 @@ EXAMPLES
   $ me irys price 1048576 -t solana
 ```
 
-_See code: [src/commands/irys/price.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/irys/price.ts)_
+_See code: [src/commands/irys/price.ts](https://github.com/meme2046/meocli/blob/v0.2.2/src/commands/irys/price.ts)_
 
 ## `me irys reset`
 
@@ -455,7 +455,7 @@ EXAMPLES
   $ me irys reset -t ethereum
 ```
 
-_See code: [src/commands/irys/reset.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/irys/reset.ts)_
+_See code: [src/commands/irys/reset.ts](https://github.com/meme2046/meocli/blob/v0.2.2/src/commands/irys/reset.ts)_
 
 ## `me irys upload PATH`
 
@@ -498,7 +498,7 @@ EXAMPLES
   $ me irys upload 'hello irys' --text
 ```
 
-_See code: [src/commands/irys/upload.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/irys/upload.ts)_
+_See code: [src/commands/irys/upload.ts](https://github.com/meme2046/meocli/blob/v0.2.2/src/commands/irys/upload.ts)_
 
 ## `me irys withdraw [AMOUNT]`
 
@@ -533,7 +533,7 @@ EXAMPLES
   $ me irys withdraw 0.1 -t solana -n devnet
 ```
 
-_See code: [src/commands/irys/withdraw.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/irys/withdraw.ts)_
+_See code: [src/commands/irys/withdraw.ts](https://github.com/meme2046/meocli/blob/v0.2.2/src/commands/irys/withdraw.ts)_
 
 ## `me js clash FILEPATH TEMPLATEPATH`
 
@@ -557,7 +557,7 @@ EXAMPLES
   $ me js clash ./test.js ./template.json
 ```
 
-_See code: [src/commands/js/clash.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/js/clash.ts)_
+_See code: [src/commands/js/clash.ts](https://github.com/meme2046/meocli/blob/v0.2.2/src/commands/js/clash.ts)_
 
 ## `me plugins`
 
@@ -887,7 +887,7 @@ EXAMPLES
   $ me prettier ./src/file.ts --config ./.prettierrc.yaml
 ```
 
-_See code: [src/commands/prettier/index.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/prettier/index.ts)_
+_See code: [src/commands/prettier/index.ts](https://github.com/meme2046/meocli/blob/v0.2.2/src/commands/prettier/index.ts)_
 
 ## `me prettier reset`
 
@@ -907,5 +907,5 @@ EXAMPLES
   $ me prettier reset --verbose
 ```
 
-_See code: [src/commands/prettier/reset.ts](https://github.com/meme2046/meocli/blob/v0.2.1/src/commands/prettier/reset.ts)_
+_See code: [src/commands/prettier/reset.ts](https://github.com/meme2046/meocli/blob/v0.2.2/src/commands/prettier/reset.ts)_
 <!-- commandsstop -->

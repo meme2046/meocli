@@ -3,11 +3,18 @@
   "emeraldwalk.runonsave": {
     "commands": [
       {
+        // biome
+        "match": "\\.(ts|js|jsx|tsx|json|html|css|graphql|gql|svg|jsonc|vue|svelte|astro)$",
+        "notMatch": "node_modules/*$",
+        "isAsync": false,
+        "cmd": "me biome \"${file}\""
+      },
+      {
         // prettier
-        // "match": "\\.(txt|ts|js|jsx|tsx|json|html|css|graphql|gql|yaml|yml|md)$",
-        // "notMatch": "node_modules/*$",
-        // "isAsync": false,
-        // "cmd": "me prettier \"${file}\""
+        "match": "\\.(txt|yaml|yml|md)$",
+        "notMatch": "node_modules/*$",
+        "isAsync": false,
+        "cmd": "me prettier \"${file}\""
       },
       {
         // topiary format nushell
@@ -15,12 +22,12 @@
         "isAsync": false,
         "cmd": "topiary format \"${file}\""
       },
-      // {
-      //   // @prettier/plugin-xml
-      //   "match": "\\.(xml|svg)$",
-      //   "isAsync": false,
-      //   "cmd": "me prettier \"${file}\""
-      // },
+      {
+        // @prettier/plugin-xml
+        "match": "\\.(xml)$",
+        "isAsync": false,
+        "cmd": "me prettier \"${file}\""
+      },
       {
         // prettier-plugin-toml
         "match": "\\.(toml)$",
