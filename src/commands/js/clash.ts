@@ -182,16 +182,6 @@ export default class ClashModify extends Command {
                         t.assignmentExpression(
                           "=",
                           t.memberExpression(
-                            t.identifier("config"),
-                            t.identifier("ipv6"),
-                          ),
-                          t.booleanLiteral(true),
-                        ),
-                      ),
-                      t.expressionStatement(
-                        t.assignmentExpression(
-                          "=",
-                          t.memberExpression(
                             t.memberExpression(
                               t.identifier("config"),
                               t.identifier("dns"),
