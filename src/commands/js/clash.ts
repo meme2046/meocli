@@ -198,8 +198,8 @@ export default class ClashModify extends Command {
                       t.variableDeclarator(
                         t.identifier("domesticDoH"),
                         t.arrayExpression([
-                          t.stringLiteral("https://dns.alidns.com/dns-query"),
                           t.stringLiteral("https://doh.pub/dns-query"),
+                          t.stringLiteral("https://dns.alidns.com/dns-query"),
                         ]),
                       ),
                     ]);
